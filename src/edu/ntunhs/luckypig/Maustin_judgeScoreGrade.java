@@ -1,4 +1,4 @@
-
+package edu.ntunhs.luckypig;
 
 import java.util.Scanner;
 
