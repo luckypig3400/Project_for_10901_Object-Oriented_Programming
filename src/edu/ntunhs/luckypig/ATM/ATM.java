@@ -7,10 +7,11 @@ public class ATM {
 	final private static String accountName = "楊曜承";
 	final private static String password = "226";
 	private static int deposit = 50000;
-
+	private static int dailyWithdrawAmount = 0;
 	public static void main(String[] args) throws InterruptedException {
 		Scanner functionSelect_in = new Scanner(System.in);// 讓使用者選擇功能的Scanner
 		Scanner password_in = new Scanner(System.in);// 讓使用者輸入密碼的Scanner
+		Scanner moneyInteger_in = new Scanner(System.in);// 讓使用者輸入金額的Scanner
 		System.out.println("帳戶編號" + account + "您好，請輸入密碼:");
 		if (password_in.nextLine().equals(password)) {// main screen
 			/*
@@ -37,6 +38,7 @@ public class ATM {
 								break;
 							case 2:
 								System.out.println("您選擇了功能" + functionSelection + ".存款");
+
 								break;
 							case 3:
 								System.out.println("您選擇了功能" + functionSelection + ".提款");
@@ -80,7 +82,8 @@ public class ATM {
 		}
 
 		password_in.close();
-		functionSelect_in.close();// 要關閉Scanner的話建議只在main結尾關閉
+		functionSelect_in.close();
+		moneyInteger_in.close();// 要關閉Scanner的話建議只在main結尾關閉
 
 	}
 
