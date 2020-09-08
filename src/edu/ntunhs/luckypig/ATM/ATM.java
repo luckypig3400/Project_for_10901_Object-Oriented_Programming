@@ -43,6 +43,14 @@ public class ATM {
 								break;
 							case 4:
 								System.out.println("您選擇了功能" + functionSelection + ".離開");
+								System.out.println("請問您是否真的要離開了(y/n):");
+								String shouldLeavingNow = functionSelect_in.nextLine();
+								if(shouldLeavingNow.equals("y") || shouldLeavingNow.equals("Y"))functionSelection = 4;
+								else if(shouldLeavingNow.equals("n") || shouldLeavingNow.equals("N"))functionSelection = 0;
+								else{
+									System.out.println("請不要調皮搗蛋~只能輸入y或n啦(可接受大寫或小寫)");
+									functionSelection = 0;//return to main screen
+								}
 								break;
 							default:
 								System.out.println("??您選擇了功能??" + functionSelection + ".如果程序正常執行不應該看到此訊息");
