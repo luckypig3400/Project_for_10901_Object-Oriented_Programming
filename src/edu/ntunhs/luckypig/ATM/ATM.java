@@ -44,7 +44,7 @@ public class ATM {
 								break;
 							case 3:
 								System.out.println("您選擇了功能" + functionSelection + ".提款");
-
+								withdraw();
 								functionSelection = 0;// return to main screen
 								break;
 							case 4:
@@ -99,17 +99,87 @@ public class ATM {
 			System.out.println("請您輸入要存款的金額(請輸入大於0的整數):");
 			try {
 				depositAmount = Integer.parseInt(moneyInteger_in.nextLine());
-				//depositAmount = moneyInteger_in.nextInt();
-				if (depositAmount > 0){
+				// depositAmount = moneyInteger_in.nextInt();
+				if (depositAmount > 0) {
+					//感應器檢查紙鈔存放張數與真偽
 					deposit += depositAmount;
+					System.out.println("成功存入:"+ depositAmount + "元");
+					System.out.println("帳戶餘額:"+ deposit + "元");
 				}
 			} catch (Exception e) {
 				System.out.println("請不要輸入其他非數字的字元");
 				depositAmount = -1;
 			}
 		}
-		if(depositAmount > 0) return 1;//存款成功回傳碼
-		else return -1;//存款失敗回傳碼
+		if (depositAmount > 0)
+			return 1;// 存款成功回傳碼
+		else
+			return -1;// 存款失敗回傳碼
+	}
+
+	public static int withdraw() throws InterruptedException {
+		// 若要使用Thread.sleep()函式則需在後方加入throws InterruptedException
+		int withdrawAmount = -1;
+		while (withdrawAmount <= 0) {
+			System.out.println("請您輸入要提款的金額(請輸入大於0的整數):");
+			try {
+				withdrawAmount = Integer.parseInt(moneyInteger_in.nextLine());
+				// withdrawAmount = moneyInteger_in.nextInt();
+				if (withdrawAmount > 0) {
+					System.out.println("即將要提領的金額為:" + withdrawAmount + "元");
+					System.out.print("正在查詢帳戶餘額是否足夠");
+					Thread.sleep(300);
+					System.out.print(".");
+					Thread.sleep(300);
+					System.out.print(".");
+					Thread.sleep(300);
+					System.out.print(".");
+					Thread.sleep(300);
+					System.out.print(".");
+					Thread.sleep(300);
+					System.out.print(".");
+					Thread.sleep(300);
+					System.out.println(".");
+					if (withdrawAmount < deposit) {// 檢查存款是否足夠
+						System.out.println("餘額足夠(～￣▽￣)～");
+						System.out.print("正在核對是否達今日提領上限");
+						Thread.sleep(300);
+						System.out.print(".");
+						Thread.sleep(300);
+						System.out.print(".");
+						Thread.sleep(300);
+						System.out.print(".");
+						Thread.sleep(300);
+						System.out.print(".");
+						Thread.sleep(300);
+						System.out.print(".");
+						Thread.sleep(300);
+						System.out.println(".");
+						if (withdrawAmount + dailyWithdrawAmount <= 30000) {// 每日提領上限30000元
+							System.out.println("請收好您的現金:" + withdrawAmount + "元");
+							dailyWithdrawAmount += withdrawAmount;
+							deposit -= withdrawAmount;
+							// 感應器感測使用者是否取出現金了
+							System.out.println("成功提領:" + withdrawAmount + "元");
+							System.out.println("您今日提款剩餘額度:" + (30000 - dailyWithdrawAmount) + "元");
+							Thread.sleep(600);
+						} else {
+							System.out.println("今日提款額度已達上限，請明日再來");
+							// 今日提款額度已達上限，請明日再來
+						}
+					} else {
+						System.out.println("存款不足!");
+					}
+				}
+			} catch (Exception e) {
+				System.out.println("請不要輸入其他非數字的字元");
+				withdrawAmount = -1;
+			}
+		}
+		if (withdrawAmount > 0)
+			return 1;// 存款成功回傳碼
+		else
+			return -1;// 存款失敗回傳碼
 	}
 
 }
@@ -118,22 +188,20 @@ public class ATM {
  * 
  * 題目：設計一個自動提款機系統，功能以及配分比例說明(總分超過100分則以100分計算)如下：
  * 
- * 1.進入程式時提示使用者輸入密碼，當密碼正確時，進入功能選單；密碼錯誤，提示密碼錯誤並離開程式，帳號為學號，密碼為學號後三碼。登入成功後，畫面顯示「歡迎光臨
- * {姓名}」，其中{姓名}需顯示自己的姓名，預設餘額為50,000元 (10%)
- * 2. 進入[主畫面]後，印出功能選項[1.查詢餘額]、[2.存款]、[3.提款]與 [4.離開]，規格說明如下：
- * 		2.1. 按下數字[1]: 查詢餘額，在畫面上顯示餘額，並跳回主畫面 (10%)
- * 		2.2. 按下數字[2]: 存款，在畫面上顯示餘額，並提示使用者輸入存款金額，存款成功後，顯示餘額並跳回[主畫面] (10%)
- * 		2.2.1 程式需判斷，輸入金額為非整數時，應提示使用者輸入錯誤，並提示停留在原本的功能，讓使用者能重新輸入 (5%)
- * 		2.2.2 將 [存款]功能使用函式的方式撰寫，規則如下 (15%)：
- * 			- (1) 輸入變數: 1.存款金額、2.餘額。
- * 			- (2) 回傳結果: 回傳狀態結果，資料型態自行設計，至少需包含以下狀態：(1)存款成功以及(2)存款失敗
- * 		2.3 按下數字[3]: 提款，並提示使用者輸入提款金額，提款成功後，顯示餘額並跳回[主畫面] (10%)
- * 		2.3.1 程式需判斷，輸入金額為非整數或是提款金額大於存款時，應提示使用者輸入錯誤，並提示停留在原本的功能，讓使用者能重新輸入 (10%)
- * 		2.3.2 程式需判斷每日提款最大上限金額30,000元，當提款金額累計金額超過30,000元時應提示使用者無法提款，則回到上一個畫面，讓使用者能重新輸入。 (5%)
- * 		2.3.3 將 [提款]功能使用函式的方式撰寫，規則如下(15%)：
- * 			- 輸入變數: 1.提款金額、2.餘額。其中餘額需使用call by value的方式傳遞變數值，並將提款後的結果使用return的方式回傳。
- * 			- 回傳結果: 若提款成功，則回傳餘額；若提款失敗，則回傳數值-1
- * 		2.4 按下數字[4]: 離開，出現提示訊息，詢問是否離開，輸入小寫y或大寫Y則離開程式，若輸小寫n或大寫N則回到主畫面 (5%)
- * 		2.5 [主畫面]程式需判斷，輸入金額非1, 2, 3, 4，應提示使用者輸入錯誤，並提示停留在原本的功能，讓使用者能重新輸入選項 (5%)
+ * 1.進入程式時提示使用者輸入密碼，當密碼正確時，進入功能選單；密碼錯誤，提示密碼錯誤並離開程式，帳號為學號，密碼為學號後三碼。登入成功後，畫面顯示「
+ * 歡迎光臨 {姓名}」，其中{姓名}需顯示自己的姓名，預設餘額為50,000元 (10%) 2.
+ * 進入[主畫面]後，印出功能選項[1.查詢餘額]、[2.存款]、[3.提款]與 [4.離開]，規格說明如下： 2.1. 按下數字[1]:
+ * 查詢餘額，在畫面上顯示餘額，並跳回主畫面 (10%) 2.2. 按下數字[2]:
+ * 存款，在畫面上顯示餘額，並提示使用者輸入存款金額，存款成功後，顯示餘額並跳回[主畫面] (10%) 2.2.1
+ * 程式需判斷，輸入金額為非整數時，應提示使用者輸入錯誤，並提示停留在原本的功能，讓使用者能重新輸入 (5%) 2.2.2 將
+ * [存款]功能使用函式的方式撰寫，規則如下 (15%)： - (1) 輸入變數: 1.存款金額、2.餘額。 - (2) 回傳結果:
+ * 回傳狀態結果，資料型態自行設計，至少需包含以下狀態：(1)存款成功以及(2)存款失敗 2.3 按下數字[3]:
+ * 提款，並提示使用者輸入提款金額，提款成功後，顯示餘額並跳回[主畫面] (10%) 2.3.1
+ * 程式需判斷，輸入金額為非整數或是提款金額大於存款時，應提示使用者輸入錯誤，並提示停留在原本的功能，讓使用者能重新輸入 (10%) 2.3.2
+ * 程式需判斷每日提款最大上限金額30,000元，當提款金額累計金額超過30,000元時應提示使用者無法提款，則回到上一個畫面，讓使用者能重新輸入。 (5%)
+ * 2.3.3 將 [提款]功能使用函式的方式撰寫，規則如下(15%)： - 輸入變數: 1.提款金額、2.餘額。其中餘額需使用call by
+ * value的方式傳遞變數值，並將提款後的結果使用return的方式回傳。 - 回傳結果: 若提款成功，則回傳餘額；若提款失敗，則回傳數值-1 2.4
+ * 按下數字[4]: 離開，出現提示訊息，詢問是否離開，輸入小寫y或大寫Y則離開程式，若輸小寫n或大寫N則回到主畫面 (5%) 2.5
+ * [主畫面]程式需判斷，輸入金額非1, 2, 3, 4，應提示使用者輸入錯誤，並提示停留在原本的功能，讓使用者能重新輸入選項 (5%)
  * 加分題：撰寫上述2.2.2以及2.3.3之測試程式 (15%)
  */
