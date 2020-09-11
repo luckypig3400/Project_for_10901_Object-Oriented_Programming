@@ -3,7 +3,8 @@ package edu.ntunhs.luckypig;
 import java.util.Scanner;
 
 public class judgeScoreGrade {
-    public static void main(String[] args) {
+
+    public void judgeScoreGradeFunction() {
         Scanner score_in = new Scanner(System.in);
         System.out.println("請輸入您的成績，將會顯示對應的等級與表現:");
         try {
@@ -25,6 +26,42 @@ public class judgeScoreGrade {
         }
         score_in.close();
     }
+
+    public void judgeScoreGradeFunction(int score_in) {
+        int score = score_in;
+        if (score >= 90 && score <= 100) {
+            System.out.println("等級:A\t表現:極佳");
+        } else if (score >= 80 && score <= 89) {
+            System.out.println("等級:B\t表現:佳");
+        } else if (score >= 70 && score <= 79) {
+            System.out.println("等級:C\t表現:平均");
+        } else if (score >= 60 && score <= 69) {
+            System.out.println("等級:D\t表現:差");
+        } else if (score >= 0 && score <= 59) {
+            System.out.println("等級:F\t表現:不及格");
+        } else
+            System.out.println("請輸入介於0~100的整數");
+    }
+
+    public void judgeScoreGradeFunctionWithoutCatchingError() {
+        Scanner score_in = new Scanner(System.in);
+        System.out.println("請輸入您的成績，將會顯示對應的等級與表現:");
+        int score = score_in.nextInt();
+        if (score >= 90 && score <= 100) {
+            System.out.println("等級:A\t表現:極佳");
+        } else if (score >= 80 && score <= 89) {
+            System.out.println("等級:B\t表現:佳");
+        } else if (score >= 70 && score <= 79) {
+            System.out.println("等級:C\t表現:平均");
+        } else if (score >= 60 && score <= 69) {
+            System.out.println("等級:D\t表現:差");
+        } else if (score >= 0 && score <= 59) {
+            System.out.println("等級:F\t表現:不及格");
+        } else
+            System.out.println("請輸入介於0~100的整數");
+        score_in.close();
+    }
+
 }
 
 /*
