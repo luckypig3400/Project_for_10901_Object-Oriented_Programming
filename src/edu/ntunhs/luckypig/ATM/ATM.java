@@ -12,7 +12,12 @@ public class ATM {
 	static Scanner password_in = new Scanner(System.in);// 讓使用者輸入密碼的Scanner
 	static Scanner moneyInteger_in = new Scanner(System.in);// 讓使用者輸入金額的Scanner
 
-	public static void main(String[] args) throws InterruptedException {
+	ATM(){
+
+	}
+
+	public void ATM_Main_Page() throws InterruptedException {
+
 		System.out.println("帳戶編號" + account + "您好，請輸入密碼:");
 		if (password_in.nextLine().equals(password)) {// main screen
 			/*
@@ -86,14 +91,14 @@ public class ATM {
 			Thread.sleep(1000);
 			System.out.println("Good Bye~~");
 		}
-
 		password_in.close();
 		functionSelect_in.close();
 		moneyInteger_in.close();// 要關閉Scanner的話建議只在main結尾關閉
 
+
 	}
 
-	public static int deposit(boolean useBuiltInScanner, int depositMoneyIn) {
+	public int deposit(boolean useBuiltInScanner, int depositMoneyIn) {
 		int depositAmount = -1;
 		while (depositAmount <= 0) {
 			System.out.println("請您輸入要存款的金額(請輸入大於0的整數):");
@@ -121,7 +126,7 @@ public class ATM {
 			return -1;// 存款失敗回傳碼
 	}
 
-	public static int withdraw(boolean useBuiltInScanner, int withdrawMoneyIn) throws InterruptedException {
+	public int withdraw(boolean useBuiltInScanner, int withdrawMoneyIn) throws InterruptedException {
 		// 若要使用Thread.sleep()函式則需在後方加入throws InterruptedException
 		int withdrawAmount = -1;
 		while (withdrawAmount <= 0) {
