@@ -39,12 +39,12 @@ public class ATM {
 								break;
 							case 2:
 								System.out.println("您選擇了功能" + functionSelection + ".存款");
-								deposit();
+								deposit(true, 0);
 								functionSelection = 0;// return to main screen
 								break;
 							case 3:
 								System.out.println("您選擇了功能" + functionSelection + ".提款");
-								withdraw();
+								withdraw(true ,0);
 								functionSelection = 0;// return to main screen
 								break;
 							case 4:
@@ -93,13 +93,17 @@ public class ATM {
 
 	}
 
-	public static int deposit() {
+	public static int deposit(boolean useBuiltInScanner, int depositMoneyIn) {
 		int depositAmount = -1;
 		while (depositAmount <= 0) {
 			System.out.println("請您輸入要存款的金額(請輸入大於0的整數):");
 			try {
-				depositAmount = Integer.parseInt(moneyInteger_in.nextLine());
-				// depositAmount = moneyInteger_in.nextInt();
+				if (useBuiltInScanner == true)
+					depositAmount = Integer.parseInt(moneyInteger_in.nextLine());
+				else
+					depositAmount = depositMoneyIn;
+				// 如果不用函式內建的Scanner的話，直接讀取傳入函式的存款額，反之亦然
+
 				if (depositAmount > 0) {
 					// 感應器檢查紙鈔存放張數與真偽
 					deposit += depositAmount;
@@ -117,14 +121,18 @@ public class ATM {
 			return -1;// 存款失敗回傳碼
 	}
 
-	public static int withdraw() throws InterruptedException {
+	public static int withdraw(boolean useBuiltInScanner, int withdrawMoneyIn) throws InterruptedException {
 		// 若要使用Thread.sleep()函式則需在後方加入throws InterruptedException
 		int withdrawAmount = -1;
 		while (withdrawAmount <= 0) {
 			System.out.println("請您輸入要提款的金額(請輸入大於0的整數):");
 			try {
-				withdrawAmount = Integer.parseInt(moneyInteger_in.nextLine());
-				// withdrawAmount = moneyInteger_in.nextInt();
+				if (useBuiltInScanner == true)
+					withdrawAmount = Integer.parseInt(moneyInteger_in.nextLine());
+				else
+					withdrawAmount = withdrawMoneyIn;
+				// 如果不用函式內建的Scanner的話，直接讀取傳入函式的存款額，反之亦然
+
 				if (withdrawAmount > 0) {
 					System.out.println("即將要提領的金額為:" + withdrawAmount + "元");
 					System.out.print("正在查詢帳戶餘額是否足夠");
