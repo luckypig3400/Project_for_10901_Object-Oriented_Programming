@@ -101,10 +101,10 @@ public class ATM {
 				depositAmount = Integer.parseInt(moneyInteger_in.nextLine());
 				// depositAmount = moneyInteger_in.nextInt();
 				if (depositAmount > 0) {
-					//感應器檢查紙鈔存放張數與真偽
+					// 感應器檢查紙鈔存放張數與真偽
 					deposit += depositAmount;
-					System.out.println("成功存入:"+ depositAmount + "元");
-					System.out.println("帳戶餘額:"+ deposit + "元");
+					System.out.println("成功存入:" + depositAmount + "元");
+					System.out.println("帳戶餘額:" + deposit + "元");
 				}
 			} catch (Exception e) {
 				System.out.println("請不要輸入其他非數字的字元");
@@ -177,7 +177,7 @@ public class ATM {
 			}
 		}
 		if (withdrawAmount > 0)
-			return 1;// 存款成功回傳碼
+			return deposit;// 存款成功回傳餘額
 		else
 			return -1;// 存款失敗回傳碼
 	}
