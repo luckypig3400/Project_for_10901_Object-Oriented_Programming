@@ -9,10 +9,12 @@ public class monsterGame {
         turtle.getPocketMonsterInfo();
 
         while(true){
+            System.out.println(PikaChu.name+"的回合");
             PikaChu.Attack(turtle);
             Thread.sleep(300);
             if(PikaChu.blood <= 0 || turtle.blood <= 0) break;
             //break判斷寫在中間可以防止死亡的Pokemon多打一次 by 柏勳
+            System.out.println(turtle.name+"的回合");
             turtle.Attack(PikaChu);
             Thread.sleep(300);
         }

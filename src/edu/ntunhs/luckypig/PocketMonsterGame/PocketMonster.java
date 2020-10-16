@@ -51,15 +51,20 @@ public class PocketMonster {
         System.out.println("===========================");
     }
 
-    int Attack(PocketMonster enemyMonster) {
+    void Attack(PocketMonster enemyMonster) {
         enemyMonster.blood -= (attack - enemyMonster.defence);// 先扣除敵人防禦值再打
         if (enemyMonster.blood <= 0)
             exp += enemyMonster.exp;// kill the enemy get EXP
         if(enemyMonster.blood > 0)System.out.println(enemyMonster.name + "的血量剩餘:" + enemyMonster.blood);
         else System.out.println(enemyMonster.name + "已經被" + name + "擊敗了!");
-        return 0;
     }
 
+    void Defense(){//make pokemon's avoidRate = 50%
+        
+    }
 
+    void Recover(){
+        blood += 100;
+    }
 
 }
