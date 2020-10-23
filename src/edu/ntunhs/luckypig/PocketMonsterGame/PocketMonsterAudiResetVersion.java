@@ -33,9 +33,9 @@ public class PocketMonsterAudiResetVersion{
          * System.out.println(Pikapika.HP); System.out.println(Pikapika.ATK);
          */
         Random rand = new Random(); // instance of random class
+        Scanner KeyIn = new Scanner(System.in);
         while (esc) {
             System.out.println("請" + PlayerA + "選擇技能");
-            Scanner KeyIn = new Scanner(System.in);
             int A_skill = KeyIn.nextInt();
             System.out.println("請" + PlayerB + "選擇技能");
             int B_skill = KeyIn.nextInt();
@@ -209,7 +209,9 @@ public class PocketMonsterAudiResetVersion{
             }
         }
 
-
+        sc.close();
+        KeyIn.close();
+        
     }
 }
 
