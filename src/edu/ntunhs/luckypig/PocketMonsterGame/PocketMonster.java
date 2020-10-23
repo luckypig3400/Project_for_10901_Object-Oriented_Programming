@@ -56,24 +56,23 @@ public class PocketMonster {
     }
 
     void selectPocketMonsterSkill() {
-        Scanner selectSkill_sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("請選擇" + name + "這回合要做的事\n1.攻擊()\n2.防禦(提升迴避率為50%並增加30%防禦值)\n3.回血(直接回復100點血量)\n請選擇:");
-        switch (selectSkill_sc.nextInt()) {
-            case 1:// 攻擊
+        String funString = sc.next();
+        switch (funString) {
+            case "1":// 攻擊
                 thisTurnSkill = 1;
                 break;
-            case 2:// 防禦
+            case "2":// 防禦
                 thisTurnSkill = 2;
                 break;
-            case 3:// 回血
+            case "3":// 回血
                 thisTurnSkill = 3;
                 break;
             default:
-                System.out.println("輸入錯誤，作為懲罰這回合不能做任何事");
                 thisTurnSkill = -1;
                 break;
         }
-        selectSkill_sc.close();
     }
 
     void usePocketMonsterSkill(PocketMonster enemyMonster) {// 因為要讓雙邊玩家先選完要執行的動作才開始回合
@@ -89,6 +88,7 @@ public class PocketMonster {
                 break;
             default:
                 // do nothing
+                System.out.println(name + "的玩家輸入錯誤，作為懲罰這回合不能做任何事");
                 break;
         }
     }
@@ -104,7 +104,7 @@ public class PocketMonster {
         if (enemyMonster.blood <= 0)
             exp += enemyMonster.exp;// kill the enemy get EXP
         if (enemyMonster.blood > 0)
-            System.out.println(enemyMonster.name + "的血量剩餘:" + enemyMonster.blood);
+            System.out.println(name + "發動了普通攻擊\t" + enemyMonster.name + "的血量剩餘:" + enemyMonster.blood);
         else
             System.out.println(enemyMonster.name + "已經被" + name + "擊敗了!");
     }
