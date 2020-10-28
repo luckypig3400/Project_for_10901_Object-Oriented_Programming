@@ -29,20 +29,21 @@ public class monsterGame {
             turtle.selectPocketMonsterSkill();//玩家2
             Thread.sleep(600);
 
-            System.out.println("玩家1"+PikaChu.name+"的回合");
-            PikaChu.usePocketMonsterSkill(turtle);
+            System.out.println("玩家1的回合由"+PikaChu.name+"行動:");
             Thread.sleep(600);
+            PikaChu.usePocketMonsterSkill(turtle);
+            Thread.sleep(900);
             
             if(PikaChu.blood <= 0 || turtle.blood <= 0) break;//break判斷寫在中間可以防止死亡的Pokemon多打一次 by 柏勳
 
-            System.out.println("玩家2"+turtle.name+"的回合");
-            turtle.usePocketMonsterSkill(PikaChu);
+            System.out.println("玩家2的回合由"+turtle.name+"行動:");
             Thread.sleep(600);
+            turtle.usePocketMonsterSkill(PikaChu);
+            Thread.sleep(900);
             
             System.out.println("======第"+roundCount+"回合結束======\n\n\n");
-
             roundCount += 1;
-
+            Thread.sleep(600);
         }
 
     }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class PocketMonster {
 
     int blood, attack, defence;
-    int avoidRate = 30;// 每隻寶可夢的預設迴避率均為30%
+    int avoidRate = 9;// 每隻寶可夢的預設迴避率均為9%
     float wallet, exp;
     String name, ID, type;
     // 寶可夢屬性包含:水water、火fire、木wooden、光light、暗dark
@@ -94,25 +94,27 @@ public class PocketMonster {
     }
 
     void Attack(PocketMonster enemyMonster) {
-        // 20%機率自身攻擊兩倍，10%機率自身攻擊減半，40%機率攻擊力=attack
+        //27%機率自身攻擊兩倍，9%機率自身攻擊減半，3%打出致命一擊(扣除對方當前血量的9/10)，其餘機率扣除對方迴避率後的攻擊力不變
 
         Random rnd = new Random();
-        if (rnd.nextInt(101) > enemyMonster.avoidRate)// 發動攻擊
+        if (rnd.nextInt(101) > enemyMonster.avoidRate) {// 發動攻擊
             enemyMonster.blood -= (attack - enemyMonster.defence);// 先扣除敵人防禦值再打
-        else // 被躲掉了
+            if (enemyMonster.blood > 0)
+                System.out.println(name + "發動了普通攻擊對敵人造成了" + (attack - enemyMonster.defence) + "點傷害\t"
+                        + enemyMonster.name + "的血量剩餘:" + enemyMonster.blood);
+            else {
+                System.out.println(enemyMonster.name + "已經被" + name + "擊敗了!");
+                exp += enemyMonster.exp;// kill the enemy get EXP
+                System.out.println(name + "增加了" + exp + "點經驗");
+            }
+        } else // 被躲掉了
             System.out.println(name + "的攻擊被" + enemyMonster.name + "躲掉啦(*﹏*)");
-        if (enemyMonster.blood <= 0)
-            exp += enemyMonster.exp;// kill the enemy get EXP
-        if (enemyMonster.blood > 0)
-            System.out.println(name + "發動了普通攻擊\t" + enemyMonster.name + "的血量剩餘:" + enemyMonster.blood);
-        else
-            System.out.println(enemyMonster.name + "已經被" + name + "擊敗了!");
     }
 
-    void Defense() {// make pokemon's avoidRate = 50%
-        avoidRate = 50;
+    void Defense() {// make pokemon's avoidRate = 30%
+        avoidRate = 30;
         defence += defence / 2;
-        System.out.println(name + "的迴避率提升至50%，並且防禦數值提升了50%");
+        System.out.println(name + "的迴避率提升至30%，並且防禦數值提升了50%");
         defenceStatus = true;
         // 為了確保公平性，防禦效果會等到被打後才消失
     }
