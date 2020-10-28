@@ -16,8 +16,8 @@ public class PocketMonster {
 
     PocketMonster() {
         Random setValueRandomMachine = new Random();
-        blood = setValueRandomMachine.nextInt(300) + 600;// by default every monster will have at least 600 HP
-        attack = setValueRandomMachine.nextInt(100) + 200;// by default every monster will have at least 200 ATK
+        blood = setValueRandomMachine.nextInt(300) + 900;// by default every monster will have at least 900 HP
+        attack = setValueRandomMachine.nextInt(60) + 150;// by default every monster will have at least 150 ATK
         defence = setValueRandomMachine.nextInt(30) + 66;// by default every monster will have at least 66 DEF
         Date systemDate = new Date();
         name = systemDate.toString();// 未命名寶可夢則使用日期命名
@@ -26,8 +26,8 @@ public class PocketMonster {
     PocketMonster(String in_name) {
         name = in_name;
         Random setValueRandomMachine = new Random();
-        blood = setValueRandomMachine.nextInt(300) + 600;// by default every monster will have at least 600 HP
-        attack = setValueRandomMachine.nextInt(100) + 200;// by default every monster will have at least 200 ATK
+        blood = setValueRandomMachine.nextInt(300) + 900;// by default every monster will have at least 900 HP
+        attack = setValueRandomMachine.nextInt(60) + 150;// by default every monster will have at least 150 ATK
         defence = setValueRandomMachine.nextInt(30) + 66;// by default every monster will have at least 66 DEF
     }
 
@@ -57,7 +57,7 @@ public class PocketMonster {
 
     void selectPocketMonsterSkill() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("請選擇" + name + "這回合要做的事\n1.攻擊()\n2.防禦(提升迴避率為50%並增加30%防禦值)\n3.回血(直接回復100點血量)\n請選擇:");
+        System.out.println("請選擇" + name + "這回合要做的事\n1.攻擊(沒有被閃避成功發動攻擊時，有36%機率自身攻擊兩倍，11%機率自身攻擊減半，3%打出致命一擊(扣除對方當前血量的9/10))\n2.防禦(提升迴避率為30%並增加30%防禦值)\n3.回血(直接回復100點血量)\n請選擇:");
         String funString = sc.next();
         switch (funString) {
             case "1":// 攻擊
@@ -152,8 +152,8 @@ public class PocketMonster {
 
     void Defense() {// make pokemon's avoidRate = 30%
         avoidRate = 30;
-        defence += defence / 2;
-        System.out.println(name + "的迴避率提升至30%，並且防禦數值提升了50%");
+        defence += defence * 0.3;
+        System.out.println(name + "的迴避率提升至30%，並且防禦數值提升了30%");
         defenceStatus = true;
         // 為了確保公平性，防禦效果會等到被打後才消失
     }
