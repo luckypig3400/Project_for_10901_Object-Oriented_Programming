@@ -9,7 +9,9 @@ public class PocketMonster {
     int blood, attack, defence;
     int avoidRate = 9;// 每隻寶可夢的預設迴避率均為9%
     float wallet, exp;
-    String name, ID, type;
+    String name;
+	String ID;
+	String type;
     // 寶可夢屬性包含:水water、火fire、木wooden、光light、暗dark
     int thisTurnSkill;
     boolean defenceStatus = false;
