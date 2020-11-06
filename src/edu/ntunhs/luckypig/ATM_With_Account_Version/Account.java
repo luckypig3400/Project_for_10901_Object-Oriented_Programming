@@ -1,18 +1,18 @@
 package edu.ntunhs.luckypig.ATM_With_Account_Version;
 
 public class Account {
-    private static String account;//this is account number (ID) should be the primary key in Database
-    private static String accountName;
-    private static String password;
-    private static int deposit;
-    private static int dailyWithdrawAmount;// 今日已提領金額
-    private static int dailyWithdrawLimit;// 今日提領上限
+    private String account;//this is account number (ID) should be the primary key in Database
+    private String accountName;
+    private String password;
+    private int deposit;
+    private int dailyWithdrawAmount;// 今日已提領金額
+    private int dailyWithdrawLimit;// 今日提領上限
 
     Account() {// default account;
         account = "082214226";
         accountName = "楊曜承";
         password = "226";
-        deposit = 50000;
+        deposit = 66666;
         dailyWithdrawAmount = 0;
         dailyWithdrawLimit = 30000;
     }

@@ -9,6 +9,7 @@ public class ATM_tester {
         Account account2 = new Account("072214121", "妤柔(❁´◡`❁)", "121", 66666);
 
         account1.getAccountInfo();
+
         account2.getAccountInfo();
 
     }
