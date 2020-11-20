@@ -13,7 +13,7 @@ public class ATM {
     public float todayRemainWithdrawAmount;
 
     ATM() {// default: my account
-        balance = 50000;//老師題目指定預設50000元 QAQ
+        balance = 60000;
         accountName = "楊曜承";
         accountNumber = "082214226";
         password = "226";
