@@ -1,0 +1,4 @@
+請將
+ATM.java 與 atmTester.java放在同一個資料夾內執行
+
+或是直接使用Exam01.java
