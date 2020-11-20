@@ -1,6 +1,8 @@
+package edu.ntunhs.luckypig.Java20201113Midterm;
+
 import java.util.Scanner;
 
-public class Exam01 {
+public class Exam01_mergeATMclassInOneFile {
     public static void main(String[] args) throws InterruptedException {
 
         ATM myATM = new ATM();

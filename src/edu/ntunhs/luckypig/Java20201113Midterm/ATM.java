@@ -1,3 +1,5 @@
+package edu.ntunhs.luckypig.Java20201113Midterm;
+
 import java.util.Scanner;
 
 /**
