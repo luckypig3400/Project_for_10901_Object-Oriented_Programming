@@ -13,9 +13,10 @@ public class ATM {
     private String password;
     final float dailyWithdrawLimit = 30000;
     public float todayRemainWithdrawAmount;
+    public final static String openingTime = "周一至周五上午9點至下午3點";
 
     ATM() {// default: my account
-        balance = 50000;//老師題目指定預設50000元 QAQ
+        balance = 50000;// 老師題目指定預設50000元 QAQ
         accountName = "楊曜承";
         accountNumber = "082214226";
         password = "226";
@@ -142,7 +143,8 @@ public class ATM {
                     break;
                 case "5":
                     System.out.println("【您選擇了查詢營業時間】");
-                    getBankOpeningTime();
+                    System.out.println("本銀行的營業時間為" + getBankOpeningTime());
+                    System.out.println("本ATM的營業時間為24小時全年無休，歡迎多加使用");
                     Thread.sleep(900);
                     break;
                 case "6":
@@ -284,9 +286,13 @@ public class ATM {
         System.out.println(accountName + "您好!\n您的帳戶餘額剩餘:" + balance + "\n今日可提款金額剩餘:" + todayRemainWithdrawAmount);
     }
 
-    static void getBankOpeningTime() {
+    static void getBankOpeningTimeInfo() {
         System.out.println("本銀行的營業時間為周一至周五上午9點至下午3點");
         System.out.println("本ATM的營業時間為24小時全年無休，歡迎多加使用");
+    }
+
+    static String getBankOpeningTime() {
+        return openingTime;
     }
 
     boolean exit() {
