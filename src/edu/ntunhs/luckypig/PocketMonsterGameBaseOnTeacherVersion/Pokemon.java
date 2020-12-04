@@ -3,7 +3,7 @@ package edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion;
 import java.lang.System;
 import java.util.Random;
 
-public class Pokemon extends OPokemon{
+public class Pokemon extends OPokemon {
     int Type;
     int Wallet;
     float Exp;
@@ -44,10 +44,11 @@ public class Pokemon extends OPokemon{
         return result;
     }
 
+    @Override
     int attack(Pokemon enemyMonster) {
         Random rand1st = new Random(); // instance of random class
         int upperbound = 99;
-        int int_random = rand1st.nextInt(upperbound);//get random int between 0 ~ 99
+        int int_random = rand1st.nextInt(upperbound);// get random int between 0 ~ 99
         // 第一次躲避
         if (int_random >= 0 && int_random < 50) {
             System.out.println("沒中 ");
@@ -95,4 +96,11 @@ public class Pokemon extends OPokemon{
         HP = blood;
         return blood;
     }
+
+    @Override
+    int move(int movement) {
+        location += movement;
+        return 0;
+    }
+
 }
