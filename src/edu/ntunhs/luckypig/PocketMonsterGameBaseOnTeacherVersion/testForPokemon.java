@@ -15,12 +15,13 @@ public class testForPokemon {
 
         System.out.println("角色建立成功， 您的第一個神奇寶貝為傑尼龜\n");
         WetPokemon animal = new WetPokemon();
-        System.out.println("WetPokemon's attack: " + animal.Attack);
+        System.out.println("WetPokemon's attack: " + animal.attack);
         animal.singAsong();
 
+        Pokemon.getMap();// test static function
+        Pokemon.PokeInfo();// test static function
         Pokemon myPoke = new Pokemon();
-        Pokemon.getMap();
-        Pokemon.PokeInfo();
+        myPoke.getPokemonInfo();
 
         // myPlayer.addMyPokemon(animal);
         //
