@@ -23,14 +23,14 @@ public class NTUNHSpay {
     int payment(int paymentAmount, int in_paymentOption) {
         if (in_paymentOption == 1) {
             if (eWalletPaymentOption1.withdraw(paymentAmount) == 1) {
-                System.out.println("電子付款成功~! ");
+                System.out.println("使用綁定的網銀帳戶進行電子付款成功~! ");
                 return 1;
             } else {
                 return 0;
             }
         } else if (in_paymentOption == 2) {
             if (eWalletPaymentOption2.withdraw(paymentAmount) == 1) {
-                System.out.println("電子付款成功~! ");
+                System.out.println("使用綁定的信用卡進行電子付款成功~! ");
                 return 1;
             } else {
                 return 0;
@@ -42,14 +42,14 @@ public class NTUNHSpay {
     int payment(int paymentAmount) {
         if (defaultPaymentOption == 1) {
             if (eWalletPaymentOption1.withdraw(paymentAmount) == 1) {
-                System.out.println("電子付款成功~! ");
+                System.out.println("使用綁定的網銀帳戶進行電子付款成功~! ");
                 return 1;
             } else {
                 return 0;
             }
         } else if (defaultPaymentOption== 2) {
             if (eWalletPaymentOption2.withdraw(paymentAmount) == 1) {
-                System.out.println("電子付款成功~! ");
+                System.out.println("使用綁定的信用卡進行電子付款成功~! ");
                 return 1;
             } else {
                 return 0;
