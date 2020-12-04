@@ -14,13 +14,20 @@ public class NTUNHSpay {
         // 父類別ATM可以使用子類別NetworkATM的方法與建構子
         // eWallet的資料型態為ATM 使用的建構子卻是 NetworkATM的建構子
         // 這樣的用法稱之為多型(Polymorphism)
-        eWalletPaymentOption1.SetBalance(6000);
-        eWalletPaymentOption2.SetBalance(6000);
+        eWalletPaymentOption1.setBalance(6000);
+        eWalletPaymentOption2.setBalance(6000);
         Bonus = 0;
-        defaultPaymentOption = 1;//預設使用網銀付款
+        defaultPaymentOption = 1;// 預設使用網銀付款
     }
 
     int payment(int paymentAmount, int in_paymentOption) {
+
+        // 在執行付款動作前先同步兩邊付款方式的餘額(因為使用的是同一間銀行的存款)
+        if (eWalletPaymentOption1.getBalance() > eWalletPaymentOption2.getBalance())
+            eWalletPaymentOption1.setBalance(eWalletPaymentOption2.getBalance());
+        else // 選擇剩餘金額較少的為當前金額，並同步另一邊的餘額
+            eWalletPaymentOption2.setBalance(eWalletPaymentOption1.getBalance());
+
         if (in_paymentOption == 1) {
             if (eWalletPaymentOption1.withdraw(paymentAmount) == 1) {
                 System.out.println("使用綁定的網銀帳戶進行電子付款成功~! ");
@@ -40,6 +47,13 @@ public class NTUNHSpay {
     }
 
     int payment(int paymentAmount) {
+
+        // 在執行付款動作前先同步兩邊付款方式的餘額(因為使用的是同一間銀行的存款)
+        if (eWalletPaymentOption1.getBalance() > eWalletPaymentOption2.getBalance())
+            eWalletPaymentOption1.setBalance(eWalletPaymentOption2.getBalance());
+        else // 選擇剩餘金額較少的為當前金額，並同步另一邊的餘額
+            eWalletPaymentOption2.setBalance(eWalletPaymentOption1.getBalance());
+
         if (defaultPaymentOption == 1) {
             if (eWalletPaymentOption1.withdraw(paymentAmount) == 1) {
                 System.out.println("使用綁定的網銀帳戶進行電子付款成功~! ");
@@ -47,7 +61,7 @@ public class NTUNHSpay {
             } else {
                 return 0;
             }
-        } else if (defaultPaymentOption== 2) {
+        } else if (defaultPaymentOption == 2) {
             if (eWalletPaymentOption2.withdraw(paymentAmount) == 1) {
                 System.out.println("使用綁定的信用卡進行電子付款成功~! ");
                 return 1;

@@ -28,8 +28,8 @@ public class ATM {
             return 0;
     }
 
-    void SetBalance(int gMoney) {
-        Balance += gMoney;
+    void setBalance(int adjustedBalanceAmount) {
+        Balance = adjustedBalanceAmount;
     }
 
     int getBalance() {
