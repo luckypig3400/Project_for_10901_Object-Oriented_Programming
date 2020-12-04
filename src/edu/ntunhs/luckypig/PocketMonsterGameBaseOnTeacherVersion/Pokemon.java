@@ -7,27 +7,28 @@ public class Pokemon extends OPokemon {
     int Type;
     int Wallet;
     float Exp;
-    int AvoidRate;
+    int avoidRate;
     final int type = 1; // 0: Human, 1: Monster. 2: NPC
 
     Pokemon() {
         System.out.println("Hello World 畜生");
-        setHP(100);
-        attack = 100;
-        defense = 100;
+        HP = rnd.nextInt(300) + 600;
+        attack = rnd.nextInt(66) + 100;
+        defense = rnd.nextInt(30) + 90;
+        avoidRate = 9;// default avoidRate = 9%
     }
 
     Pokemon(int gID, String gName) {
         ID = gID;
         Name = gName;
-        setHP(100);
-        attack = 100;
-        defense = 100;
-        AvoidRate = 100;
+        HP = rnd.nextInt(300) + 600;
+        attack = rnd.nextInt(66) + 100;
+        defense = rnd.nextInt(30) + 90;
+        avoidRate = 9;
     }
 
     static void getMap() {
-        System.out.println("請看地圖 ");
+        System.out.println("請看地圖:");
     }
 
     static void PokeInfo() {
@@ -81,7 +82,7 @@ public class Pokemon extends OPokemon {
     }
 
     int setDefenseProb(int prob) {
-        return AvoidRate = 50;
+        return avoidRate = 50;
     }
 
     int Recovery() {

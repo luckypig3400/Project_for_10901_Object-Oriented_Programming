@@ -11,7 +11,7 @@ public class WetPokemon extends Pokemon {
     }
 
     int Attack(Pokemon enemyMonster) {
-        int enemyMonsterHP = enemyMonster.getHP() - Attack;
+        int enemyMonsterHP = enemyMonster.getHP() - attack;
         enemyMonster.setHP(enemyMonsterHP);
         if (enemyMonster.getHP() <= 0) {
             enemyMonster.setHP(0);
