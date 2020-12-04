@@ -4,6 +4,13 @@ public class ATM {
     private String ID, Name, PWD;
     int Balance;
 
+    ATM() {
+        ID = "082214226";
+        Name = "楊曜承";
+        PWD = "226";
+        Balance = 0;
+    }
+
     ATM(String in_ID, String in_Name, String in_PWD) {
         ID = in_ID;
         Name = in_Name;

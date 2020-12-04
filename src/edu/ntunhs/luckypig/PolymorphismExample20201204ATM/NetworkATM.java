@@ -4,6 +4,10 @@ public class NetworkATM extends ATM {
 
     private int Bonus;
 
+    NetworkATM() {
+        super();
+    }
+
     NetworkATM(String in_ID, String in_Name, String in_PWD) {
         super(in_ID, in_Name, in_PWD);
         Bonus = 0;
@@ -29,10 +33,9 @@ public class NetworkATM extends ATM {
             return 0;
         if (Balance >= withdrawAmount) {
             Balance -= withdrawAmount;
-            Bonus += 7;//使用網銀提款增加紅利點數
+            Bonus += 7;// 使用網銀提款增加紅利點數
             return 1;
         } else
             return 0;
     }
 }
-
