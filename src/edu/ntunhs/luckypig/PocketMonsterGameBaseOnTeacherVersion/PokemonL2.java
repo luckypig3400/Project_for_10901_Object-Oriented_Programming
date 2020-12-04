@@ -10,10 +10,10 @@ public class PokemonL2 extends Pokemon {
     PokemonL2(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_avoidRate) {
         ID = in_ID;
         Name = in_Name;
-        oHP = in_HP;
-        oATK = in_ATK;
-        oDEF = in_DEF;
-        oAvoidRate = in_avoidRate;
+        HP = oHP = in_HP;
+        attack = oATK = in_ATK;
+        defense = oDEF = in_DEF;
+        avoidRate = oAvoidRate = in_avoidRate;
         evolution();
     }
 
