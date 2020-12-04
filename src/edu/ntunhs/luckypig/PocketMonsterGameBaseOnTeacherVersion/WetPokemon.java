@@ -10,12 +10,12 @@ public class WetPokemon extends Pokemon {
         return "wet Pokemon is a monster who is waiting fire.";
     }
 
-    int Attack(Pokemon bada) {
-        int badaBlood = bada.getBlood() - Attack;
-        bada.setBlood(badaBlood);
-        if (bada.getBlood() <= 0) {
-            bada.setBlood(0);
-            System.out.println("OH" + bada.Name + " die!!");
+    int Attack(Pokemon enemyMonster) {
+        int enemyMonsterBlood = enemyMonster.getBlood() - Attack;
+        enemyMonster.setBlood(enemyMonsterBlood);
+        if (enemyMonster.getBlood() <= 0) {
+            enemyMonster.setBlood(0);
+            System.out.println("OH" + enemyMonster.Name + " die!!");
             return 1;
         }
         return 0;

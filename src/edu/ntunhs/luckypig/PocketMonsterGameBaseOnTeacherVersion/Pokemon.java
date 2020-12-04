@@ -39,17 +39,17 @@ public class Pokemon {
         System.out.println("Pokemon is a monster, also called sweet potota~~");
     }
 
-    int Attack(Pokemon bada, boolean isTurble) {
+    int Attack(Pokemon enemyMonster, boolean isTurble) {
         int result = 0;
         if (isTurble == true) {
             Attack *= 2;
-            result = Attack(bada);
+            result = Attack(enemyMonster);
             Attack /= 2;
         }
         return result;
     }
 
-    int Attack(Pokemon bada) {
+    int Attack(Pokemon enemyMonster) {
         Random rand1st = new Random(); // instance of random class
         int upperbound = 99;
         int int_random = rand1st.nextInt(upperbound);//get random int between 0 ~ 99
@@ -66,18 +66,18 @@ public class Pokemon {
                 // Do Nothing
                 System.out.println("沒中 ");
             } else if (int_random > 30 && int_random < 50) {
-                bada.setBlood(bada.getBlood() - Attack * 2);
+                enemyMonster.setBlood(enemyMonster.getBlood() - Attack * 2);
                 System.out.println("Turbo");
             } else if (int_random > 50 && int_random < 60) {
-                bada.setBlood(bada.getBlood() - Attack / 2);
+                enemyMonster.setBlood(enemyMonster.getBlood() - Attack / 2);
                 System.out.println("so sad! only half");
             } else if (int_random > 60 && int_random < 100) {
-                bada.setBlood(bada.getBlood() - Attack);
+                enemyMonster.setBlood(enemyMonster.getBlood() - Attack);
                 System.out.println("Normal!!");
             }
-            if (bada.getBlood() <= 0) {
-                bada.setBlood(0);
-                System.out.println("OH" + bada.Name + " die!!");
+            if (enemyMonster.getBlood() <= 0) {
+                enemyMonster.setBlood(0);
+                System.out.println("OH" + enemyMonster.Name + " die!!");
                 return 1;
             }
             return 0;
