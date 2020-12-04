@@ -28,7 +28,9 @@ public class testForPokemon {
         System.out.println("使用Pokemon Class建立成功， 您的第二個神奇寶貝為無屬性神奇寶貝，以下為其資訊:");
         myPoke.getPokemonInfo();
 
-        
+        PokemonL2 myPokeL2 = new PokemonL2(myPoke.ID, myPoke.Name);
+        System.out.println("使用PokemonL2 Class進化成功， 您的第二個神奇寶貝為無屬性神奇寶貝，已經成功進化");
+        myPokeL2.getEvolutionInfo();
 
         /*
         // myPlayer.addMyPokemon(animal);
