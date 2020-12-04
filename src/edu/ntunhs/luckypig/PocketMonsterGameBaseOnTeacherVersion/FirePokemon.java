@@ -13,10 +13,10 @@ public class FirePokemon extends Pokemon {
         if (int_random == 0) {
             System.out.println("沒中 ");
         } else {
-            enemyMonster.setBlood(enemyMonster.getBlood() - Attack * 3);
+            enemyMonster.setHP(enemyMonster.getHP() - attack * 3);
         }
-        if (enemyMonster.getBlood() <= 0) {
-            enemyMonster.setBlood(0);
+        if (enemyMonster.getHP() <= 0) {
+            enemyMonster.setHP(0);
             System.out.println("OH" + enemyMonster.Name + " die!!");
             return 1;
         }

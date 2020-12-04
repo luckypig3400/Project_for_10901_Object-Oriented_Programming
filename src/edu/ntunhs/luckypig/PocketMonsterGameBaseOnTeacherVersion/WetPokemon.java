@@ -11,10 +11,10 @@ public class WetPokemon extends Pokemon {
     }
 
     int Attack(Pokemon enemyMonster) {
-        int enemyMonsterBlood = enemyMonster.getBlood() - Attack;
-        enemyMonster.setBlood(enemyMonsterBlood);
-        if (enemyMonster.getBlood() <= 0) {
-            enemyMonster.setBlood(0);
+        int enemyMonsterHP = enemyMonster.getHP() - Attack;
+        enemyMonster.setHP(enemyMonsterHP);
+        if (enemyMonster.getHP() <= 0) {
+            enemyMonster.setHP(0);
             System.out.println("OH" + enemyMonster.Name + " die!!");
             return 1;
         }

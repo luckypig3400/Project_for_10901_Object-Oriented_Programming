@@ -15,4 +15,10 @@ public class wetOPokemon extends OPokemon{
         pada.HP -= attack;
         return 0;
     }
+
+    @Override
+    int attack(Pokemon pada) {
+        pada.HP -= attack;
+        return 0;
+    }
 }
