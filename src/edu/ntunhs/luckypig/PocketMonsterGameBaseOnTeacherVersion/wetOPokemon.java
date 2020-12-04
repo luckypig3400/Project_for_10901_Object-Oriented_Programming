@@ -12,6 +12,7 @@ public class wetOPokemon extends OPokemon{
     }
 
     int attack(OPokemon pada){
+        pada.HP -= attack;
         return 0;
     }
 }

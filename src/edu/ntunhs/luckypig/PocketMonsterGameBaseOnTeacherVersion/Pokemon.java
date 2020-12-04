@@ -3,12 +3,7 @@ package edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion;
 import java.lang.System;
 import java.util.Random;
 
-public class Pokemon {
-    int ID;
-    private int Blood = 100;
-    int Attack = 100;
-    int Defence;
-    String Name;
+public class Pokemon extends OPokemon{
     int Type;
     int Wallet;
     float Exp;
@@ -17,17 +12,17 @@ public class Pokemon {
 
     Pokemon() {
         System.out.println("Hello World 畜生");
-        setBlood(100);
-        Attack = 100;
-        Defence = 100;
+        setHP(100);
+        attack = 100;
+        defense = 100;
     }
 
     Pokemon(int gID, String gName) {
         ID = gID;
         Name = gName;
-        setBlood(100);
-        Attack = 100;
-        Defence = 100;
+        setHP(100);
+        attack = 100;
+        defense = 100;
         AvoidRate = 100;
     }
 
@@ -39,17 +34,17 @@ public class Pokemon {
         System.out.println("Pokemon is a monster, also called sweet potota~~");
     }
 
-    int Attack(Pokemon enemyMonster, boolean isTurble) {
+    int attack(Pokemon enemyMonster, boolean isTurble) {
         int result = 0;
         if (isTurble == true) {
-            Attack *= 2;
-            result = Attack(enemyMonster);
-            Attack /= 2;
+            attack *= 2;
+            result = attack(enemyMonster);
+            attack /= 2;
         }
         return result;
     }
 
-    int Attack(Pokemon enemyMonster) {
+    int attack(Pokemon enemyMonster) {
         Random rand1st = new Random(); // instance of random class
         int upperbound = 99;
         int int_random = rand1st.nextInt(upperbound);//get random int between 0 ~ 99
@@ -66,17 +61,17 @@ public class Pokemon {
                 // Do Nothing
                 System.out.println("沒中 ");
             } else if (int_random > 30 && int_random < 50) {
-                enemyMonster.setBlood(enemyMonster.getBlood() - Attack * 2);
+                enemyMonster.setHP(enemyMonster.getHP() - attack * 2);
                 System.out.println("Turbo");
             } else if (int_random > 50 && int_random < 60) {
-                enemyMonster.setBlood(enemyMonster.getBlood() - Attack / 2);
+                enemyMonster.setHP(enemyMonster.getHP() - attack / 2);
                 System.out.println("so sad! only half");
             } else if (int_random > 60 && int_random < 100) {
-                enemyMonster.setBlood(enemyMonster.getBlood() - Attack);
+                enemyMonster.setHP(enemyMonster.getHP() - attack);
                 System.out.println("Normal!!");
             }
-            if (enemyMonster.getBlood() <= 0) {
-                enemyMonster.setBlood(0);
+            if (enemyMonster.getHP() <= 0) {
+                enemyMonster.setHP(0);
                 System.out.println("OH" + enemyMonster.Name + " die!!");
                 return 1;
             }
@@ -89,15 +84,15 @@ public class Pokemon {
     }
 
     int Recovery() {
-        return setBlood(getBlood() + 20);
+        return setHP(getHP() + 20);
     }
 
-    public int getBlood() {
-        return Blood;
+    public int getHP() {
+        return HP;
     }
 
-    public int setBlood(int blood) {
-        Blood = blood;
+    public int setHP(int blood) {
+        HP = blood;
         return blood;
     }
 }
