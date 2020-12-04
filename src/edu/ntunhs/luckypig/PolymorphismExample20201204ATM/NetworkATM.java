@@ -38,4 +38,8 @@ public class NetworkATM extends ATM {
         } else
             return 0;
     }
+
+    int getBonus(){
+        return Bonus;
+    }
 }

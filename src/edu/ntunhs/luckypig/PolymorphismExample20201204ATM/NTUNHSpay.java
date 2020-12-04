@@ -32,4 +32,8 @@ public class NTUNHSpay {
     int getBalance() {
         return eWallet.getBalance();
     }
+
+    int getBonus(){
+        return Bonus;
+    }
 }
