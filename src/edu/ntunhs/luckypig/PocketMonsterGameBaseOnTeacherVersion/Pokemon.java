@@ -18,13 +18,31 @@ public class Pokemon extends OPokemon {
         avoidRate = 9;// default avoidRate = 9%
     }
 
-    Pokemon(int gID, String gName) {
-        ID = gID;
-        Name = gName;
+    Pokemon(int in_ID, String in_Name) {
+        ID = in_ID;
+        Name = in_Name;
         HP = rnd.nextInt(300) + 600;
         attack = rnd.nextInt(66) + 100;
         defense = rnd.nextInt(30) + 90;
         avoidRate = 9;
+    }
+
+    Pokemon(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF) {
+        ID = in_ID;
+        Name = in_Name;
+        HP = in_HP;
+        attack = in_ATK;
+        defense = in_DEF;
+        avoidRate = 9;// still use default avoid rate here
+    }
+
+    Pokemon(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_avoidRate) {
+        ID = in_ID;
+        Name = in_Name;
+        HP = in_HP;
+        attack = in_ATK;
+        defense = in_DEF;
+        avoidRate = in_avoidRate;// if set to 100 will become a super boss in game
     }
 
     static void getMap() {
