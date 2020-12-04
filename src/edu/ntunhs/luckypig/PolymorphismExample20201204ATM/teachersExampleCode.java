@@ -23,11 +23,14 @@ class ATM {
     private String Name, ID, PWD;
     int Balance;
 
-    int withdraw(int gMoney) {
-        if (0 > gMoney)
+    int withdraw(int withdrawAmount) {
+        if (0 > withdrawAmount)// 輸入金額錯誤，不可小於0
             return 0;
-        Balance += gMoney;
-        return 1;
+        if (Balance >= withdrawAmount) {
+            Balance -= withdrawAmount;
+            return 1;
+        } else
+            return 0;
     }
 
     void SetBalance(int gMoney) {
@@ -44,26 +47,29 @@ class NetworkATM extends ATM {
     private int Bonus = 0;
 
     /**
-     * @param gMoney, 輸入存款金額
+     * @param depositAmount, 輸入存款金額
      * @return if true, 存款成功; false, 輸入錯誤
      */
-    boolean deposit(int gMoney) {
-        if (gMoney < 0) {
+    boolean deposit(int depositAmount) {
+        if (depositAmount < 0) {
             return false; // 存款金額<0, 錯誤狀態
         } else { // 存款的動作
-            Balance = Balance + gMoney; // Balance +=gMoney;
+            Balance = Balance + depositAmount; // Balance +=gMoney;
             Bonus += 7;
             System.out.println("NetworkATM 存款成功~! ");
             return true; // 存款成功狀態
         }
     }
 
-    int withdraw(int gMoney) {
-        if (0 > gMoney)
+    int withdraw(int withdrawAmount) {
+        if (0 > withdrawAmount)
             return 0;
-        Balance -= gMoney;
-        Bonus += 7;
-        return 1;
+        if (Balance >= withdrawAmount) {
+            Balance -= withdrawAmount;
+            Bonus += 7;//使用網銀提款增加紅利點數
+            return 1;
+        } else
+            return 0;
     }
 }
 
@@ -75,15 +81,15 @@ class NTUNHSpay {
 
     NTUNHSpay() {
         eWallet = new NetworkATM();
-        //父類別ATM可以使用子類別NetworkATM的方法與建構子
-        //eWallet的資料型態為ATM 使用的建構子卻是 NetworkATM的建構子
-        //這樣的用法稱之為多型(Polymorphism)
-        eWallet.SetBalance(5000);
+        // 父類別ATM可以使用子類別NetworkATM的方法與建構子
+        // eWallet的資料型態為ATM 使用的建構子卻是 NetworkATM的建構子
+        // 這樣的用法稱之為多型(Polymorphism)
+        eWallet.SetBalance(6000);
         Bonus = 0;
     }
 
-    int payment(int gMoney) {
-        if (eWallet.withdraw(gMoney) == 1) {
+    int payment(int paymentAmount) {
+        if (eWallet.withdraw(paymentAmount) == 1) {
             System.out.println("電子付款成功~! ");
             return 1;
         } else {
@@ -91,7 +97,7 @@ class NTUNHSpay {
         }
     }
 
-    int Register(int gMoney) {
+    int Register(int openDepositAmount) {
         return 0;
     }
 
