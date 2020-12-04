@@ -10,6 +10,17 @@ public class creditCard extends ATM{
         Bonus = 0;
     }
     
+    //信用卡只能存取提款功能(用來付帳)，不具有存款功能
+    int withdraw(int withdrawAmount) {
+        if (0 > withdrawAmount)// 輸入金額錯誤，不可小於0
+            return 0;
+        if (Balance >= withdrawAmount) {
+            Balance -= withdrawAmount;
+            return 1;
+        } else
+            return 0;
+    }
+
     int getBonus(){
         return Bonus;
     }
