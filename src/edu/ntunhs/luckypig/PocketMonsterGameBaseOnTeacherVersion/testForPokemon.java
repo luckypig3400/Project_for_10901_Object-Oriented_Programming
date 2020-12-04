@@ -28,7 +28,7 @@ public class testForPokemon {
         System.out.println("使用Pokemon Class建立成功， 您的第二個神奇寶貝為無屬性神奇寶貝，以下為其資訊:");
         myPoke.getPokemonInfo();
 
-
+        
 
         /*
         // myPlayer.addMyPokemon(animal);
