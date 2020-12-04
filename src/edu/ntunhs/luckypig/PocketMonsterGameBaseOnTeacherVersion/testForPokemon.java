@@ -32,7 +32,9 @@ public class testForPokemon {
         System.out.println("使用PokemonL2 Class進化成功， 您的第二個神奇寶貝為無屬性神奇寶貝，已經成功進化");
         myPokeL2.getEvolutionInfo();
 
-        
+        PokemonL3 myPokeL3 = new PokemonL3(myPokeL2.ID, myPokeL2.Name);
+        System.out.println("使用PokemonL3 Class進化成功， 您的第二個神奇寶貝為無屬性神奇寶貝，已經成功進化到最終型態");
+        myPokeL3.getEvolutionInfo();
 
         /*
         // myPlayer.addMyPokemon(animal);
