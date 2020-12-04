@@ -122,4 +122,10 @@ public class Pokemon extends OPokemon {
         return 0;
     }
 
+    @Override
+    void getPokemonInfo() {
+        System.out.println("ID:" + ID + "\tName:" + Name + "\nHP:" + HP + "\tATK:" + attack + "\tDEF:" + defense
+                + "\tavoidRate:" + avoidRate + "%\nCurrent Location:" + location);
+    }
+
 }
