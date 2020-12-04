@@ -11,7 +11,6 @@ public class Pokemon extends OPokemon {
     final int type = 1; // 0: Human, 1: Monster. 2: NPC
 
     Pokemon() {
-        System.out.println("Hello World 畜生");
         HP = rnd.nextInt(300) + 600;
         attack = rnd.nextInt(66) + 100;
         defense = rnd.nextInt(30) + 90;

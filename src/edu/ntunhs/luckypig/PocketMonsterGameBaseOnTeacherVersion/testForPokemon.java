@@ -3,6 +3,8 @@ package edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion;
 public class testForPokemon {
 
     public static void main(String[] args) {
+
+        /*
         // Scanner myScan = new Scanner(System.in);
         // System.out.println("歡迎光臨，請輸入您要的角色代號");
         // int ID = myScan.nextInt();
@@ -12,6 +14,7 @@ public class testForPokemon {
         // System.out.println(ID + " 您好, 請輸入大名");
         // String gName = myScan.next();
         // myPlayer.setName(gName);
+        */
 
         System.out.println("角色建立成功， 您的第一個神奇寶貝為傑尼龜\n");
         WetPokemon animal = new WetPokemon();
@@ -23,6 +26,7 @@ public class testForPokemon {
         Pokemon myPoke = new Pokemon();
         myPoke.getPokemonInfo();
 
+        /*
         // myPlayer.addMyPokemon(animal);
         //
         // System.out.println("請輸入您的帳號與密碼，登入遊戲\n");
@@ -49,5 +53,7 @@ public class testForPokemon {
         //// break;
         //// }
         // myScan.close();
+        */
+        
     }
 }
