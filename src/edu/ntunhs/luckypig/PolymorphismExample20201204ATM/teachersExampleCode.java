@@ -6,14 +6,18 @@ public class teachersExampleCode {
     public static void main(String[] args) {
         NTUNHSpay myPay = new NTUNHSpay();
         Scanner myScan = new Scanner(System.in);
-        int charge = 0;
+        int charge = 0,paymentOption = 1;
         while (true) {
+            System.out.println("請輸入付款方式 1網銀 2信用卡(輸入0離開)");
+            paymentOption = myScan.nextInt();
+            if (paymentOption == 0)
+                break;
             System.out.println("請輸入付款金額(輸入0離開)");
             charge = myScan.nextInt();
             if (charge == 0)
                 break;
-            myPay.payment(charge);
-            System.out.println("餘額: " + Integer.toString(myPay.getBalance()));
+            myPay.payment(charge,paymentOption);
+            System.out.println("餘額: " + Integer.toString(myPay.getBalance(paymentOption)));
         }
         myScan.close();
     }
