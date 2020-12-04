@@ -75,6 +75,9 @@ class NTUNHSpay {
 
     NTUNHSpay() {
         eWallet = new NetworkATM();
+        //父類別ATM可以使用子類別NetworkATM的方法與建構子
+        //eWallet的資料型態為ATM 使用的建構子卻是 NetworkATM的建構子
+        //這樣的用法稱之為多型(Polymorphism)
         eWallet.SetBalance(5000);
         Bonus = 0;
     }
