@@ -8,10 +8,10 @@ public class Exam {
         // int ID = myScan.nextInt();
         // System.out.println(ID + " 您好, 請輸入密碼");
         // String PWD = myScan.next();
-        // Actor myActor = new Actor(ID, PWD);
+        // Player myPlayer = new Player(ID, PWD);
         // System.out.println(ID + " 您好, 請輸入大名");
         // String gName = myScan.next();
-        // myActor.setName(gName);
+        // myPlayer.setName(gName);
 
         System.out.println("角色建立成功， 您的第一個神奇寶貝為傑尼龜\n");
         WetPokemon animal = new WetPokemon();
@@ -22,15 +22,15 @@ public class Exam {
         Pokemon.getMap();
         Pokemon.PokeInfo();
 
-        // myActor.addMyPokemon(animal);
+        // myPlayer.addMyPokemon(animal);
         //
         // System.out.println("請輸入您的帳號與密碼，登入遊戲\n");
         // System.out.println("請輸入帳號");
         // ID = myScan.nextInt();
         // System.out.println("請輸入密碼");
         // PWD = myScan.next();
-        // if(myActor.login(ID, PWD) == 1){
-        // System.out.println("歡迎光臨" + myActor.getName());
+        // if(myPlayer.login(ID, PWD) == 1){
+        // System.out.println("歡迎光臨" + myPlayer.getName());
         // }
         //
         // boolean isTurble = false;

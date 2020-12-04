@@ -1,13 +1,13 @@
 package edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion;
 
-public class Actor {
+public class Player {
     private int ID;
     private String PWD;
     private String Name;
     private WetPokemon myWet;
     private FirePokemon myFire;
 
-    Actor(int gID, String gPWD) {
+    Player(int gID, String gPWD) {
         ID = gID;
         PWD = gPWD;
     }
