@@ -1,6 +1,6 @@
 package edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion;
 
-public class Exam {
+public class testForPokemon {
 
     public static void main(String[] args) {
         // Scanner myScan = new Scanner(System.in);
