@@ -6,7 +6,7 @@ public class teachersExampleCode {
     public static void main(String[] args) {
         NTUNHSpay myPay = new NTUNHSpay();
         Scanner myScan = new Scanner(System.in);
-        int charge = 0,paymentOption = 1;
+        int charge = 0, paymentOption = 1;
         while (true) {
             System.out.println("請輸入付款方式 1網銀 2信用卡(輸入0離開)");
             paymentOption = myScan.nextInt();
@@ -16,8 +16,11 @@ public class teachersExampleCode {
             charge = myScan.nextInt();
             if (charge == 0)
                 break;
-            myPay.payment(charge,paymentOption);
-            System.out.println("餘額: " + Integer.toString(myPay.getBalance(paymentOption)));
+            if (myPay.payment(charge, paymentOption) == 1)
+                System.out.println("餘額: " + Integer.toString(myPay.getBalance(paymentOption)));
+            else
+                System.out.println("付款失敗(*>﹏<*)可能原因:網銀餘額不足、信用額度不夠或是付款裝置感應不良");
+
         }
         myScan.close();
     }
