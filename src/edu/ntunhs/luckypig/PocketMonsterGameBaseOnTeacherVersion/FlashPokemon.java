@@ -15,6 +15,7 @@ public class FlashPokemon {
     }
 
     int attack(OPokemon pada){
+        
         return 0;
     }
 
