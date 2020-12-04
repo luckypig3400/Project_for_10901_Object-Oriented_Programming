@@ -16,15 +16,19 @@ public class testForPokemon {
         // myPlayer.setName(gName);
         */
 
-        System.out.println("角色建立成功， 您的第一個神奇寶貝為傑尼龜\n");
-        WetPokemon animal = new WetPokemon();
-        System.out.println("WetPokemon's attack: " + animal.attack);
-        animal.singAsong();
+        System.out.println("角色建立成功， 您的第一個神奇寶貝為水系神奇寶貝\n");
+        WetPokemon firstWetPokemon = new WetPokemon();
+        System.out.println("WetPokemon's attack: " + firstWetPokemon.attack);
+        firstWetPokemon.singAsong();
 
         Pokemon.getMap();// test static function
         Pokemon.PokeInfo();// test static function
+
         Pokemon myPoke = new Pokemon();
+        System.out.println("使用Pokemon Class建立成功， 您的第二個神奇寶貝為無屬性神奇寶貝，以下為其資訊:");
         myPoke.getPokemonInfo();
+
+
 
         /*
         // myPlayer.addMyPokemon(animal);
@@ -54,6 +58,6 @@ public class testForPokemon {
         //// }
         // myScan.close();
         */
-        
+
     }
 }
