@@ -28,5 +28,5 @@ abstract class OPokemon {
 
     abstract int move(int movement);
 
-    abstract int attack(OPokemon pada);
+    abstract int attack(Pokemon pada);
 }
