@@ -18,6 +18,18 @@ class Monster {
 
     class PokemonLV2 extends PokemonLV1 implements move {
 
+        @Override
+        public int run(int movement) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
+
+        @Override
+        public int fly(int movement) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
+
     }
 
     interface move {
