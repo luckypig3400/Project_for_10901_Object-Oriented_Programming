@@ -22,6 +22,10 @@ public class PokemonL3_polymorphism extends Pokemon {
         ID = notEvolvedPokemon.ID;
         Name = notEvolvedPokemon.Name;
         HP = oHP = notEvolvedPokemon.HP;
+        // 如果希望HP = notEvolvedPokemon.HP; 同時 oHP = notEvolvedPokemon.HP;
+        // 則應該寫成HP = oHP = notEvolvedPokemon.HP;
+        // 若寫成HP = notEvolvedPokemon.HP = oHP;數值全部會變成0
+        // 因為電腦是從最右邊的變數開始往前指派而oHP的初始值是0
         attack = oATK = notEvolvedPokemon.attack;
         defense = oDEF = notEvolvedPokemon.defense;
         avoidRate = oAvoidRate = notEvolvedPokemon.avoidRate;

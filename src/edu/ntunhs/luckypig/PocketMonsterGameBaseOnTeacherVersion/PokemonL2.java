@@ -11,6 +11,10 @@ public class PokemonL2 extends Pokemon {
         ID = in_ID;
         Name = in_Name;
         HP = oHP = in_HP;
+        // 如果希望HP = in_HP; 同時 oHP = in_HP;
+        // 則應該寫成HP = oHP = in_HP;
+        // 若寫成HP = in_HP = oHP;數值全部會變成0
+        // 因為電腦是從最右邊的變數開始往前指派而oHP的初始值是0
         attack = oATK = in_ATK;
         defense = oDEF = in_DEF;
         avoidRate = oAvoidRate = in_avoidRate;
