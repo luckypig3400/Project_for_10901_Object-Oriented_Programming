@@ -9,16 +9,16 @@ public class testForPokemonL3_polymorphism {
         myPoke.getPokemonInfo();
 
         System.out.println("====================================");
-        PokemonL2 myPokeL2 = new PokemonL2(myPoke.ID, myPoke.Name, myPoke.HP, myPoke.attack, myPoke.defense,
-                myPoke.avoidRate);
-        System.out.println("使用PokemonL2 Class進化成功， 您的神奇寶貝為無屬性神奇寶貝，已經成功進化");
-        myPokeL2.getEvolutionInfo();
+        Pokemon myPokeL2 = new PokemonL2(myPoke);
+        System.out.println("使用PokemonL2 Class以多型方式進化成功， 您的神奇寶貝為無屬性神奇寶貝");
+        System.out.println("成功進化後的寶可夢資訊:");
+        myPokeL2.getPokemonInfo();
 
         System.out.println("====================================");
-        PokemonL3 myPokeL3 = new PokemonL3(myPokeL2.ID, myPokeL2.Name, myPokeL2.HP, myPokeL2.attack, myPokeL2.defense,
-                myPokeL2.avoidRate);
-        System.out.println("使用PokemonL3 Class進化成功， 您的神奇寶貝為無屬性神奇寶貝，已經成功進化到最終型態");
-        myPokeL3.getEvolutionInfo();
+        Pokemon myPokeL3 = new PokemonL3_polymorphism(myPoke);
+        System.out.println("使用PokemonL3 Class進化成功， 您的神奇寶貝為無屬性神奇寶貝");
+        System.out.println("已經成功進化到最終型後的寶可夢資訊:");
+        myPokeL3.getPokemonInfo();
 
     }
 }
