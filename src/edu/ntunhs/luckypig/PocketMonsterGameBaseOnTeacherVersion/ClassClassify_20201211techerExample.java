@@ -58,9 +58,3 @@ class FightSystem{
         
     }
 }
-
-class InAppPuchase{
-
-
-
-}
