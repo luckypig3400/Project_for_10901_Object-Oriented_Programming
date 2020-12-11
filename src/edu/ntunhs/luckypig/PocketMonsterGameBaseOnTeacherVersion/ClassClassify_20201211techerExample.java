@@ -46,15 +46,21 @@ class FightSystem{
 
     }
 
-    void attack(Pokemon fighter1,Pokemon fighter2){
+    void attack(Pokemon attacker,Pokemon defender){
 
     }
 
-    void defend(){
+    void defend(Pokemon defender){
 
     }
 
-    void selectPokemon(){
-
+    void selectPokemon(Player player1, Player player2){
+        
     }
+}
+
+class InAppPuchase{
+
+
+
 }
