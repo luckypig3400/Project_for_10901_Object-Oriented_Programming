@@ -14,7 +14,9 @@ public class PokemonL2 extends Pokemon {
         attack = oATK = in_ATK;
         defense = oDEF = in_DEF;
         avoidRate = oAvoidRate = in_avoidRate;
+        // System.out.println("Before evolution, defense:" + defense + "oDEF" + oDEF);
         evolution();
+        // System.out.println("After evolution, defense:" + defense + "oDEF" + oDEF);
     }
 
     void evolution() {
