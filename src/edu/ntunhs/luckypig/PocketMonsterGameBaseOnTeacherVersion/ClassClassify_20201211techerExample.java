@@ -39,20 +39,22 @@ class Monster {//寶可夢大類別(包含進化後的類別、五屬性寶可�
     }
 }
 
-class Fight{
-    class menu{
+class FightSystem{
+    Pokemon fighter1;
+    Pokemon fighter2;
+    void menu(){
 
     }
 
-    class attack{
+    void attack(Pokemon fighter1,Pokemon fighter2){
 
     }
 
-    class defend{
+    void defend(){
 
     }
 
-    class selectPokemon{
+    void selectPokemon(){
 
     }
 }
