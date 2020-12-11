@@ -1,6 +1,8 @@
 # Project_for_10901_Object-Oriented_Programming
  Project_for_10901_Object-Oriented_Programming
 
+## Focus in PocketMonsterGameRenew_20201211
+
 # 課堂筆記
 ### 類別內盡量不要使用Scanner 和 System out
 + 在內別內盡量只放和該類別有關的變數和方法就好
