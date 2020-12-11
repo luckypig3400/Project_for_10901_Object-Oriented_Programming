@@ -2,12 +2,13 @@ package edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion;
 
 /**
  * ClassClassify_20201211techer's Example
+ * 運用到Nested Class的概念來整理寶可夢類別
  */
 public class ClassClassify_20201211techerExample {
 
 }
 
-class Monster {
+class Monster {//寶可夢大類別(包含進化後的類別、五屬性寶可夢類別、以及interface)
     abstract class Pokemon {
 
     }
@@ -36,4 +37,8 @@ class Monster {
         int run(int movement);
         int fly(int movement);
     }
+}
+
+class FightSystem{
+
 }
