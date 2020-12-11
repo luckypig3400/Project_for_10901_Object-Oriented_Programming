@@ -39,6 +39,20 @@ class Monster {//寶可夢大類別(包含進化後的類別、五屬性寶可�
     }
 }
 
-class FightSystem{
+class Fight{
+    class menu{
 
+    }
+
+    class attack{
+
+    }
+
+    class defend{
+
+    }
+
+    class selectPokemon{
+
+    }
 }
