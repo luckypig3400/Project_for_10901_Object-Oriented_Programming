@@ -19,6 +19,18 @@ public class PokemonL2 extends Pokemon {
         // System.out.println("After evolution, defense:" + defense + "oDEF" + oDEF);
     }
 
+    PokemonL2(Pokemon notEvolvedPokemon) {
+        ID = notEvolvedPokemon.ID;
+        Name = notEvolvedPokemon.Name;
+        HP = notEvolvedPokemon.HP = oHP;
+        attack = notEvolvedPokemon.attack = oATK;
+        defense = notEvolvedPokemon.defense = oDEF;
+        avoidRate = notEvolvedPokemon.avoidRate = oAvoidRate;
+        // System.out.println("Before evolution, defense:" + defense + "oDEF" + oDEF);
+        evolution();
+        // System.out.println("After evolution, defense:" + defense + "oDEF" + oDEF);
+    }
+
     void evolution() {
         HP *= 1.2;
         attack *= 1.2;

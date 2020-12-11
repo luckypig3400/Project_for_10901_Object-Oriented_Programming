@@ -18,6 +18,19 @@ public class PokemonL3_polymorphism extends Pokemon{
         evolutionToL3();
     }
 
+    PokemonL3_polymorphism(Pokemon notEvolvedPokemon) {
+        ID = notEvolvedPokemon.ID;
+        Name = notEvolvedPokemon.Name;
+        HP = notEvolvedPokemon.HP = oHP;
+        attack = notEvolvedPokemon.attack = oATK;
+        defense = notEvolvedPokemon.defense = oDEF;
+        avoidRate = notEvolvedPokemon.avoidRate = oAvoidRate;
+        // System.out.println("Before evolution, defense:" + defense + "oDEF" + oDEF);
+        evolutionToL2();
+        evolutionToL3();
+        // System.out.println("After evolution to L3, defense:" + defense + "oDEF" + oDEF);
+    }
+
     void evolutionToL2() {
         HP *= 1.2;
         attack *= 1.2;
