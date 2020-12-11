@@ -14,14 +14,22 @@ public class PokemonL3_polymorphism extends Pokemon{
         attack = oATK = in_ATK;
         defense = oDEF = in_DEF;
         avoidRate = oAvoidRate = in_avoidRate;
-        evolution();
+        evolutionToL2();
+        evolutionToL3();
     }
 
-    void evolution() {
+    void evolutionToL2() {
         HP *= 1.2;
         attack *= 1.2;
         defense *= 1.2;
         avoidRate += 3;
+    }
+
+    void evolutionToL3(){
+        HP *= 1.1;
+        attack *= 1.1;
+        defense *= 1.1;
+        avoidRate += 9;//最終型態的起始閃避率提升了不少
     }
 
     void getEvolutionInfo() {
