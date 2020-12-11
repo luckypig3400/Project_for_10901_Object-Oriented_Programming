@@ -16,8 +16,8 @@ public class testForPokemonL3_polymorphism {
 
         System.out.println("====================================");
         Pokemon myPokeL3 = new PokemonL3_polymorphism(myPoke);
-        System.out.println("使用PokemonL3 Class進化成功， 您的神奇寶貝為無屬性神奇寶貝");
-        System.out.println("已經成功進化到最終型後的寶可夢資訊:");
+        System.out.println("使用PokemonL3_polymorphism Class進化成功， 您的神奇寶貝為無屬性神奇寶貝");
+        System.out.println("已經成功進化到最終型態後的寶可夢資訊:");
         myPokeL3.getPokemonInfo();
 
     }

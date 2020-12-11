@@ -1,6 +1,6 @@
 package edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion;
 
-public class PokemonL3_polymorphism extends Pokemon{
+public class PokemonL3_polymorphism extends Pokemon {
 
     int oHP, oATK, oDEF, oAvoidRate;// o stand for original
 
@@ -21,14 +21,15 @@ public class PokemonL3_polymorphism extends Pokemon{
     PokemonL3_polymorphism(Pokemon notEvolvedPokemon) {
         ID = notEvolvedPokemon.ID;
         Name = notEvolvedPokemon.Name;
-        HP = notEvolvedPokemon.HP = oHP;
-        attack = notEvolvedPokemon.attack = oATK;
-        defense = notEvolvedPokemon.defense = oDEF;
-        avoidRate = notEvolvedPokemon.avoidRate = oAvoidRate;
+        HP = oHP = notEvolvedPokemon.HP;
+        attack = oATK = notEvolvedPokemon.attack;
+        defense = oDEF = notEvolvedPokemon.defense;
+        avoidRate = oAvoidRate = notEvolvedPokemon.avoidRate;
         // System.out.println("Before evolution, defense:" + defense + "oDEF" + oDEF);
         evolutionToL2();
         evolutionToL3();
-        // System.out.println("After evolution to L3, defense:" + defense + "oDEF" + oDEF);
+        // System.out.println("After evolution to L3, defense:" + defense + "oDEF" +
+        // oDEF);
     }
 
     void evolutionToL2() {
@@ -38,11 +39,11 @@ public class PokemonL3_polymorphism extends Pokemon{
         avoidRate += 3;
     }
 
-    void evolutionToL3(){
+    void evolutionToL3() {
         HP *= 1.1;
         attack *= 1.1;
         defense *= 1.1;
-        avoidRate += 9;//最終型態的起始閃避率提升了不少
+        avoidRate += 9;// 最終型態的起始閃避率提升了不少
     }
 
     void getEvolutionInfo() {
