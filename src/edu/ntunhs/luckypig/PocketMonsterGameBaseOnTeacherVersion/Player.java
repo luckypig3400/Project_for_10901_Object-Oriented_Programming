@@ -3,9 +3,9 @@ package edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion;
 public class Player {
     private int ID;
     private String PWD;
-    private String Name;
-    private WetPokemon myWet;
-    private FirePokemon myFire;
+    String Name;
+    int playerPokemonCount = 0;
+    Pokemon[] pokemonInPlayerBag = new Pokemon[300];
 
     Player(int gID, String gPWD) {
         ID = gID;
@@ -38,11 +38,8 @@ public class Player {
         return 1; // 登入成功
     }
 
-    void addMyPokemon(WetPokemon Monster) {
-        myWet = new WetPokemon();
-    }
-
-    void addMyPokemon(FirePokemon Monster) {
-        myFire = new FirePokemon();
+    void addNewPokemonInPlayerBag(Pokemon newMonster) {
+        pokemonInPlayerBag[playerPokemonCount] = newMonster;
+        playerPokemonCount += 1;
     }
 }
