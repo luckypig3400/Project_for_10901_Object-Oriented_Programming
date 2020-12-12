@@ -2,7 +2,8 @@ package edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211;
 
 public class ATM {
     private String ID, Name, PWD;
-    int Balance;
+    private int Balance;
+    
 
     ATM() { // default Account (for test only)
         ID = "082214226";
@@ -33,6 +34,15 @@ public class ATM {
             return 1;
         } else
             return 0;
+    }
+
+    int deposit(int depositAmount) {
+        if (0 > depositAmount)// 輸入金額錯誤，不可小於0
+            return 0;
+        else {
+            Balance += depositAmount;
+            return 1;
+        }
     }
 
     void setBalance(int adjustedBalanceAmount) {
