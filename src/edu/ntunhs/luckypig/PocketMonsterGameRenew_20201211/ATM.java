@@ -3,13 +3,16 @@ package edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211;
 public class ATM {
     private String ID, Name, PWD;
     private int Balance;
-    
+    int dailyWithdrawLimit;// 每日提領上限金額
+    int todayWithdrawAmount;// 今日已提領額
 
     ATM() { // default Account (for test only)
         ID = "082214226";
         Name = "楊曜承";
         PWD = "226";
         Balance = 60000;
+        dailyWithdrawLimit = 30000;
+        todayWithdrawAmount = 0;
     }
 
     ATM(String in_ID, String in_Name, String in_PWD) {
@@ -17,6 +20,8 @@ public class ATM {
         Name = in_Name;
         PWD = in_PWD;
         Balance = 0;
+        dailyWithdrawLimit = 30000;
+        todayWithdrawAmount = 0;
     }
 
     ATM(String in_ID, String in_Name, String in_PWD, int openingDeposit) {
@@ -24,6 +29,8 @@ public class ATM {
         Name = in_Name;
         PWD = in_PWD;
         Balance = openingDeposit;// 開戶存入金額
+        dailyWithdrawLimit = 30000;
+        todayWithdrawAmount = 0;
     }
 
     int withdraw(int withdrawAmount) {
@@ -53,6 +60,14 @@ public class ATM {
         return Balance;
     }
 
+    void setDailyWithdrawLimit(int in_dailyWithdrawLimit) {
+        dailyWithdrawLimit = in_dailyWithdrawLimit;
+    }
+
+    int getDailyWithdrawLimit() {
+        return dailyWithdrawLimit;
+    }
+
     String getAccountInfo() {
         return Name + "您好~ 您的帳號ID:" + ID + "剩餘餘額:" + Balance;
     }
@@ -69,6 +84,6 @@ public class ATM {
     }
 
     void printATMmenu() {
-        
+
     }
 }
