@@ -69,11 +69,11 @@ public class ATM {
     }
 
     String getAccountInfo() {
-        return Name + "您好~ 您的帳號ID:" + ID + "剩餘餘額:" + Balance;
+        return Name + "您好~ 您的帳號ID:" + ID + "剩餘餘額:" + Balance + "今日已提款額:" + todayWithdrawAmount;
     }
 
     void printAccountInfo() {
-        System.out.println(Name + "您好~ 您的帳號ID:" + ID + "剩餘餘額:" + Balance);
+        System.out.println(Name + "您好~ 您的帳號ID:" + ID + "剩餘餘額:" + Balance + "今日已提款額:" + todayWithdrawAmount);
     }
 
     int login(String in_ID, String in_PWD) {
@@ -84,6 +84,6 @@ public class ATM {
     }
 
     void printATMmenu() {
-
+        
     }
 }
