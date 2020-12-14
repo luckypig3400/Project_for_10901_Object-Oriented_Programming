@@ -3,36 +3,37 @@ package edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211;
 public class Player {
     private int ID;
     private String PWD;
-    String Name;
+    String name;
     int playerPokemonCount = 0;
     Pokemon[] pokemonInPlayerBag = new Pokemon[300];
 
-    Player(int gID, String gPWD) {
-        ID = gID;
-        PWD = gPWD;
+    Player(int in_ID ,String in_name,String in_PWD) {
+        ID = in_ID;
+        name = in_name;
+        PWD = in_PWD;
     }
 
-    boolean setPWD(String oPWD, String gPWD) {
-        if (oPWD.equals(PWD)) {
-            PWD = gPWD;
+    boolean setPWD(String oldPWD, String newPWD) {
+        if (oldPWD.equals(PWD)) {
+            PWD = newPWD;
             return true;
         } else
             return false;
     }
 
     String getName() {
-        return Name;
+        return name;
     }
 
     void setName(String gName) {
-        Name = gName;
+        name = gName;
     }
 
-    int login(int gID, String gPWD) {
-        if (gID != ID) {
+    int login(int in_ID, String in_PWD) {
+        if (in_ID != ID) {
             return 2; // 帳號錯誤
         }
-        if (!PWD.equals(gPWD)) {
+        if (!PWD.equals(in_PWD)) {
             return 3; // 密碼錯誤
         }
         return 1; // 登入成功
