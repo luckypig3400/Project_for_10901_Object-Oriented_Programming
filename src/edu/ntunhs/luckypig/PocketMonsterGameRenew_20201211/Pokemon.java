@@ -8,22 +8,23 @@ public class Pokemon {
         String attribute = "none";// 寶可夢具有6種屬性
         // none為無屬性、water為水屬性、fire為火屬性、wood為木屬性、light為光屬性、dark為暗屬性
         // 日後可以使用屬性來做相剋加減傷
+        int id;
         String name;
         int currentLocation;// 這隻寶可夢在地圖上的位置
         int HP, ATK, DEF, dodgeRate, agile;// 三圍數值、閃避率與敏捷度
         // 或許之後使用寶可夢的敏捷度來決定先攻順序
     }
 
-    class PokemonNoneType extends abstractPokemon implements move, evolution {
+    class PokemonNoneAttribute extends abstractPokemon implements move, evolution {
 
         @Override
-        public int evolutionToLV2(int currentLevel) {
+        public int evolutionToType2(int currentLevel) {
             // TODO Auto-generated method stub
             return 0;
         }
 
         @Override
-        public int evolutionToLV3(int currentLevel) {
+        public int evolutionToType3(int currentLevel) {
             // TODO Auto-generated method stub
             return 0;
         }
@@ -42,15 +43,15 @@ public class Pokemon {
 
     }
 
-    interface move {
+    interface move { // maybe use it in the map system
         int run(int movement);
 
         int fly(int movement);
     }
 
     interface evolution {
-        int evolutionToLV2(int currentLevel);
+        int evolutionToType2(int currentType);
 
-        int evolutionToLV3(int currentLevel);
+        int evolutionToType3(int currentType);
     }
 }

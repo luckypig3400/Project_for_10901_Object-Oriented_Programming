@@ -75,6 +75,7 @@ public class PocketMonster {
                 thisTurnSkill = -1;
                 break;
         }
+        sc.close();
     }
 
     void usePocketMonsterSkill(PocketMonster enemyMonster) {// 因為要讓雙邊玩家先選完要執行的動作才開始回合
