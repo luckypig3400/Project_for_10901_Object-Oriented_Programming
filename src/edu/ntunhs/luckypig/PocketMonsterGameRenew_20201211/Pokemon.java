@@ -5,11 +5,19 @@ public class Pokemon {
 
     }
 
-    class PokemonLV1 extends abstractPokemon {
+    class PokemonNoneType extends abstractPokemon implements move , evolution{
 
-    }
+        @Override
+        public int evolutionToLV2(int currentLevel) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
 
-    class PokemonLV2 extends PokemonLV1 implements move {
+        @Override
+        public int evolutionToLV3(int currentLevel) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
 
         @Override
         public int run(int movement) {
@@ -22,11 +30,16 @@ public class Pokemon {
             // TODO Auto-generated method stub
             return 0;
         }
-
+        
     }
 
     interface move {
         int run(int movement);
         int fly(int movement);
+    }
+
+    interface evolution{
+        int evolutionToLV2(int currentLevel);
+        int evolutionToLV3(int currentLevel);
     }
 }
