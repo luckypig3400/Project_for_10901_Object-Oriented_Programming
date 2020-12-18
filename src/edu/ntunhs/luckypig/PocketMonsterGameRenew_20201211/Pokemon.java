@@ -1,5 +1,7 @@
 package edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211;
 
+import java.util.Random;
+
 public class Pokemon {
 
     interface move { // maybe use it in the map system
@@ -23,8 +25,8 @@ public class Pokemon {
         String attribute = "none";// 寶可夢具有6種屬性
         // none為無屬性、water為水屬性、fire為火屬性、wood為木屬性、light為光屬性、dark為暗屬性
         // 日後可以使用屬性來做相剋加減傷
-        int id;
-        String name;
+        int ID;
+        String Name;
         int currentLocation;// 這隻寶可夢在地圖上的位置
         int HP, ATK, DEF, dodgeRate, agile;// 三圍數值、閃避率與敏捷度
         // 或許之後使用寶可夢的敏捷度來決定先攻順序
@@ -32,39 +34,39 @@ public class Pokemon {
     }
 
     public class PokemonNoneAttribute extends abstractPokemon {
-
+        Random rnd = new Random();
         PokemonNoneAttribute() {
             HP = rnd.nextInt(300) + 600;
-            attack = rnd.nextInt(66) + 100;
-            defense = rnd.nextInt(30) + 90;
-            avoidRate = 9;// default avoidRate = 9%
+            ATK = rnd.nextInt(66) + 100;
+            DEF = rnd.nextInt(30) + 90;
+            dodgeRate = 9;// default dodgeRate = 9%
         }
 
         PokemonNoneAttribute(int in_ID, String in_Name) {
             ID = in_ID;
             Name = in_Name;
             HP = rnd.nextInt(300) + 600;
-            attack = rnd.nextInt(66) + 100;
-            defense = rnd.nextInt(30) + 90;
-            avoidRate = 9;
+            ATK = rnd.nextInt(66) + 100;
+            DEF = rnd.nextInt(30) + 90;
+            dodgeRate = 9;
         }
 
         PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF) {
             ID = in_ID;
             Name = in_Name;
             HP = in_HP;
-            attack = in_ATK;
-            defense = in_DEF;
-            avoidRate = 9;// still use default avoid rate here
+            ATK = in_ATK;
+            DEF = in_DEF;
+            dodgeRate = 9;// still use default avoid rate here
         }
 
-        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_avoidRate) {
+        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_dodgeRate) {
             ID = in_ID;
             Name = in_Name;
             HP = in_HP;
-            attack = in_ATK;
-            defense = in_DEF;
-            avoidRate = in_avoidRate;// if set to 100 will become a super boss in game
+            ATK = in_ATK;
+            DEF = in_DEF;
+            dodgeRate = in_dodgeRate;// if set to 100 will become a super boss in game
         }
 
         static void getMap() {
@@ -75,18 +77,18 @@ public class Pokemon {
             System.out.println("Pokemon is a monster, also called sweet potota~~");
         }
 
-        int attack(Pokemon enemyMonster, boolean isTurble) {
+        int ATK(Pokemon enemyMonster, boolean isTurble) {
             int result = 0;
             if (isTurble == true) {
-                attack *= 2;
-                result = attack(enemyMonster);
-                attack /= 2;
+                ATK *= 2;
+                result = ATK(enemyMonster);
+                ATK /= 2;
             }
             return result;
         }
 
         @Override
-        int attack(Pokemon enemyMonster) {
+        int ATK(Pokemon enemyMonster) {
             Random rand1st = new Random(); // instance of random class
             int upperbound = 99;
             int int_random = rand1st.nextInt(upperbound);// get random int between 0 ~ 99
@@ -103,13 +105,13 @@ public class Pokemon {
                     // Do Nothing
                     System.out.println("沒中 ");
                 } else if (int_random > 30 && int_random < 50) {
-                    enemyMonster.setHP(enemyMonster.getHP() - attack * 2);
+                    enemyMonster.setHP(enemyMonster.getHP() - ATK * 2);
                     System.out.println("Turbo");
                 } else if (int_random > 50 && int_random < 60) {
-                    enemyMonster.setHP(enemyMonster.getHP() - attack / 2);
+                    enemyMonster.setHP(enemyMonster.getHP() - ATK / 2);
                     System.out.println("so sad! only half");
                 } else if (int_random > 60 && int_random < 100) {
-                    enemyMonster.setHP(enemyMonster.getHP() - attack);
+                    enemyMonster.setHP(enemyMonster.getHP() - ATK);
                     System.out.println("Normal!!");
                 }
                 if (enemyMonster.getHP() <= 0) {
@@ -122,7 +124,7 @@ public class Pokemon {
         }
 
         int setDefenseProb(int prob) {
-            return avoidRate = 50;
+            return dodgeRate = 50;
         }
 
         int Recovery() {
@@ -146,8 +148,8 @@ public class Pokemon {
 
         @Override
         void getPokemonInfo() {
-            System.out.println("ID:" + ID + "\tName:" + Name + "\nHP:" + HP + "\tATK:" + attack + "\tDEF:" + defense
-                    + "\tavoidRate:" + avoidRate + "%\nCurrent Location:" + location);
+            System.out.println("ID:" + ID + "\tName:" + Name + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF
+                    + "\tdodgeRate:" + dodgeRate + "%\nCurrent Location:" + location);
         }
 
     }
