@@ -5,9 +5,9 @@ import java.util.Random;
 public class Pokemon {
 
     interface move { // maybe use it in the map system
-        int run(int movement);
+        int run(int movementX, int movementY);
 
-        int fly(int movement);
+        int fly(int movement, int movementY);
     }
 
     interface evolution {
@@ -27,7 +27,7 @@ public class Pokemon {
         // 日後可以使用屬性來做相剋加減傷
         int ID;
         String Name;
-        int currentLocation;// 這隻寶可夢在地圖上的位置
+        int currentLocationX, currentLocationY;// 這隻寶可夢在地圖上的位置
         int HP, ATK, DEF, dodgeRate, agile;// 三圍數值、閃避率與敏捷度
         // 或許之後使用寶可夢的敏捷度來決定先攻順序
         boolean defendStatus = false;// 玩家選擇防禦後紀錄防禦狀態
@@ -35,7 +35,10 @@ public class Pokemon {
 
     public class PokemonNoneAttribute extends abstractPokemon {
         Random rnd = new Random();
+
         PokemonNoneAttribute() {
+            currentLocationX = rnd.nextInt(65532);// 或許日後可以寫地圖
+            currentLocationY = rnd.nextInt(65532);
             HP = rnd.nextInt(300) + 600;
             ATK = rnd.nextInt(66) + 100;
             DEF = rnd.nextInt(30) + 90;
@@ -78,16 +81,15 @@ public class Pokemon {
             return blood;
         }
 
-        @Override
         int move(int movement) {
             location += movement;
             return 0;
         }
 
-        @Override
         void getPokemonInfo() {
-            System.out.println("ID:" + ID + "\tName:" + Name + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF
-                    + "\tdodgeRate:" + dodgeRate + "%\nCurrent Location:" + location);
+            System.out.println(
+                    "ID:" + ID + "\tName:" + Name + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\tdodgeRate:"
+                            + dodgeRate + "%\nCurrent Location:(" + currentLocationX + ", " + currentLocationY + ")");
         }
 
     }
