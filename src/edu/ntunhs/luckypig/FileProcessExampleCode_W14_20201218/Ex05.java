@@ -1,10 +1,10 @@
-package ch13;
+package edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Ex5 {
+public class Ex05 {
     public static void main(String[] args) {
         float total_age = 0, total_height = 0;
         try {
