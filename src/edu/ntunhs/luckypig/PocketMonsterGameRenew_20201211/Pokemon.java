@@ -69,14 +69,6 @@ public class Pokemon {
             dodgeRate = in_dodgeRate;// if set to 100 will become a super boss in game
         }
 
-        static void getMap() {
-            System.out.println("請看地圖:");
-        }
-
-        static void PokeInfo() {
-            System.out.println("Pokemon is a monster, also called sweet potota~~");
-        }
-
         public int getHP() {
             return HP;
         }
