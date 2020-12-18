@@ -7,7 +7,7 @@ public class Pokemon {
     interface move { // maybe use it in the map system
         int run(int movementX, int movementY);
 
-        int fly(int movement, int movementY);
+        int fly(int movementX, int movementY);
     }
 
     interface evolution {
@@ -33,7 +33,7 @@ public class Pokemon {
         boolean defendStatus = false;// 玩家選擇防禦後紀錄防禦狀態
     }
 
-    public class PokemonNoneAttribute extends abstractPokemon {
+    public class PokemonNoneAttribute extends abstractPokemon implements move, evolution {
         Random rnd = new Random();
 
         PokemonNoneAttribute() {
@@ -81,46 +81,38 @@ public class Pokemon {
             return blood;
         }
 
-        int move(int movement) {
-            location += movement;
-            return 0;
-        }
-
         void getPokemonInfo() {
             System.out.println(
                     "ID:" + ID + "\tName:" + Name + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\tdodgeRate:"
                             + dodgeRate + "%\nCurrent Location:(" + currentLocationX + ", " + currentLocationY + ")");
         }
 
+        @Override
+        public int evolutionToType2(int currentType) {
+            // TODO check current type and evolutionToType2 with 3values increase
+            return 0;
+        }
+
+        @Override
+        public int evolutionToType3(int currentType) {
+            // TODO check current type and evolutionToType3 with 3values increase
+            return 0;
+        }
+
+        @Override
+        public int run(int movementX, int movementY) {
+            currentLocationX += movementX;
+            currentLocationY += movementY;
+            return 0;
+        }
+
+        @Override
+        public int fly(int movementX, int movementY) {
+            currentLocationX += movementX * 2;
+            currentLocationY += movementY * 2;
+            return 0;
+        }
+
     }
-
-    // class PokemonNoneAttribute extends abstractPokemon implements move, evolution
-    // {
-
-    // @Override
-    // public int evolutionToType2(int currentLevel) {
-    // // TODO Auto-generated method stub
-    // return 0;
-    // }
-
-    // @Override
-    // public int evolutionToType3(int currentLevel) {
-    // // TODO Auto-generated method stub
-    // return 0;
-    // }
-
-    // @Override
-    // public int run(int movement) {
-    // // TODO Auto-generated method stub
-    // return 0;
-    // }
-
-    // @Override
-    // public int fly(int movement) {
-    // // TODO Auto-generated method stub
-    // return 0;
-    // }
-
-    // }
 
 }
