@@ -77,60 +77,6 @@ public class Pokemon {
             System.out.println("Pokemon is a monster, also called sweet potota~~");
         }
 
-        int ATK(Pokemon enemyMonster, boolean isTurble) {
-            int result = 0;
-            if (isTurble == true) {
-                ATK *= 2;
-                result = ATK(enemyMonster);
-                ATK /= 2;
-            }
-            return result;
-        }
-
-        @Override
-        int ATK(Pokemon enemyMonster) {
-            Random rand1st = new Random(); // instance of random class
-            int upperbound = 99;
-            int int_random = rand1st.nextInt(upperbound);// get random int between 0 ~ 99
-            // 第一次躲避
-            if (int_random >= 0 && int_random < 50) {
-                System.out.println("沒中 ");
-                return 1;
-            }
-            // 第一次躲避失敗，攻擊
-            else {
-                Random rand2nd = new Random(); // instance of random class
-                int_random = rand2nd.nextInt(upperbound);
-                if (int_random >= 0 && int_random < 30) {
-                    // Do Nothing
-                    System.out.println("沒中 ");
-                } else if (int_random > 30 && int_random < 50) {
-                    enemyMonster.setHP(enemyMonster.getHP() - ATK * 2);
-                    System.out.println("Turbo");
-                } else if (int_random > 50 && int_random < 60) {
-                    enemyMonster.setHP(enemyMonster.getHP() - ATK / 2);
-                    System.out.println("so sad! only half");
-                } else if (int_random > 60 && int_random < 100) {
-                    enemyMonster.setHP(enemyMonster.getHP() - ATK);
-                    System.out.println("Normal!!");
-                }
-                if (enemyMonster.getHP() <= 0) {
-                    enemyMonster.setHP(0);
-                    System.out.println("OH" + enemyMonster.Name + " die!!");
-                    return 1;
-                }
-                return 0;
-            }
-        }
-
-        int setDefenseProb(int prob) {
-            return dodgeRate = 50;
-        }
-
-        int Recovery() {
-            return setHP(getHP() + 20);
-        }
-
         public int getHP() {
             return HP;
         }
