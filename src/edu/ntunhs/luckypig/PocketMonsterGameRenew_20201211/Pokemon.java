@@ -32,7 +32,7 @@ public class Pokemon {
         int currentLocationX, currentLocationY;// 這隻寶可夢在地圖上的位置
         int HP, ATK, DEF, agile;// 三圍數值 與 敏捷度
         // 於戰鬥系統中使用寶可夢的敏捷度來決定先攻順序
-        int maxHP;//使用回血時血量不可超過血量上限
+        int maxHP;// 使用回血時血量不可超過血量上限
         double dodgeRate, criticalRate;// 閃避率 與 爆擊率
         boolean defendStatus;// 玩家選擇防禦後紀錄防禦狀態
     }
@@ -151,13 +151,56 @@ public class Pokemon {
             defendStatus = false;
         }
 
-        public int getHP() {
+        public int getCurrentHP() {
             return HP;
         }
 
-        public int setHP(int blood) {
-            HP = blood;
-            return blood;
+        public void printCurrentHP() {
+            System.out.println("目前HP:" + HP);
+        }
+
+        public void setCurrentHP(int in_HP) {
+            HP = in_HP;
+            System.out.println("成功設定當前HP，目前HP:" + HP);
+        }
+
+        public int getMaxHP() {
+            return maxHP;
+        }
+
+        public void printMaxHP() {
+            System.out.println("目前HP上限:" + maxHP);
+        }
+
+        public void setMaxHP(int in_maxHP) {
+            HP = in_maxHP;
+            System.out.println("成功設定HP上限，目前maxHP:" + maxHP);
+        }
+
+        public int getATK() {
+            return ATK;
+        }
+
+        public void printATK() {
+            System.out.println("目前ATK:" + ATK);
+        }
+
+        public void setATK(int in_ATK) {
+            ATK = in_ATK;
+            System.out.println("成功設定ATK，目前ATK:" + ATK);
+        }
+
+        public int getDEF() {
+            return DEF;
+        }
+
+        public void printDEF() {
+            System.out.println("目前DEF:" + DEF);
+        }
+
+        public void setDEF(int in_DEF) {
+            DEF = in_DEF;
+            System.out.println("成功設定DEF，目前DEF:" + DEF);
         }
 
         void printPokemonInfo() {

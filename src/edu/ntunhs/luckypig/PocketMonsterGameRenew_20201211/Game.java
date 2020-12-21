@@ -1,5 +1,7 @@
 package edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211;
 
+import java.util.Scanner;
+
 public class Game {
 
     // TODO: use ArrayList to store players or pokemons
@@ -7,10 +9,12 @@ public class Game {
     // TODO: create a class for File Saving (Maybe call it FileSavingjava)
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         Player p1 = new Player(1, "玩家1", "1");
         Player p2 = new Player(2, "玩家2", "2");
 
         Pokemon.PokemonNoneAttribute testPoke1 = new Pokemon().new PokemonNoneAttribute();
         testPoke1.printPokemonInfo();
+        sc.close();
     }
 }
