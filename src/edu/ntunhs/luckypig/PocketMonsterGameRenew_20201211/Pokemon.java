@@ -28,7 +28,7 @@ public class Pokemon {
         int ID;
         String Name;
         int currentLocationX, currentLocationY;// 這隻寶可夢在地圖上的位置
-        int HP, ATK, DEF, dodgeRate, agile;// 三圍數值、閃避率與敏捷度
+        int HP, ATK, DEF, dodgeRate, criticalRate, agile;// 三圍數值、閃避率、爆擊率與敏捷度
         // 或許之後使用寶可夢的敏捷度來決定先攻順序
         boolean defendStatus = false;// 玩家選擇防禦後紀錄防禦狀態
     }
@@ -81,10 +81,19 @@ public class Pokemon {
             return blood;
         }
 
-        void getPokemonInfo() {
-            System.out.println(
-                    "ID:" + ID + "\tName:" + Name + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\tdodgeRate:"
-                            + dodgeRate + "%\nCurrent Location:(" + currentLocationX + ", " + currentLocationY + ")");
+        void printPokemonInfo() {
+            System.out.println("ID:" + ID + "\tName:" + Name + "\nLevel:" + level + "\t屬性:" + attribute + "\n當前型態:第"
+                    + type + "型態(第3型態為最終型態)" + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\n敏捷度:" + agile
+                    + "\t閃避率:" + dodgeRate + "%\t爆擊率:" + criticalRate + "%\nCurrent Location:(" + currentLocationX
+                    + ", " + currentLocationY + ")");
+        }
+
+        String getPokemonInfo() {
+            String outputString = "ID:" + ID + "\tName:" + Name + "\nLevel:" + level + "\t屬性:" + attribute + "\n當前型態:第"
+                    + type + "型態(第3型態為最終型態)" + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\n敏捷度:" + agile
+                    + "\t閃避率:" + dodgeRate + "%\t爆擊率:" + criticalRate + "%\nCurrent Location:(" + currentLocationX
+                    + ", " + currentLocationY + ")";
+            return outputString;
         }
 
         @Override
