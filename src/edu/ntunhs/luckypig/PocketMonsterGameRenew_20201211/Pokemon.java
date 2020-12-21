@@ -40,7 +40,7 @@ public class Pokemon {
         Random rnd = new Random();
         RandomString rndString = new RandomString();
 
-        PokemonNoneAttribute() {
+        PokemonNoneAttribute() {// default constructor provides random generate ID、Name and more...
             type = 1;
             level = 1;
             exp = 0;
@@ -94,7 +94,45 @@ public class Pokemon {
             defendStatus = false;
         }
 
-        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_dodgeRate) {
+        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile) {
+            type = 1;
+            level = 1;
+            exp = 0;
+            attribute = "none";
+            currentLocationX = rnd.nextInt(65532);// 或許日後可以寫地圖
+            currentLocationY = rnd.nextInt(65532);
+            ID = in_ID;
+            Name = in_Name;
+            HP = in_HP;
+            ATK = in_ATK;
+            DEF = in_DEF;
+            dodgeRate = 9;// still use default avoid rate here
+            agile = in_agile;
+            criticalRate = 6;
+            defendStatus = false;
+        }
+
+        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile,
+                double in_criticalRate) {
+            type = 1;
+            level = 1;
+            exp = 0;
+            attribute = "none";
+            currentLocationX = rnd.nextInt(65532);// 或許日後可以寫地圖
+            currentLocationY = rnd.nextInt(65532);
+            ID = in_ID;
+            Name = in_Name;
+            HP = in_HP;
+            ATK = in_ATK;
+            DEF = in_DEF;
+            dodgeRate = 9;// still use default avoid rate here
+            agile = in_agile;
+            criticalRate = in_criticalRate;
+            defendStatus = false;
+        }
+
+        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile,
+                double in_criticalRate, double in_dodgeRate) {
             type = 1;
             level = 1;
             exp = 0;
@@ -107,8 +145,8 @@ public class Pokemon {
             ATK = in_ATK;
             DEF = in_DEF;
             dodgeRate = in_dodgeRate;// if set to 100 will become a super boss in game
-            agile = rnd.nextInt(15) + 9;// 敏捷度上限100，對戰時敏捷度高的先攻
-            criticalRate = 6;// defaule criticalRate = 6%
+            agile = in_agile;
+            criticalRate = in_criticalRate;
             defendStatus = false;
         }
 
