@@ -2,7 +2,9 @@ package edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211;
 
 import java.util.Random;
 import edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211.RandomString;
-// 其實只需要import the file lacated at edu.ntunhs.luckypig.RandomString即可
+// 其實只需要引入位於 edu.ntunhs.luckypig 的 RandomString 即可
+// import edu.ntunhs.luckypig.RandomString;
+// 但是為了方便繳交作業，因此複製一份到同個資料夾內
 
 public class Pokemon {
 
@@ -41,7 +43,7 @@ public class Pokemon {
         Random rnd = new Random();
         RandomString rndString = new RandomString();
 
-        PokemonNoneAttribute() {// default constructor provides random generate ID、Name and more...
+        public PokemonNoneAttribute() {// default constructor provides random generate ID、Name and more...
             type = 1;
             level = 1;
             exp = 0;
@@ -59,7 +61,7 @@ public class Pokemon {
             defendStatus = false;
         }
 
-        PokemonNoneAttribute(int in_ID, String in_Name) {
+        public PokemonNoneAttribute(int in_ID, String in_Name) {
             type = 1;
             level = 1;
             exp = 0;
@@ -77,7 +79,7 @@ public class Pokemon {
             defendStatus = false;
         }
 
-        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF) {
+        public PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF) {
             type = 1;
             level = 1;
             exp = 0;
@@ -95,7 +97,7 @@ public class Pokemon {
             defendStatus = false;
         }
 
-        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile) {
+        public PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile) {
             type = 1;
             level = 1;
             exp = 0;
@@ -113,7 +115,7 @@ public class Pokemon {
             defendStatus = false;
         }
 
-        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile,
+        public PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile,
                 double in_criticalRate) {
             type = 1;
             level = 1;
@@ -132,7 +134,7 @@ public class Pokemon {
             defendStatus = false;
         }
 
-        PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile,
+        public PokemonNoneAttribute(int in_ID, String in_Name, int in_HP, int in_ATK, int in_DEF, int in_agile,
                 double in_criticalRate, double in_dodgeRate) {
             type = 1;
             level = 1;
@@ -203,14 +205,14 @@ public class Pokemon {
             System.out.println("成功設定DEF，目前DEF:" + DEF);
         }
 
-        void printPokemonInfo() {
+        public void printPokemonInfo() {
             System.out.println("ID:" + ID + "\tName:" + Name + "\nLevel:" + level + "\t屬性:" + attribute + "\n當前型態:第"
                     + type + "型態(第3型態為最終型態)" + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\n敏捷度:" + agile
                     + "\t閃避率:" + dodgeRate + "%\t爆擊率:" + criticalRate + "%\nCurrent Location:(" + currentLocationX
                     + ", " + currentLocationY + ")");
         }
 
-        String getPokemonInfo() {
+        public String getPokemonInfo() {
             String outputString = "ID:" + ID + "\tName:" + Name + "\nLevel:" + level + "\t屬性:" + attribute + "\n當前型態:第"
                     + type + "型態(第3型態為最終型態)" + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\n敏捷度:" + agile
                     + "\t閃避率:" + dodgeRate + "%\t爆擊率:" + criticalRate + "%\nCurrent Location:(" + currentLocationX
