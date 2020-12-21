@@ -32,6 +32,7 @@ public class Pokemon {
         int currentLocationX, currentLocationY;// 這隻寶可夢在地圖上的位置
         int HP, ATK, DEF, agile;// 三圍數值 與 敏捷度
         // 於戰鬥系統中使用寶可夢的敏捷度來決定先攻順序
+        int maxHP;//使用回血時血量不可超過血量上限
         double dodgeRate, criticalRate;// 閃避率 與 爆擊率
         boolean defendStatus;// 玩家選擇防禦後紀錄防禦狀態
     }
@@ -49,7 +50,7 @@ public class Pokemon {
             Name = rndString.nextString();// 隨機幫寶可夢取名字
             currentLocationX = rnd.nextInt(65532);// 或許日後可以寫地圖
             currentLocationY = rnd.nextInt(65532);
-            HP = rnd.nextInt(300) + 600;
+            maxHP = HP = rnd.nextInt(300) + 600;
             ATK = rnd.nextInt(66) + 100;
             DEF = rnd.nextInt(30) + 90;
             agile = rnd.nextInt(15) + 9;// 敏捷度上限100，對戰時敏捷度高的先攻
@@ -67,7 +68,7 @@ public class Pokemon {
             Name = in_Name;
             currentLocationX = rnd.nextInt(65532);// 或許日後可以寫地圖
             currentLocationY = rnd.nextInt(65532);
-            HP = rnd.nextInt(300) + 600;
+            maxHP = HP = rnd.nextInt(300) + 600;
             ATK = rnd.nextInt(66) + 100;
             DEF = rnd.nextInt(30) + 90;
             agile = rnd.nextInt(15) + 9;// 敏捷度上限100，對戰時敏捷度高的先攻
@@ -85,7 +86,7 @@ public class Pokemon {
             currentLocationY = rnd.nextInt(65532);
             ID = in_ID;
             Name = in_Name;
-            HP = in_HP;
+            maxHP = HP = in_HP;
             ATK = in_ATK;
             DEF = in_DEF;
             dodgeRate = 9;// still use default avoid rate here
@@ -103,7 +104,7 @@ public class Pokemon {
             currentLocationY = rnd.nextInt(65532);
             ID = in_ID;
             Name = in_Name;
-            HP = in_HP;
+            maxHP = HP = in_HP;
             ATK = in_ATK;
             DEF = in_DEF;
             dodgeRate = 9;// still use default avoid rate here
@@ -122,7 +123,7 @@ public class Pokemon {
             currentLocationY = rnd.nextInt(65532);
             ID = in_ID;
             Name = in_Name;
-            HP = in_HP;
+            maxHP = HP = in_HP;
             ATK = in_ATK;
             DEF = in_DEF;
             dodgeRate = 9;// still use default avoid rate here
@@ -141,7 +142,7 @@ public class Pokemon {
             currentLocationY = rnd.nextInt(65532);
             ID = in_ID;
             Name = in_Name;
-            HP = in_HP;
+            maxHP = HP = in_HP;
             ATK = in_ATK;
             DEF = in_DEF;
             dodgeRate = in_dodgeRate;// if set to 100 will become a super boss in game
