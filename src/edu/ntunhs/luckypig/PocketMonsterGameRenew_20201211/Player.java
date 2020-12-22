@@ -7,7 +7,7 @@ public class Player {
     int playerPokemonCount = 0;
     Pokemon[] pokemonInPlayerBag = new Pokemon[300];
 
-    Player(int in_ID ,String in_name,String in_PWD) {
+    Player(int in_ID, String in_name, String in_PWD) {
         ID = in_ID;
         name = in_name;
         PWD = in_PWD;
@@ -27,6 +27,18 @@ public class Player {
 
     void setName(String gName) {
         name = gName;
+    }
+
+    void setPassword(String in_PWD) {
+        PWD = in_PWD;
+    }
+
+    int changePassword(String originalPWD, String newPWD) {
+        if (originalPWD.equals(PWD)) {
+            PWD = newPWD;
+            return 1;
+        } else
+            return 0;// failed password won't change
     }
 
     int login(int in_ID, String in_PWD) {
