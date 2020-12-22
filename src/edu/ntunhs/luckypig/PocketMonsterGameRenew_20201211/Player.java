@@ -56,12 +56,16 @@ public class Player {
         playerPokemonCount += 1;
     }
 
-
-    Pokemon selectPokemonToFight() {
-        System.out.println("您共擁有" + playerPokemonCount + "隻寶可夢");
+    void printAllPokemonInfos() {
+        System.out.println(name + "您共擁有" + playerPokemonCount + "隻寶可夢");
         for (int i = 0; i < pokemonInPlayerBag.length; i++) {
             System.out.println("您的第" + (i + 1) + "隻寶可夢訊息如下:");
             pokemonInPlayerBag[i].printPokemonInfo();
         }
+    }
+
+    Pokemon selectPokemonToFight(int in_serialNumInBag) {
+        in_serialNumInBag -= 1;// 轉換成陣列序號
+        return pokemonInPlayerBag[in_serialNumInBag];
     }
 }

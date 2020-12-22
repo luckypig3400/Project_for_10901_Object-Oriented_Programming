@@ -41,9 +41,18 @@ public class Game {
         if (p2.login(2, password) == 1)
             System.out.println("玩家2成功登入，熱烈歡迎" + p2.name + "來到這個神奇遊戲~");
 
-        Pokemon.PokemonNoneAttribute testPoke = new Pokemon().new PokemonNoneAttribute();
-        p1.addNewPokemonInPlayerBag(testPoke);
+        System.out.println(p1.name + "快來幫你的第一隻寶可夢取個名字吧:");
+        String pokeName = sc.nextLine();
+        Pokemon.PokemonNoneAttribute p1FirstPoke = new Pokemon().new PokemonNoneAttribute(1, pokeName);
+        p1.addNewPokemonInPlayerBag(p1FirstPoke);
+
+        System.out.println(p2.name + "快來幫你的第一隻寶可夢取個名字吧:");
+        pokeName = sc.nextLine();
+        Pokemon.PokemonNoneAttribute p2FirstPoke = new Pokemon().new PokemonNoneAttribute(1, pokeName);
+        p2.addNewPokemonInPlayerBag(p2FirstPoke);
+
         
+
         sc.close();
     }
 }
