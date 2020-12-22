@@ -261,6 +261,35 @@ public class Pokemon {
             return outputString;
         }
 
+        public String getCurrentLocation() {
+            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+            return locationCoordinates;
+        }
+
+        public void printCurrentLocation() {
+            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+            System.out.println("目前" + Name + "的所在位置為:" + locationCoordinates);
+        }
+
+        public void setCurrentLocationX(int in_x) {
+            currentLocationX = in_x;
+            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+            System.out.println("成功設定X位置，目前" + Name + "的所在位置為:" + locationCoordinates);
+        }
+
+        public void setCurrentLocationY(int in_y) {
+            currentLocationY = in_y;
+            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+            System.out.println("成功設定Y位置，目前" + Name + "的所在位置為:" + locationCoordinates);
+        }
+
+        public void setCurrentLocation(int in_x, int in_y) {
+            currentLocationX = in_x;
+            currentLocationY = in_y;
+            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+            System.out.println("成功設定XY位置，目前" + Name + "的所在位置為:" + locationCoordinates);
+        }
+
         @Override
         public int evolutionToType2(int currentType) {
             // TODO check current type and evolutionToType2 with 3values increase
