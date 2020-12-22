@@ -27,6 +27,141 @@ public class Pokemon {
     // https://stackoverflow.com/questions/27598078/float-and-double-datatype-in-java
     boolean defendStatus;// 玩家選擇防禦後紀錄防禦狀態
 
+    public int getCurrentHP() {
+        return HP;
+    }
+
+    public void printCurrentHP() {
+        System.out.println("目前HP:" + HP);
+    }
+
+    public void setCurrentHP(int in_HP) {
+        HP = in_HP;
+        System.out.println("成功設定當前HP，目前HP:" + HP);
+    }
+
+    public int getMaxHP() {
+        return maxHP;
+    }
+
+    public void printMaxHP() {
+        System.out.println("目前HP上限:" + maxHP);
+    }
+
+    public void setMaxHP(int in_maxHP) {
+        maxHP = in_maxHP;
+        System.out.println("成功設定HP上限，目前maxHP:" + maxHP);
+    }
+
+    public int getATK() {
+        return ATK;
+    }
+
+    public void printATK() {
+        System.out.println("目前ATK:" + ATK);
+    }
+
+    public void setATK(int in_ATK) {
+        ATK = in_ATK;
+        System.out.println("成功設定ATK，目前ATK:" + ATK);
+    }
+
+    public int getDEF() {
+        return DEF;
+    }
+
+    public void printDEF() {
+        System.out.println("目前DEF:" + DEF);
+    }
+
+    public void setDEF(int in_DEF) {
+        DEF = in_DEF;
+        System.out.println("成功設定DEF，目前DEF:" + DEF);
+    }
+
+    public int getAgile() {
+        return agile;
+    }
+
+    public void printAgile() {
+        System.out.println("目前敏捷:" + agile);
+    }
+
+    public void setAgile(int in_agile) {
+        agile = in_agile;
+        System.out.println("成功設定敏捷，目前敏捷:" + agile);
+    }
+
+    public double getDodgeRate() {
+        return dodgeRate;
+    }
+
+    public void printDodgeRate() {
+        System.out.println("目前閃避率:" + dodgeRate + "%");
+    }
+
+    public void setDodgeRate(double in_dodgeRate) {
+        dodgeRate = in_dodgeRate;
+        System.out.println("成功設定閃避率，目前閃避率:" + dodgeRate + "%");
+    }
+
+    public double getCriticalRate() {
+        return criticalRate;
+    }
+
+    public void printCriticalRate() {
+        System.out.println("目前暴擊率:" + criticalRate + "%");
+    }
+
+    public void setCriticalRate(double in_criticalRate) {
+        criticalRate = in_criticalRate;
+        System.out.println("成功設定暴擊率，目前暴擊率:" + criticalRate + "%");
+    }
+
+    public void printPokemonInfo() {
+        System.out.println("ID:" + ID + "\tName:" + Name + "\nLevel:" + level + "\t屬性:" + attribute + "\n當前型態:第" + type
+                + "型態(第3型態為最終型態)" + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\n敏捷度:" + agile + "\t閃避率:"
+                + dodgeRate + "%\t爆擊率:" + criticalRate + "%\nCurrent Location:(" + currentLocationX + ", "
+                + currentLocationY + ")");
+    }
+
+    public String getPokemonInfo() {
+        String outputString = "ID:" + ID + "\tName:" + Name + "\nLevel:" + level + "\t屬性:" + attribute + "\n當前型態:第"
+                + type + "型態(第3型態為最終型態)" + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\n敏捷度:" + agile + "\t閃避率:"
+                + dodgeRate + "%\t爆擊率:" + criticalRate + "%\nCurrent Location:(" + currentLocationX + ", "
+                + currentLocationY + ")";
+        return outputString;
+    }
+
+    public String getCurrentLocation() {
+        String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+        return locationCoordinates;
+    }
+
+    public void printCurrentLocation() {
+        String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+        System.out.println("目前" + Name + "的所在位置為:" + locationCoordinates);
+    }
+
+    public void setCurrentLocationX(int in_x) {
+        currentLocationX = in_x;
+        String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+        System.out.println("成功設定X位置，目前" + Name + "的所在位置為:" + locationCoordinates);
+    }
+
+    public void setCurrentLocationY(int in_y) {
+        currentLocationY = in_y;
+        String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+        System.out.println("成功設定Y位置，目前" + Name + "的所在位置為:" + locationCoordinates);
+    }
+
+    public void setCurrentLocation(int in_x, int in_y) {
+        currentLocationX = in_x;
+        currentLocationY = in_y;
+        String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
+        System.out.println("成功設定XY位置，目前" + Name + "的所在位置為:" + locationCoordinates);
+    }
+
     interface move { // maybe use it in the map system
         int run(int movementX, int movementY);
 
@@ -151,141 +286,6 @@ public class Pokemon {
             agile = in_agile;
             criticalRate = in_criticalRate;
             defendStatus = false;
-        }
-
-        public int getCurrentHP() {
-            return HP;
-        }
-
-        public void printCurrentHP() {
-            System.out.println("目前HP:" + HP);
-        }
-
-        public void setCurrentHP(int in_HP) {
-            HP = in_HP;
-            System.out.println("成功設定當前HP，目前HP:" + HP);
-        }
-
-        public int getMaxHP() {
-            return maxHP;
-        }
-
-        public void printMaxHP() {
-            System.out.println("目前HP上限:" + maxHP);
-        }
-
-        public void setMaxHP(int in_maxHP) {
-            maxHP = in_maxHP;
-            System.out.println("成功設定HP上限，目前maxHP:" + maxHP);
-        }
-
-        public int getATK() {
-            return ATK;
-        }
-
-        public void printATK() {
-            System.out.println("目前ATK:" + ATK);
-        }
-
-        public void setATK(int in_ATK) {
-            ATK = in_ATK;
-            System.out.println("成功設定ATK，目前ATK:" + ATK);
-        }
-
-        public int getDEF() {
-            return DEF;
-        }
-
-        public void printDEF() {
-            System.out.println("目前DEF:" + DEF);
-        }
-
-        public void setDEF(int in_DEF) {
-            DEF = in_DEF;
-            System.out.println("成功設定DEF，目前DEF:" + DEF);
-        }
-
-        public int getAgile() {
-            return agile;
-        }
-
-        public void printAgile() {
-            System.out.println("目前敏捷:" + agile);
-        }
-
-        public void setAgile(int in_agile) {
-            agile = in_agile;
-            System.out.println("成功設定敏捷，目前敏捷:" + agile);
-        }
-
-        public double getDodgeRate() {
-            return dodgeRate;
-        }
-
-        public void printDodgeRate() {
-            System.out.println("目前閃避率:" + dodgeRate + "%");
-        }
-
-        public void setDodgeRate(double in_dodgeRate) {
-            dodgeRate = in_dodgeRate;
-            System.out.println("成功設定閃避率，目前閃避率:" + dodgeRate + "%");
-        }
-
-        public double getCriticalRate() {
-            return criticalRate;
-        }
-
-        public void printCriticalRate() {
-            System.out.println("目前暴擊率:" + criticalRate + "%");
-        }
-
-        public void setCriticalRate(double in_criticalRate) {
-            criticalRate = in_criticalRate;
-            System.out.println("成功設定暴擊率，目前暴擊率:" + criticalRate + "%");
-        }
-
-        public void printPokemonInfo() {
-            System.out.println("ID:" + ID + "\tName:" + Name + "\nLevel:" + level + "\t屬性:" + attribute + "\n當前型態:第"
-                    + type + "型態(第3型態為最終型態)" + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\n敏捷度:" + agile
-                    + "\t閃避率:" + dodgeRate + "%\t爆擊率:" + criticalRate + "%\nCurrent Location:(" + currentLocationX
-                    + ", " + currentLocationY + ")");
-        }
-
-        public String getPokemonInfo() {
-            String outputString = "ID:" + ID + "\tName:" + Name + "\nLevel:" + level + "\t屬性:" + attribute + "\n當前型態:第"
-                    + type + "型態(第3型態為最終型態)" + "\nHP:" + HP + "\tATK:" + ATK + "\tDEF:" + DEF + "\n敏捷度:" + agile
-                    + "\t閃避率:" + dodgeRate + "%\t爆擊率:" + criticalRate + "%\nCurrent Location:(" + currentLocationX
-                    + ", " + currentLocationY + ")";
-            return outputString;
-        }
-
-        public String getCurrentLocation() {
-            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
-            return locationCoordinates;
-        }
-
-        public void printCurrentLocation() {
-            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
-            System.out.println("目前" + Name + "的所在位置為:" + locationCoordinates);
-        }
-
-        public void setCurrentLocationX(int in_x) {
-            currentLocationX = in_x;
-            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
-            System.out.println("成功設定X位置，目前" + Name + "的所在位置為:" + locationCoordinates);
-        }
-
-        public void setCurrentLocationY(int in_y) {
-            currentLocationY = in_y;
-            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
-            System.out.println("成功設定Y位置，目前" + Name + "的所在位置為:" + locationCoordinates);
-        }
-
-        public void setCurrentLocation(int in_x, int in_y) {
-            currentLocationX = in_x;
-            currentLocationY = in_y;
-            String locationCoordinates = "(" + currentLocationX + ", " + currentLocationY + ")";
-            System.out.println("成功設定XY位置，目前" + Name + "的所在位置為:" + locationCoordinates);
         }
 
         @Override
