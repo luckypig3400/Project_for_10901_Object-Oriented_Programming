@@ -292,14 +292,30 @@ public class Pokemon {
 
         @Override
         public int evolutionToType2(int currentType) {
-            // TODO check current type and evolutionToType2 with 3values increase
-            return 0;
+            if(currentType == 1){
+                maxHP *= 1.2;
+                HP *= 1.2;
+                ATK *= 1.2;
+                DEF *= 1.2;
+                dodgeRate += 3;//略增閃避率
+                return 0;
+            }
+            else
+                return -1;// 只有第一型態能使用此方法進化
         }
 
         @Override
         public int evolutionToType3(int currentType) {
-            // TODO check current type and evolutionToType3 with 3values increase
-            return 0;
+            if(currentType == 2){
+                maxHP *= 1.3;
+                HP *= 1.3;
+                ATK *= 1.3;
+                DEF *= 1.3;
+                dodgeRate += 9;//大幅提升閃避率
+                return 0;
+            }
+            else
+                return -1;// 只有第二型態能使用此方法進化
         }
 
         @Override
