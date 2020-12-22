@@ -368,4 +368,28 @@ public class Pokemon {
         }
     }
 
+    public class PokemonLightAttribute extends PokemonNoneAttribute {
+        public PokemonLightAttribute() {
+            super();
+            attribute = "light";
+        }
+
+        public PokemonLightAttribute(int in_ID, String in_Name) {
+            super(in_ID, in_Name);
+            attribute = "light";
+        }
+    }
+
+    public class PokemonDarkAttribute extends PokemonNoneAttribute {
+        public PokemonDarkAttribute() {
+            super();
+            attribute = "dark";
+        }
+
+        public PokemonDarkAttribute(int in_ID, String in_Name) {
+            super(in_ID, in_Name);
+            attribute = "dark";
+        }
+    }
+
 }
