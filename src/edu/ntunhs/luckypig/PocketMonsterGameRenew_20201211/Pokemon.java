@@ -5,6 +5,7 @@ import edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211.RandomString;
 // 其實只需要引入位於 edu.ntunhs.luckypig 的 RandomString 即可
 // import edu.ntunhs.luckypig.RandomString;
 // 但是為了方便繳交作業，因此複製一份到同個資料夾內
+import jdk.nashorn.api.tree.ArrayAccessTree;
 
 public class Pokemon {
 
@@ -292,29 +293,27 @@ public class Pokemon {
 
         @Override
         public int evolutionToType2(int currentType) {
-            if(currentType == 1){
+            if (currentType == 1) {
                 maxHP *= 1.2;
                 HP *= 1.2;
                 ATK *= 1.2;
                 DEF *= 1.2;
-                dodgeRate += 3;//略增閃避率
+                dodgeRate += 3;// 略增閃避率
                 return 0;
-            }
-            else
+            } else
                 return -1;// 只有第一型態能使用此方法進化
         }
 
         @Override
         public int evolutionToType3(int currentType) {
-            if(currentType == 2){
+            if (currentType == 2) {
                 maxHP *= 1.3;
                 HP *= 1.3;
                 ATK *= 1.3;
                 DEF *= 1.3;
-                dodgeRate += 9;//大幅提升閃避率
+                dodgeRate += 9;// 大幅提升閃避率
                 return 0;
-            }
-            else
+            } else
                 return -1;// 只有第二型態能使用此方法進化
         }
 
