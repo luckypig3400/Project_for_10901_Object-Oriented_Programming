@@ -8,7 +8,7 @@ public class Game {
     // https://www.javatpoint.com/java-arraylist
     // TODO: create a class for File Saving (Maybe call it FileSavingjava)
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("玩家1你好，請輸入你的帳號名稱:");
@@ -52,7 +52,11 @@ public class Game {
         p2.addNewPokemonInPlayerBag(p2FirstPoke);
 
         p1.printAllPokemonInfos();
+        System.out.println("您有3秒時間閱讀以上資訊...");
+        Thread.sleep(3000);
         p2.printAllPokemonInfos();
+        System.out.println("您有3秒時間閱讀以上資訊...");
+        Thread.sleep(3000);
 
         Pokemon fighter1;
         Pokemon fighter2;
@@ -63,7 +67,7 @@ public class Game {
         serialNumberInBag = sc.nextInt();
         fighter2 = p2.selectPokemonToFight(serialNumberInBag);
 
-        
+        // TODO : put fighters in fight system and complete fight system
 
         sc.close();
     }
