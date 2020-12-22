@@ -5,7 +5,6 @@ import edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211.RandomString;
 // 其實只需要引入位於 edu.ntunhs.luckypig 的 RandomString 即可
 // import edu.ntunhs.luckypig.RandomString;
 // 但是為了方便繳交作業，因此複製一份到同個資料夾內
-import jdk.nashorn.api.tree.ArrayAccessTree;
 
 public class Pokemon {
 
@@ -331,6 +330,42 @@ public class Pokemon {
             return 0;
         }
 
+    }
+
+    public class PokemonWaterAttribute extends PokemonNoneAttribute {
+        public PokemonWaterAttribute() {
+            super();
+            attribute = "water";
+        }
+
+        public PokemonWaterAttribute(int in_ID, String in_Name) {
+            super(in_ID, in_Name);
+            attribute = "water";
+        }
+    }
+
+    public class PokemonFireAttribute extends PokemonNoneAttribute {
+        public PokemonFireAttribute() {
+            super();
+            attribute = "fire";
+        }
+
+        public PokemonFireAttribute(int in_ID, String in_Name) {
+            super(in_ID, in_Name);
+            attribute = "fire";
+        }
+    }
+
+    public class PokemonWoodAttribute extends PokemonNoneAttribute {
+        public PokemonWoodAttribute() {
+            super();
+            attribute = "wood";
+        }
+
+        public PokemonWoodAttribute(int in_ID, String in_Name) {
+            super(in_ID, in_Name);
+            attribute = "wood";
+        }
     }
 
 }
