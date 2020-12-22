@@ -41,6 +41,9 @@ public class Game {
         if (p2.login(2, password) == 1)
             System.out.println("玩家2成功登入，熱烈歡迎" + p2.name + "來到這個神奇遊戲~");
 
+        Pokemon.PokemonNoneAttribute testPoke = new Pokemon().new PokemonNoneAttribute();
+        p1.addNewPokemonInPlayerBag(testPoke);
+        
         sc.close();
     }
 }

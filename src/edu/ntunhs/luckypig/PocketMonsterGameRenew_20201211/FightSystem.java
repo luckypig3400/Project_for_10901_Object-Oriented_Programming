@@ -9,7 +9,7 @@ public class FightSystem {
     }
 
     void attack(Pokemon attacker, Pokemon defender) {
-
+        
     }
 
     void defend(Pokemon defender) {

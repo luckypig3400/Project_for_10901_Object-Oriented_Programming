@@ -55,4 +55,13 @@ public class Player {
         pokemonInPlayerBag[playerPokemonCount] = newMonster;
         playerPokemonCount += 1;
     }
+
+
+    Pokemon selectPokemonToFight() {
+        System.out.println("您共擁有" + playerPokemonCount + "隻寶可夢");
+        for (int i = 0; i < pokemonInPlayerBag.length; i++) {
+            System.out.println("您的第" + (i + 1) + "隻寶可夢訊息如下:");
+            // pokemonInPlayerBag[i].printPokemonInfo();
+        }
+    }
 }
