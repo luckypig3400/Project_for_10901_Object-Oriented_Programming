@@ -58,7 +58,7 @@ public class Player {
 
     void printAllPokemonInfos() {
         System.out.println(name + "您共擁有" + playerPokemonCount + "隻寶可夢");
-        for (int i = 0; i < pokemonInPlayerBag.length; i++) {
+        for (int i = 0; i < playerPokemonCount; i++) {
             System.out.println("您的第" + (i + 1) + "隻寶可夢訊息如下:");
             pokemonInPlayerBag[i].printPokemonInfo();
         }
