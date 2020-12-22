@@ -20,7 +20,7 @@ public class Pokemon {
         int evolutionToType3(int currentType);
     }
 
-    abstract class abstractPokemon {
+    abstract class abstractPokemon extends Pokemon{
         int type;// 寶可夢具有三種型態1、2、3
         // 1為初始型態、3為最終進化型態
         int level;// 寶可夢具有等級，其上限為99等
