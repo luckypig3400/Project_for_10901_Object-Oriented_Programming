@@ -51,6 +51,18 @@ public class Game {
         Pokemon.PokemonNoneAttribute p2FirstPoke = new Pokemon().new PokemonNoneAttribute(1, pokeName);
         p2.addNewPokemonInPlayerBag(p2FirstPoke);
 
+        p1.printAllPokemonInfos();
+        p2.printAllPokemonInfos();
+
+        Pokemon fighter1;
+        Pokemon fighter2;
+        System.out.println("請" + p1.name + "選擇一隻要用來對戰的寶可夢，輸入是背包內第幾隻即可(整數):");
+        int serialNumberInBag = sc.nextInt();
+        fighter1 = p1.selectPokemonToFight(serialNumberInBag);
+        System.out.println("請" + p2.name + "選擇一隻要用來對戰的寶可夢，輸入是背包內第幾隻即可(整數):");
+        serialNumberInBag = sc.nextInt();
+        fighter2 = p2.selectPokemonToFight(serialNumberInBag);
+
         
 
         sc.close();
