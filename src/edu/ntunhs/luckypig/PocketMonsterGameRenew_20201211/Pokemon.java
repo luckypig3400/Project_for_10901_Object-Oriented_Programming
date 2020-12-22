@@ -36,6 +36,8 @@ public class Pokemon {
         // 於戰鬥系統中使用寶可夢的敏捷度來決定先攻順序
         int maxHP;// 使用回血時血量不可超過血量上限
         double dodgeRate, criticalRate;// 閃避率 與 爆擊率
+        // float and double datatype in Java
+        // https://stackoverflow.com/questions/27598078/float-and-double-datatype-in-java
         boolean defendStatus;// 玩家選擇防禦後紀錄防禦狀態
     }
 
@@ -175,7 +177,7 @@ public class Pokemon {
         }
 
         public void setMaxHP(int in_maxHP) {
-            HP = in_maxHP;
+            maxHP = in_maxHP;
             System.out.println("成功設定HP上限，目前maxHP:" + maxHP);
         }
 
@@ -203,6 +205,45 @@ public class Pokemon {
         public void setDEF(int in_DEF) {
             DEF = in_DEF;
             System.out.println("成功設定DEF，目前DEF:" + DEF);
+        }
+
+        public int getAgile() {
+            return agile;
+        }
+
+        public void printAgile() {
+            System.out.println("目前敏捷:" + agile);
+        }
+
+        public void setAgile(int in_agile) {
+            agile = in_agile;
+            System.out.println("成功設定敏捷，目前敏捷:" + agile);
+        }
+
+        public double getDodgeRate() {
+            return dodgeRate;
+        }
+
+        public void printDodgeRate() {
+            System.out.println("目前閃避率:" + dodgeRate + "%");
+        }
+
+        public void setDodgeRate(double in_dodgeRate) {
+            dodgeRate = in_dodgeRate;
+            System.out.println("成功設定閃避率，目前閃避率:" + dodgeRate + "%");
+        }
+
+        public double getCriticalRate() {
+            return criticalRate;
+        }
+
+        public void printCriticalRate() {
+            System.out.println("目前暴擊率:" + criticalRate + "%");
+        }
+
+        public void setCriticalRate(double in_criticalRate) {
+            criticalRate = in_criticalRate;
+            System.out.println("成功設定暴擊率，目前暴擊率:" + criticalRate + "%");
         }
 
         public void printPokemonInfo() {
