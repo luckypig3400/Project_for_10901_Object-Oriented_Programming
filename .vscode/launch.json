@@ -1,0 +1,210 @@
+{
+    // 使用 IntelliSense 以得知可用的屬性。
+    // 暫留以檢視現有屬性的描述。
+    // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch ATM_tester",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.ATM.ATM_tester",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch ATM_Tester",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.ATM_Tester",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex01",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218.Ex01",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex02",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218.Ex02",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex03",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218.Ex03",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex04",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218.Ex04",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex05",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218.Ex05",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex06",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218.Ex06",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex07",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218.Ex07",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch HW6_PokemonPolymorphismExtends",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.HW6_PokemonPolymorphismExtends",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Hw2_judgeScoreGradeTester",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.Hw2_judgeScoreGradeTester",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch atmTester",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.Java20201113Midterm.atmTester",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Maustin_judgeScoreGrade",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.Maustin_judgeScoreGrade",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Nested_Class_Example",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.Nested_Class_Example",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch PocketMonsterAudiResetVersion",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.PocketMonsterGame.PocketMonsterAudiResetVersion",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch monsterGame",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.PocketMonsterGame.monsterGame",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.PocketMonsterGame.test",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch testForOPokemon",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion.testForOPokemon",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch testForPokemon",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion.testForPokemon",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch testForPokemonL3_polymorphism",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.PocketMonsterGameBaseOnTeacherVersion.testForPokemonL3_polymorphism",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Game",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211.Game",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch teachersExampleCode",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.PolymorphismExample20201204ATM.teachersExampleCode",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch adderWithoutIf",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.adderWithoutIf",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch fakePxPay_20201225",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.fakePxPay_20201225",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch Midterm_ATM_tester",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.javaMidtermExam.Midterm_ATM_tester",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch jugdeScoreYuJen",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.jugdeScoreYuJen",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch mainClass",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.mainClass",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        },
+        {
+            "type": "java",
+            "name": "Launch urlGenerator",
+            "request": "launch",
+            "mainClass": "edu.ntunhs.luckypig.urlGenerator",
+            "projectName": "Project_for_10901_Object-Oriented_Programming"
+        }
+    ]
+}

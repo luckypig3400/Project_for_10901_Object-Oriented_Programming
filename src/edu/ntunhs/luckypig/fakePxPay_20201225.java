@@ -1,5 +1,7 @@
 package edu.ntunhs.luckypig;
 
+import java.io.File;
+
 public class fakePxPay_20201225 {
     public static void main(String[] args) {
 
@@ -9,7 +11,7 @@ public class fakePxPay_20201225 {
 abstract class PaymentSystem {
 
     private String ID, Name, PWD;
-
+    File profile = new File("Profile.txt");
     int balance;
     int bonusPoint;
 
@@ -41,11 +43,17 @@ abstract class PaymentSystem {
     }
 
     void readFile() {
-
+        if(profile.exists()){
+            //TODO: 讀取檔案
+        }
     }
 
     void writeFile() {
-
+        try {
+            //TODO: 按照自訂規則寫入檔案儲存
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
     }
 
     int login(String in_ID, String in_PWD) {
