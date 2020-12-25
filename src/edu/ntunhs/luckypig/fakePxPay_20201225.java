@@ -13,8 +13,8 @@ abstract class PaymentSystem {
     int balance;
     int bonusPoint;
 
-    // CreditCard card1 = new CreditCard();
-    // maybe some day this will be useful
+    // CreditCard card1 = new CreditCard(String card1Number);
+    // maybe someday this will be useful
 
     PaymentSystem() {// provide default account
         ID = "082214226";
@@ -101,6 +101,52 @@ abstract class PaymentSystem {
 
             default:
                 System.out.println("付款方式選擇錯誤!");
+                break;
+        }
+    }
+
+    void printAccountInfo() {
+        System.out.println(Name + "您好，您的帳戶編號為:" + ID + "\n電子錢包餘額剩餘:" + balance + "元\t" + "紅利點數:" + bonusPoint + "點");
+    }
+
+    String getAccountInfo() {
+        String output = Name + "您好，您的帳戶編號為:" + ID + "\n電子錢包餘額剩餘:" + balance + "元\t" + "紅利點數:" + bonusPoint + "點";
+        return output;
+    }
+
+    void cashDeposit(int in_depositAmount) {
+        if (in_depositAmount > 0) {
+            System.out.println("使用現金:" + in_depositAmount + "元為您的電子錢包儲值");
+            balance += in_depositAmount;
+            bonusPoint += in_depositAmount / 100;// 現金儲值100元1點
+            System.out.println("您的電子錢包餘額剩餘:" + balance + "元");
+        } else {
+            System.out.println("請輸入正確金額");
+        }
+    }
+
+    void creditCardDeposit(int in_depositAmount) {
+        if (in_depositAmount > 0) {
+            System.out.println("透過信用卡收取:" + in_depositAmount + "元為您的電子錢包儲值\n請留意信用卡帳單");
+            balance += in_depositAmount;
+            bonusPoint += in_depositAmount / 50;// 信用卡儲值50元1點
+            System.out.println("您的電子錢包餘額剩餘:" + balance + "元");
+        } else
+            System.out.println("請輸入正確金額");
+    }
+
+    void selectDepositMethod(int in_depositMethod, int in_depositAmount) {
+        switch (in_depositMethod) {
+            case 1:
+                cashDeposit(in_depositAmount);
+                break;
+
+            case 2:
+                creditCardDeposit(in_depositAmount);
+                break;
+
+            default:
+                System.out.println("儲值方式選擇錯誤!");
                 break;
         }
     }
