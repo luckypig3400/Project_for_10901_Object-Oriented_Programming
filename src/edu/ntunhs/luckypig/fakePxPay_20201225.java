@@ -205,39 +205,27 @@ class PxPaySystem extends PaymentSystem implements TransactionRecordSystem {
  * Pay畫面
  */
 
-class User {
-    String ID, Name, PWD;
-    int balance, bonus;
-    Pay myPay1;
-    Pay myPay2;
-    String[] Log = new String[6666];
-}
-
-class Pay {
-    void withdraw() {
-
-    }
-}
-
-interface storeMoney {
-    void deposit();
-}
-
-class PxPay extends Pay implements storeMoney {
-
-    @Override
-    public void deposit() {
-        // TODO Auto-generated method stub
-
-    }
-
-}
-
-class creditCard extends Pay {
-
-}
-
-class Log {
-    int ID, money;
-    String text, datetime;
-}
+/*
+ * class User { String ID, Name, PWD; int balance, bonus; Pay myPay1; Pay
+ * myPay2; String[] Log = new String[6666]; }
+ * 
+ * class Pay { void withdraw() {
+ * 
+ * } }
+ * 
+ * interface storeMoney { void deposit(); }
+ * 
+ * class PxPay extends Pay implements storeMoney {
+ * 
+ * @Override public void deposit() { // TODO Auto-generated method stub
+ * 
+ * }
+ * 
+ * }
+ * 
+ * class creditCard extends Pay {
+ * 
+ * }
+ * 
+ * class Log { int ID, money; String text, datetime; }
+ */
