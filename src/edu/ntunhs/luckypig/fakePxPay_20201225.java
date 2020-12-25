@@ -4,7 +4,7 @@ import java.io.File;
 
 public class fakePxPay_20201225 {
     public static void main(String[] args) {
-
+        System.out.println("HI");
     }
 }
 
@@ -43,16 +43,16 @@ abstract class PaymentSystem {
     }
 
     void readFile() {
-        if(profile.exists()){
-            //TODO: 讀取檔案
+        if (profile.exists()) {
+            // TODO: 讀取檔案
         }
     }
 
     void writeFile() {
         try {
-            //TODO: 按照自訂規則寫入檔案儲存
+            // TODO: 按照自訂規則寫入檔案儲存
         } catch (Exception e) {
-            //TODO: handle exception
+            // TODO: handle exception
         }
     }
 
@@ -204,3 +204,40 @@ class PxPaySystem extends PaymentSystem implements TransactionRecordSystem {
  * 3.2 主程式進入[主畫面]後，顯示紅利點數，並印出功能選項[1.查詢交易紀錄]、[2.儲值]、[3.付款] ]以及[4.離開] ，參考全聯Px
  * Pay畫面
  */
+
+class User {
+    String ID, Name, PWD;
+    int balance, bonus;
+    Pay myPay1;
+    Pay myPay2;
+    String[] Log = new String[6666];
+}
+
+class Pay {
+    void withdraw() {
+
+    }
+}
+
+interface storeMoney {
+    void deposit();
+}
+
+class PxPay extends Pay implements storeMoney {
+
+    @Override
+    public void deposit() {
+        // TODO Auto-generated method stub
+
+    }
+
+}
+
+class creditCard extends Pay {
+
+}
+
+class Log {
+    int ID, money;
+    String text, datetime;
+}
