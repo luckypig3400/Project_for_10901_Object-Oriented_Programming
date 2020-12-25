@@ -48,24 +48,61 @@ abstract class PaymentSystem {
 
     }
 
-    void login() {
-
+    int login(String in_ID, String in_PWD) {
+        if (in_ID.equals(ID) && in_PWD.equals(PWD))
+            return 1;
+        else
+            return 0;
     }
 
-    void cashPay() {
-
+    void cashPay(int in_paymentAmount) {
+        if (in_paymentAmount > 0) {
+            System.out.println("收您現金:" + in_paymentAmount + "元");
+            // 直接收現金不影響帳戶餘額
+            bonusPoint += in_paymentAmount / 100;// 現金消費100元1點
+        } else {
+            System.out.println("請輸入正確金額");
+        }
     }
 
-    void ePay() {
-
+    void ePay(int in_paymentAmount) {
+        if (balance >= in_paymentAmount && in_paymentAmount > 0) {
+            System.out.println("收您:" + in_paymentAmount + "元");
+            balance -= in_paymentAmount;
+            System.out.println("您的電子錢包餘額剩餘:" + balance + "元");
+            bonusPoint += in_paymentAmount / 50;// 電子錢包餘額消費50元1點
+        } else if (in_paymentAmount <= 0)
+            System.out.println("請輸入正確金額");
+        else
+            System.out.println("餘額不足 請儲值或改用其他付款方式");
     }
 
-    void creditCardPay() {
-
+    void creditCardPay(int in_paymentAmount) {
+        if (in_paymentAmount > 0) {
+            System.out.println("透過信用卡收您:" + in_paymentAmount + "元，請留意信用卡帳單");
+            bonusPoint += in_paymentAmount / 50;// 刷信用卡消費50元1點
+        } else
+            System.out.println("請輸入正確金額");
     }
 
-    void selectPaymentMethod() {
+    void selectPaymentMethod(int in_paymentMethod, int in_paymentAmount) {
+        switch (in_paymentMethod) {
+            case 1:
+                cashPay(in_paymentAmount);
+                break;
 
+            case 2:
+                ePay(in_paymentAmount);
+                break;
+
+            case 3:
+                creditCardPay(in_paymentAmount);
+                break;
+
+            default:
+                System.out.println("付款方式選擇錯誤!");
+                break;
+        }
     }
 
 }
@@ -81,7 +118,7 @@ interface TransactionRecordSystem {
 
 class PxPaySystem extends PaymentSystem implements TransactionRecordSystem {
 
-    PxPaySystem(){
+    PxPaySystem() {
         super();
     }
 
