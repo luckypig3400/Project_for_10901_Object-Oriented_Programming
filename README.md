@@ -4,6 +4,54 @@
 ## Focus in PocketMonsterGameRenew_20201211
 
 # 課堂筆記
+
+### 如果遇到檔案/資料夾無法存取可以嘗試把VScode以系統管理員權限執行
+ 
+ ```java=
+import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
+
+public class Ex01 {
+  public static void main(String[] args) {
+	Scanner keyin = new Scanner(System.in); 
+	String dirname, filename; //資料夾名稱,檔案名稱
+	try {
+		System.out.print("請輸入要新增的資料夾名稱:");
+		dirname = keyin.next();
+
+		// 宣告一指向檔案名稱為dirname的File類別物件變數fdir，
+        // fdir相當於dirname的別名
+		File fdir = new File(dirname);
+        
+        // 若沒有指定路徑，則資料夾會建立在此專案所在的資料夾底
+		if (fdir.mkdir())
+			System.out.println("資料夾" + dirname + "已經新增完畢!\n");
+		else
+			System.out.println("資料夾" + dirname + "已經存在或其他原因無法新增! ");
+
+		System.out.print("\n請輸入要新增的檔案名稱:");
+		filename = keyin.next();
+
+		// 宣告一指向檔案名稱為filename的File類別物件變數f，
+        // f相當於filename的別名
+		File f = new File(filename);
+           
+        // 若沒有指定路徑，則檔案會建立在此專案所在的資料夾底下
+		if (f.createNewFile())
+			System.out.println("檔案" + filename + "已經新增完畢!\n");
+		else
+			System.out.println("檔案" + filename + "已經存在或其他原因無法新增! \n ");
+
+		System.out.println(e.getMessage());
+		keyin.nextLine();
+	}
+   keyin.close();
+  }
+}
+
+ ```
+
 ### 類別內盡量不要使用Scanner 和 System out
 + 在內別內盡量只放和該類別有關的變數和方法就好
 + 使用傳入傳出值(回傳值) 來與外部進行資訊交換
