@@ -43,6 +43,7 @@ public class Ex01 {
 		else {
 			 // 傳回資料夾dirname所包含的檔案及資料夾(資料類型為String)
 			 String[] data = fdir.list();
+			 System.out.println("資料夾" + dirname + "j位於以下位置::" + fdir.getPath());
 			 System.out.println("資料夾" + dirname + "所包含的資料夾及檔案如下:");
 			 for (String name : data)
 				System.out.println(name); // 依照名稱排序順序顯示
