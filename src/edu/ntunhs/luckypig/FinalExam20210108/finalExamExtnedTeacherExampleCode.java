@@ -1,3 +1,5 @@
+package edu.ntunhs.luckypig.FinalExam20210108;
+
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
@@ -12,14 +14,14 @@ public class finalExamExtnedTeacherExampleCode {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Åwªï¨Ï¥Î¥»¨t²Î~");
+		System.out.println("æ­¡è¿ä½¿ç”¨æœ¬ç³»çµ±~");
 		User user1 = new User();
 		//user1.printAllUserInfo();
 		
 		String inID, inPWD;
-		System.out.println("½Ğ¿é¤J±b¸¹ID:");
+		System.out.println("è«‹è¼¸å…¥å¸³è™ŸID:");
 		inID = sc.nextLine();
-		System.out.println("½Ğ¿é¤J±b¸¹±K½X:");
+		System.out.println("è«‹è¼¸å…¥å¸³è™Ÿå¯†ç¢¼:");
 		inPWD = sc.nextLine();
 		if(true == user1.login(inID, inPWD)) {
 			user1.printHello();
@@ -43,7 +45,7 @@ class UserLog {
 	}
 
 	String getLogString() {
-		// 4.1.1¦^¶Ç¥æ©ö¬ö¿ı¦r¦ê(§t©Ò¦³¸ê°T)
+		// 4.1.1å›å‚³äº¤æ˜“ç´€éŒ„å­—ä¸²(å«æ‰€æœ‰è³‡è¨Š)
 		String fullLogString = logNo + "," + tranType + "," + money + "," + bonus + "," + logTime;
 		return fullLogString;
 	}
@@ -88,7 +90,7 @@ class User {
 
 	}
 
-	// 3.1 & 3.2³]­p«Øºc¤l¨Ã¸ü¤J¤å¦rÀÉ¡A±N­Ó¤H¸ê®Æ¤Î¥æ©ö¬ö¿ı¶×¤J¦Üª«¥ó¤¤
+	// 3.1 & 3.2è¨­è¨ˆå»ºæ§‹å­ä¸¦è¼‰å…¥æ–‡å­—æª”ï¼Œå°‡å€‹äººè³‡æ–™åŠäº¤æ˜“ç´€éŒ„åŒ¯å…¥è‡³ç‰©ä»¶ä¸­
 
 	// logCount = myLogList.size();
 
@@ -106,20 +108,20 @@ class User {
 
 				return true;
 			} else {
-				return false;// ¿é¤J±K½X¿ù»~(µn¤J¥¢±Ñ)
+				return false;// è¼¸å…¥å¯†ç¢¼éŒ¯èª¤(ç™»å…¥å¤±æ•—)
 			}
 		} else {
-			return false;// ¿é¤J±b¸¹¿ù»~(µn¤J¥¢±Ñ)
+			return false;// è¼¸å…¥å¸³è™ŸéŒ¯èª¤(ç™»å…¥å¤±æ•—)
 		}
 	}
 
-	// 4.2Àx­ÈXDPay¥\¯à
+	// 4.2å„²å€¼XDPayåŠŸèƒ½
 	int deposit(int inMoney) {
 
 		return -1;
 	}
 
-	// 4.3.1¥i¿ï¾ÜXDPay©ÎCreditCardPay¨ä¤¤¤@ºØ¥I´Ú¤è¦¡¡A¥Î¦h«¬ªº¤è¦¡¹ê§@¨âºØ¥I´Ú¤è¦¡
+	// 4.3.1å¯é¸æ“‡XDPayæˆ–CreditCardPayå…¶ä¸­ä¸€ç¨®ä»˜æ¬¾æ–¹å¼ï¼Œç”¨å¤šå‹çš„æ–¹å¼å¯¦ä½œå…©ç¨®ä»˜æ¬¾æ–¹å¼
 	int withdraw(int payType, int inMoney) {
 		return -1;
 	}
@@ -141,7 +143,7 @@ class User {
 	}
 	
 	public void printHello(){
-		System.out.println(" Åwªï¥úÁ{" + name);
+		System.out.println(" æ­¡è¿å…‰è‡¨" + name);
 	}
 }
 
@@ -167,53 +169,53 @@ interface PrepaidCard {
 }
 
 class XDPay extends Pay implements PrepaidCard {
-	// 1.Àx­È¥\¯à(½Ğ¨Ï¥Îinterface PrepaidCard¹ê§@)
+	// 1.å„²å€¼åŠŸèƒ½(è«‹ä½¿ç”¨interface PrepaidCardå¯¦ä½œ)
 	@Override
 	public boolean deposit(int gMoney) {
 		if (gMoney > 0) {
 			balance += gMoney;
 			return true;
 		} else {
-			return false;// ¤£¥i¦s¤J­t¼Æ
+			return false;// ä¸å¯å­˜å…¥è² æ•¸
 		}
 	}
 
-	// 1.XDPay¹q¤l¥I´Ú¥\¯à(½Ğ¨Ï¥ÎÄ~©ÓÃş§OPay»s§@)
+	// 1.XDPayé›»å­ä»˜æ¬¾åŠŸèƒ½(è«‹ä½¿ç”¨ç¹¼æ‰¿é¡åˆ¥Payè£½ä½œ)
 	@Override
 	int withdraw(int gMoney) {
 		if (gMoney > 0) {
 			if (balance >= gMoney) {
 				balance -= gMoney;
-				return 1;// ¾lÃB¨¬°÷¡A¥I´Ú¦¨¥\
+				return 1;// é¤˜é¡è¶³å¤ ï¼Œä»˜æ¬¾æˆåŠŸ
 			} else {
-				return 0;// ¾lÃB¤£¨¬¡A¥I´Ú¥¢±Ñ
+				return 0;// é¤˜é¡ä¸è¶³ï¼Œä»˜æ¬¾å¤±æ•—
 			}
 		} else {
-			return -1;// ½Õ¥Ö·o³J¡A¤£¥i¿é¤J­t¼Æ
+			return -1;// èª¿çš®æ—è›‹ï¼Œä¸å¯è¼¸å…¥è² æ•¸
 		}
 	}
 }
 
 class CreditCardsPay extends Pay {
-	int creditLimit;// ¤@¯ëªº«H¥Î¥d¤£¨ã¦³¾lÃB¡A¥u¦³«H¥ÎÃB«×
+	int creditLimit;// ä¸€èˆ¬çš„ä¿¡ç”¨å¡ä¸å…·æœ‰é¤˜é¡ï¼Œåªæœ‰ä¿¡ç”¨é¡åº¦
 
 	public CreditCardsPay() {
 		balance = 0;
 		creditLimit = 30000;
 	}
 
-	// 1.«H¥Î¥d¥I´Ú¥\¯à(½Ğ¨Ï¥ÎÄ~©ÓÃş§OPay»s§@)
+	// 1.ä¿¡ç”¨å¡ä»˜æ¬¾åŠŸèƒ½(è«‹ä½¿ç”¨ç¹¼æ‰¿é¡åˆ¥Payè£½ä½œ)
 	@Override
 	int withdraw(int gMoney) {
 		if (gMoney > 0) {
 			if (creditLimit >= gMoney) {
 				creditLimit -= gMoney;
-				return 1;// ¾lÃB¨¬°÷¡A¥I´Ú¦¨¥\
+				return 1;// é¤˜é¡è¶³å¤ ï¼Œä»˜æ¬¾æˆåŠŸ
 			} else {
-				return 0;// ¾lÃB¤£¨¬¡A¥I´Ú¥¢±Ñ
+				return 0;// é¤˜é¡ä¸è¶³ï¼Œä»˜æ¬¾å¤±æ•—
 			}
 		} else {
-			return -1;// ½Õ¥Ö·o³J¡A¤£¥i¿é¤J­t¼Æ
+			return -1;// èª¿çš®æ—è›‹ï¼Œä¸å¯è¼¸å…¥è² æ•¸
 		}
 	}
 }

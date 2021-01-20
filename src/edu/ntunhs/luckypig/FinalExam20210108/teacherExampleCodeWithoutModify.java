@@ -1,13 +1,14 @@
+package edu.ntunhs.luckypig.FinalExam20210108;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class finalExam {
+public class teacherExampleCodeWithoutModify {
 
 	public static void main(String[] args) {
 
-		System.out.println("Åwªï¨Ï¥Î¥»¨t²Î~");
+		System.out.println("æ­¡è¿ä½¿ç”¨æœ¬ç³»çµ±~");
 
 	}
 
@@ -27,7 +28,7 @@ class UserLog {
 	}
 
 	String getLogString() {
-		// 4.1.1¦^¶Ç¥æ©ö¬ö¿ı¦r¦ê(§t©Ò¦³¸ê°T)
+		// 4.1.1å›å‚³äº¤æ˜“ç´€éŒ„å­—ä¸²(å«æ‰€æœ‰è³‡è¨Š)
 		return "owo";
 	}
 
@@ -43,7 +44,7 @@ class User {
 	private int bonus = 0, logCount = 0;
 	private ArrayList<UserLog> myLogList;
 
-	// 3.1 & 3.2³]­p«Øºc¤l¨Ã¸ü¤J¤å¦rÀÉ¡A±N­Ó¤H¸ê®Æ¤Î¥æ©ö¬ö¿ı¶×¤J¦Üª«¥ó¤¤
+	// 3.1 & 3.2è¨­è¨ˆå»ºæ§‹å­ä¸¦è¼‰å…¥æ–‡å­—æª”ï¼Œå°‡å€‹äººè³‡æ–™åŠäº¤æ˜“ç´€éŒ„åŒ¯å…¥è‡³ç‰©ä»¶ä¸­
 
 	// logCount = myLogList.size();
 
@@ -61,20 +62,20 @@ class User {
 
 				return true;
 			} else {
-				return false;// ¿é¤J±K½X¿ù»~(µn¤J¥¢±Ñ)
+				return false;// è¼¸å…¥å¯†ç¢¼éŒ¯èª¤(ç™»å…¥å¤±æ•—)
 			}
 		} else {
-			return false;// ¿é¤J±b¸¹¿ù»~(µn¤J¥¢±Ñ)
+			return false;// è¼¸å…¥å¸³è™ŸéŒ¯èª¤(ç™»å…¥å¤±æ•—)
 		}
 	}
 
-	// 4.2Àx­ÈXDPay¥\¯à
+	// 4.2å„²å€¼XDPayåŠŸèƒ½
 	int deposit(int inMoney) {
 
 		return -1;
 	}
 
-	// 4.3.1¥i¿ï¾ÜXDPay©ÎCreditCardPay¨ä¤¤¤@ºØ¥I´Ú¤è¦¡¡A¥Î¦h«¬ªº¤è¦¡¹ê§@¨âºØ¥I´Ú¤è¦¡
+	// 4.3.1å¯é¸æ“‡XDPayæˆ–CreditCardPayå…¶ä¸­ä¸€ç¨®ä»˜æ¬¾æ–¹å¼ï¼Œç”¨å¤šå‹çš„æ–¹å¼å¯¦ä½œå…©ç¨®ä»˜æ¬¾æ–¹å¼
 	int withdraw(int payType, int inMoney) {
 		return -1;
 	}
@@ -114,12 +115,12 @@ interface PrepaidCard{
 }
 
 class XDPay{
-	// 1.Àx­È¥\¯à(½Ğ¨Ï¥Îinterface PrepaidCard¹ê§@)
+	// 1.å„²å€¼åŠŸèƒ½(è«‹ä½¿ç”¨interface PrepaidCardå¯¦ä½œ)
 	int deposit(int gMoney) {
 		return -1;
 	}
 	
-	// 1.XDPay¹q¤l¥I´Ú¥\¯à(½Ğ¨Ï¥ÎÄ~©ÓÃş§OPay»s§@)
+	// 1.XDPayé›»å­ä»˜æ¬¾åŠŸèƒ½(è«‹ä½¿ç”¨ç¹¼æ‰¿é¡åˆ¥Payè£½ä½œ)
 	int withdraw(int gMoney) {
 		return -1;
 	}
@@ -127,7 +128,7 @@ class XDPay{
 
 class CreditCardsPay{
 
-	// 1.XDPay¹q¤l¥I´Ú¥\¯à(½Ğ¨Ï¥ÎÄ~©ÓÃş§OPay»s§@)
+	// 1.XDPayé›»å­ä»˜æ¬¾åŠŸèƒ½(è«‹ä½¿ç”¨ç¹¼æ‰¿é¡åˆ¥Payè£½ä½œ)
 	int withdraw(int gMoney) {
 		return -1;
 	}
