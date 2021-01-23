@@ -5,6 +5,39 @@ public class finalExamPractice {
     
 }
 
+class CreditCard{
+
+}
+
+class User{
+
+}
+
+class UserLog{
+
+}
+
+abstract class Pay{
+
+}
+
+interface Deposit{
+    int deposit(int money);
+}
+
+class CreditCardsPay extends Pay{
+
+}
+
+class XDPay extends Pay implements Deposit{
+
+    public int deposit(int money) {
+        
+        return 0;
+    }
+    
+}
+
 /*
  * 題目:設計一個北護大會員(User)易付卡(XDPay)提供現金儲值與電子付款系統,並有個人紅利點
  * 數累積,可提供信用卡(CreditCardSpay)付款功能,可查詢個人交易紀錄(LogList)等。根據試卷提
