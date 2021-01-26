@@ -173,7 +173,7 @@ interface Deposit {
 
 class CreditCardsPay extends Pay {
     // withdraw:當每次消費 滿1000元, 紅利額外增加100點
-
+    final String transactionType = "CreditCardsPay";
     User user;
     int addedBP;
     UserLog transactionLog;
@@ -194,7 +194,7 @@ class CreditCardsPay extends Pay {
 
 class XDPay extends Pay implements Deposit {
     // deposit: 當儲值成功 單筆儲值滿1000元, 紅利增加100點 withdraw:當每次消費 滿500元,紅利 額外增加10點
-
+    final String transactionType = "XDPay";
     User user;
     int addedBP;
     UserLog transactionLog;

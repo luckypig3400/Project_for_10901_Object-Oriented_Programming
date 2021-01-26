@@ -1,9 +1,9 @@
-id=
-name=
-password=
-balance=
-bonus=
-信用額度:<creditLimit>  已使用額度:<usedAmount> 此卡到期日:<expiryDate>
-
-以上記錄基本資訊與信用卡(信用卡一行代表一張)
-以下為交易紀錄(一行代表一筆)
+082214226
+testUser
+226
+60000
+666
+60000   0   20210606
+---
+1   XDPay   60000   60  20210126164933  
+2   CreditCardsPay  -3000   300 20210126165736
