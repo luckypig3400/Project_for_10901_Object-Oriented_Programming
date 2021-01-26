@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.Date;
 
-public class Ex02 {
+public class Ex02_searchFile_and_showAttributes {
 	public static void main(String[] args) {
 		Scanner keyin = new Scanner(System.in);
 		String dir_file; // 資料夾(或檔案)名稱

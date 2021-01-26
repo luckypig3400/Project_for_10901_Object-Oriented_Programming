@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Ex05 {
+public class Ex05_FileReader_and_BufferedReader_usage {
     public static void main(String[] args) {
         float total_age = 0, total_height = 0;
         try {

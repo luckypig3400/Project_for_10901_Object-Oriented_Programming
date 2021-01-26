@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Ex04 {
+public class Ex04_FileWriter_and_BufferedWriter_usage {
     public static void main(String[] args) {
         Scanner keyin = new Scanner(System.in);
         String name;

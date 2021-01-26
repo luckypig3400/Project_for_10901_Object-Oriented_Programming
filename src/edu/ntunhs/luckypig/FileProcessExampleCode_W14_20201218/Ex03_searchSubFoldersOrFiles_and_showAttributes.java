@@ -2,7 +2,7 @@ package edu.ntunhs.luckypig.FileProcessExampleCode_W14_20201218;
 import java.io.File;
 import java.util.Scanner;
 
-public class Ex03 {
+public class Ex03_searchSubFoldersOrFiles_and_showAttributes {
 
     // 查詢資料夾中的子資料夾及檔案所佔的記憶體空間");
     public static long DirectorySize(File directory) {

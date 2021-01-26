@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 
-public class Ex01 {
+public class Ex01_createFileOrFolder_and_changeAttributes {
   public static void main(String[] args) {
 	Scanner keyin = new Scanner(System.in); 
 	String dirname, filename; //資料夾名稱,檔案名稱

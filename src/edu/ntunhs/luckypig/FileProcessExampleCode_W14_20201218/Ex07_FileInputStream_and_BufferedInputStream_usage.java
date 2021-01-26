@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 
-public class Ex07 {
+public class Ex07_FileInputStream_and_BufferedInputStream_usage {
     public static void main(String[] args) {
         try {
             FileInputStream finstream = new FileInputStream("d:\\test\\movie.bin");

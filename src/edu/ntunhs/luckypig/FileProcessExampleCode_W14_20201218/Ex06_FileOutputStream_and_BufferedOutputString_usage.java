@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Ex06 {
+public class Ex06_FileOutputStream_and_BufferedOutputString_usage {
     public static void main(String[] args) {
         Scanner keyin = new Scanner(System.in);
         String information = "\t電影資訊預告\n名稱\t日期\t廳院\t票價\n";
