@@ -54,7 +54,7 @@ class CreditCard {
     }
 
     String getAllinfos() {
-        return "信用額度:" + creditLimit + "\t已使用額度:" + usedAmount + "此卡到期日:" + expiryDate;
+        return "信用額度:" + creditLimit + "\t已使用額度:" + usedAmount + "\t此卡到期日:" + expiryDate;
     }
 
 }
