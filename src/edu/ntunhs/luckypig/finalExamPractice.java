@@ -5,6 +5,34 @@ import java.util.ArrayList;
 
 public class finalExamPractice {
     // this version won't modify base on teacher's code
+    File profile = new File("\\profile.txt");
+    User user1 = new User(profile);
+
+    /*
+     * 1.讀取個人資訊(Profile.txt)後(5%)，進入主程式提示使用者輸入密碼,當密碼正確時,
+     * 登入成功後,畫面顯示「歡迎光臨{姓名},{姓名}需顯示自己的姓名,進入[主畫面]
+     * 
+     * 2.功能選單;密碼錯誤時,提示密碼錯誤並離開程式。其中Profile.txt可自行修改格式與設計
+     * 
+     * 3.主程式進入[主畫面]後,印出功能選項[1.查詢交易紀錄]、[2.儲值]、[3.付款]以及[4.離 開](5%),規格說明如下:
+     * 
+     * 4.按下數字[1]:查詢交易紀錄 4.l.l在UserLog類別中新增一個方法,將所有交易紀錄內容組合成一個文字字串並回
+     * 傳,格式可自訂。其中日期格式為yyyyMMddHHmmss(5%) 並在main程式中將所有的交易紀錄逐筆顯示在畫面上,並跳回主畫面(5%)
+     * 
+     * 5.按下數字[2]:儲值,在主畫面顯示XDPay內的餘額,提示使用者輸入金額,並在User類別中新增一個儲值功能,
+     * 當執行儲值功能結束後,顯示餘額並跳回[主畫面](5%) 程式需判斷輸入金額為非整數或時,要回傳錯誤,需提示輸入錯誤,並停留在
+     * 原本的功能,讓使用者能重新輸入;若不要儲值,則回到主畫面
+     * 
+     * 6.按下數字[3]:付款,在[主畫面]選擇付款方式後,輸入提款金額,並顯示交易結果後跳 回[主畫面]。若選擇XDPay則需結果需顯示剩餘儲值金額(5%)
+     * 
+     * 6.1以[主畫面]提示使用者可選擇XDPay或CreditCardSpay其中一種付款方式,並在
+     * User類別中新增一個付款功能,用多型的方式實作兩種付款方式。(5%) *提示:Pay myPayl = new XDPay();
+     * 程式需判斷輸入金額為非整數、負數或是提款金額大於餘款時,需提示輸入錯誤, 並停留在原本的功能,讓使用者能重新輸入;若不要付款,則回到[主畫面](5%)
+     * 
+     * 7.按下數字[4]:離開,出現提示訊息,詢問是否離開,輸入小寫y或大寫Y則離開程 式,若輸小寫n或大寫N則回到主畫面(5%)
+     * 
+     * 8.[主畫面]程式需判斷,輸入金額非1,2,3,4時,應提示使用者輸入錯誤,並提示停留在 原本的功能,讓使用者能重新輸入選項(5%)
+     */
 
 }
 
@@ -46,12 +74,35 @@ class User {
 
     }
 
+    User(String in_id, String in_name, String in_password, int in_balance, int in_bonus) {
+        id = in_id;
+        name = in_name;
+        password = in_password;
+        balance = in_balance;
+        bonus = in_bonus;
+    }
+
+    User(String in_id, String in_name, String in_password, int in_balance, int in_bonus, CreditCard in_cC1) {
+        id = in_id;
+        name = in_name;
+        password = in_password;
+        balance = in_balance;
+        bonus = in_bonus;
+        creditCard1 = in_cC1;
+    }
+
     int getUserLogCount() {
         return myLogList.size();
     }
 
     void readProfile() {
-
+        if(profile.exists()){
+            try {
+                
+            } catch (Exception e) {
+                //TODO: handle exception
+            }
+        }
     }
 
     void readProfile(File in_profile) {
@@ -59,6 +110,8 @@ class User {
     }
 
     int writeProfile() {
+        // also create file at the same time(overwrite old profile)
+        // maybe can write backup old profile in the future
         boolean success = false;
 
         if (success) {
@@ -70,6 +123,8 @@ class User {
     }
 
     int writeProfile(File in_profile) {
+        // also create file at the same time(overwrite old profile)
+        // maybe can write backup old profile in the future
         boolean success = false;
 
         if (success) {
