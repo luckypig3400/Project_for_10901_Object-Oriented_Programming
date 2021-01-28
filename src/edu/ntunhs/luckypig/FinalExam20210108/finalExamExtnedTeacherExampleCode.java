@@ -1,3 +1,4 @@
+/*
 package edu.ntunhs.luckypig.FinalExam20210108;
 
 import java.io.BufferedReader;
@@ -228,3 +229,4 @@ abstract class animal{
 		
 	}
 }
+*/

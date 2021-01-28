@@ -1,3 +1,4 @@
+/*
 package edu.ntunhs.luckypig.FinalExam20210108;
 
 import java.text.SimpleDateFormat;
@@ -133,3 +134,4 @@ class CreditCardsPay{
 		return -1;
 	}
 }
+*/
