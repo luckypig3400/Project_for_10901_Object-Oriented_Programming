@@ -1,10 +1,10 @@
-id
-name
-password
-balance
-bonus
-<creditLimit>   <usedAmount>    <expiryDate>
-以上記錄基本資訊與信用卡(信用卡一行代表一張 信用卡詳細資訊用\t隔開)
----
-以下為交易紀錄(一行代表一筆 詳細資訊用\t隔開)用---代表交易紀錄的開始與結束
-<transactionID> <transactionType>   <transactionAmount> <gainedBonus>   <transactionDate>
+id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate,transactionRecord
+
+交易紀錄(一個逗號代表一筆 詳細資訊用半形空白隔開)
+<transactionID> <transactionType> <transactionAmount> <gainedBonus> <transactionDate>
+
+決定更改profile格式為csv檔(可用excel打開)
+CSV格式說明可參考:
+https://www.computerhope.com/issues/ch001356.htm
+
+日後或許可以考慮把存檔格式改成XML

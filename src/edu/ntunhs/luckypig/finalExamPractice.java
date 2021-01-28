@@ -1,13 +1,15 @@
 package edu.ntunhs.luckypig;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class finalExamPractice {
     // this version won't modify base on teacher's code
-    File profile = new File("\\profile.txt");
+    File profile = new File("\\profile.csv");
     User user1 = new User(profile);
-
+    
     /*
      * 1.讀取個人資訊(Profile.txt)後(5%)，進入主程式提示使用者輸入密碼,當密碼正確時,
      * 登入成功後,畫面顯示「歡迎光臨{姓名},{姓名}需顯示自己的姓名,進入[主畫面]
@@ -71,7 +73,7 @@ class User {
     File profile;
 
     User(File in_profile) {
-
+        readProfile();
     }
 
     User(String in_id, String in_name, String in_password, int in_balance, int in_bonus) {
@@ -96,11 +98,18 @@ class User {
     }
 
     void readProfile() {
-        if(profile.exists()){
+        if (profile.exists()) {
             try {
+                //建議使用BufferedReader來讀取
+                //https://www.stackchief.com/blog/FileReader%20vs%20BufferedReader%20vs%20Scanner%20%7C%20Java
+                FileReader freader = new FileReader(profile);
+                BufferedReader bReader  = new BufferedReader(freader);
+
                 
+
+                //TODO:逐行讀取使用者資訊並存入變數
             } catch (Exception e) {
-                //TODO: handle exception
+                System.out.println("檔案讀取中發生錯誤錯誤訊息如下:" + e);
             }
         }
     }
