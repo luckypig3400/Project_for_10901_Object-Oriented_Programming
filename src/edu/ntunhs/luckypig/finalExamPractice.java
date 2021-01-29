@@ -59,7 +59,11 @@ class CreditCard {
     }
 
     String getAllinfos() {
-        return "信用額度:" + creditLimit + "\t已使用額度:" + usedAmount + "\t此卡到期日:" + expiryDate;
+        return creditLimit + "," + usedAmount + "," + expiryDate;
+    }
+
+    void printAllinfos() {
+        System.out.println("信用額度:" + creditLimit + "\t已使用額度:" + usedAmount + "\t此卡到期日:" + expiryDate);
     }
 
 }
@@ -113,18 +117,29 @@ class User {
             cache = bReader.readLine();
 
             if (cache.equals(headString)) {
+                // System.out.println("檔案位於:" + profile.getAbsolutePath());// debug用
                 System.out.println("存檔欄位資訊正確 將嘗試讀取存檔...");
 
                 while (bReader.ready()) {
+                    String line = bReader.readLine();
+                    String[] data = line.split(",");
+
+                    System.out.println("讀取出來的資訊如下:");
+                    for (String element : data) {
+                        System.out.println(element);
+                    }
 
                 }
                 bReader.close();
-            } else
-                System.out.println("存檔欄位資訊有誤 存檔已毀損，請洽客服人員");
+            } else {
+                System.out.println("存檔欄位資訊有誤 存檔可能已毀損，請洽客服人員並回報以下資訊:");
+                System.out.println(profile.getAbsolutePath());
+            }
 
         } catch (Exception e) {
             System.out.println("檔案讀取中發生錯誤錯誤訊息如下:" + e);
             e.printStackTrace();// 輸出詳細錯誤資訊
+            System.out.println("存檔可能已毀損，請洽客服人員並回報以上錯誤資訊");
         }
 
     }
@@ -170,8 +185,13 @@ class UserLog {
     // 日期格式為yyyyMMddHHmmss
 
     String getFullLog() {
-        return transactionID + "\t" + transactionType + "\t" + transactionAmount + "\t" + gainedBonus + "\t"
+        return transactionID + "," + transactionType + "," + transactionAmount + "," + gainedBonus + ","
                 + transactionDate;
+    }
+
+    void printFullLog() {
+        System.out.println("交易序號:" + transactionID + "\t交易類型:" + transactionType + "\t交易金額:" + transactionAmount
+                + "\t獲得紅利:" + gainedBonus + "\t交易日期" + transactionDate);
     }
 }
 

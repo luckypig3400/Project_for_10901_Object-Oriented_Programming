@@ -1,10 +1,15 @@
 id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate,transactionRecord
 
-交易紀錄(一個逗號代表一筆 詳細資訊用半形空白隔開)
-<transactionID> <transactionType> <transactionAmount> <gainedBonus> <transactionDate>
+# transactionRecord 1 line represent 1 record and the format is showing below
+看到上面那行後代表交易紀錄的開使(一行代表一筆 詳細資訊用逗號隔開，有一行代表標題欄位)
+<transactionID>,<transactionType>,<transactionAmount>,<gainedBonus>,<transactionDate>
+
 
 決定更改profile格式為csv檔(可用excel打開)
 CSV格式說明可參考:
 https://www.computerhope.com/issues/ch001356.htm
 
 日後或許可以考慮把存檔格式改成XML
+
+csv格式主要是說以符號分割(通常用逗號)
+存檔內容的格式自訂無約束
