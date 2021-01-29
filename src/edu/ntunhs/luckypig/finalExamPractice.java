@@ -76,6 +76,7 @@ class User {
     File profile;
 
     User(File in_profile) {
+        profile = in_profile;
         readProfile();
     }
 
@@ -101,17 +102,33 @@ class User {
     }
 
     void readProfile() {
-        if (profile.exists()) {
+        if (profile.exists() && profile != null) {
             try {
                 // 建議使用BufferedReader來讀取
                 // https://www.stackchief.com/blog/FileReader%20vs%20BufferedReader%20vs%20Scanner%20%7C%20Java
                 FileReader freader = new FileReader(profile);
                 BufferedReader bReader = new BufferedReader(freader);
+                final String headString = "id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate,transactionRecord";
+                String cache;
+                cache = bReader.readLine();
 
-                // TODO:逐行讀取使用者資訊並存入變數
+                if (cache.equals(headString)) {
+                    System.out.println("存檔欄位資訊正確 將嘗試讀取存檔...");
+
+                    while (bReader.ready()) {
+
+                    }
+                    bReader.close();
+                } else
+                    System.out.println("存檔欄位資訊有誤 存檔已毀損，請洽客服人員");
+
             } catch (Exception e) {
                 System.out.println("檔案讀取中發生錯誤錯誤訊息如下:" + e);
+                //e.printStackTrace();
             }
+
+        }else{
+            System.out.println("檔案不存在，可能遺失或初次使用本系統");
         }
     }
 
