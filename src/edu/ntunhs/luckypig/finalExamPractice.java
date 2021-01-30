@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import javax.lang.model.element.Element;
+
 public class finalExamPractice {
     // this version won't modify base on teacher's code
 
@@ -74,9 +76,9 @@ class User {
     String password;
     int balance;
     int bonus;
-    CreditCard creditCard1;
+    CreditCard creditCard1 = new CreditCard();
     boolean loginStatus;
-    ArrayList<UserLog> myLogList;
+    ArrayList<UserLog> myLogList = new ArrayList<UserLog>();
     File profile;
 
     User(File in_profile) {
@@ -129,10 +131,11 @@ class User {
                 password = data[2];
                 balance = Integer.parseInt(data[3]);
                 bonus = Integer.parseInt(data[4]);
-                creditCard1 = new CreditCard();// 在此建構避免後續遇到NullPointerException
+                
                 creditCard1.creditLimit = Integer.parseInt(data[5]);
                 creditCard1.usedAmount = Integer.parseInt(data[6]);
                 creditCard1.expiryDate = data[7];
+                
                 System.out.println("讀取出來的基本資訊如下:");
                 System.out.println(getAllinfo());
 
@@ -141,16 +144,24 @@ class User {
 
                 if (line.equals(trCheckString)) {
                     System.out.println("交易紀錄欄位資訊正確 讀取出的交易紀錄如下:");
-                    ArrayList<String> transactionStringList = new ArrayList<String>();
-                    int transactionRecordCount = 0;
+                    UserLog normalizedLog = new UserLog();
+                    String logFullString;
+                    String[] logData;
 
                     while (bReader.ready()) {
-                        transactionStringList.add(bReader.readLine());
-                        System.out.println(transactionStringList.get(transactionRecordCount));
-                        transactionRecordCount += 1;
+                        logFullString = bReader.readLine();
+                        logData = logFullString.split(",");
+
+                        normalizedLog.transactionID = Integer.parseInt(logData[0]);
+                        normalizedLog.transactionType = logData[1];
+                        normalizedLog.transactionAmount = Integer.parseInt(logData[2]);
+                        normalizedLog.gainedBonus = Integer.parseInt(logData[3]);
+                        normalizedLog.transactionDate = data[4];
+
+                        myLogList.add(normalizedLog);
                     }
 
-                    System.out.println("成功讀取交易紀錄");
+                    System.out.println("成功讀取" + myLogList.size() + "筆交易紀錄");
                 } else {
                     System.out.println("交易紀錄欄位資訊有誤 存檔可能已毀損，請洽客服人員並回報以下資訊:");
                     System.out.println(profile.getAbsolutePath());
@@ -200,7 +211,7 @@ class User {
             return -1;
     }
 
-    String getAllinfo(){
+    String getAllinfo() {
         return id + "," + name + "," + password + "," + balance + "," + bonus + "," + creditCard1.getAllinfo();
     }
 
