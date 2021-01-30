@@ -121,7 +121,7 @@ class User {
 
             if (cache.equals(headString)) {
                 // System.out.println("檔案位於:" + profile.getAbsolutePath());// debug用
-                System.out.println("存檔欄位資訊正確 將嘗試讀取存檔...");
+                System.out.println("存檔欄位資訊正確 正在讀取存檔...");
 
                 String line = bReader.readLine();
                 String[] data = line.split(",");
@@ -131,19 +131,22 @@ class User {
                 password = data[2];
                 balance = Integer.parseInt(data[3]);
                 bonus = Integer.parseInt(data[4]);
-                
+
                 creditCard1.creditLimit = Integer.parseInt(data[5]);
                 creditCard1.usedAmount = Integer.parseInt(data[6]);
                 creditCard1.expiryDate = data[7];
-                
-                System.out.println("讀取出來的基本資訊如下:");
-                System.out.println(getAllinfo());
+
+                // System.out.println("讀取出來的基本資訊如下:");// debug用 查看使用者資訊
+                // System.out.println(getAllinfo());// debug用 查看使用者資訊
+                System.out.println("成功讀取並載入使用者基本資訊");
 
                 line = bReader.readLine();
                 line += bReader.readLine();
 
                 if (line.equals(trCheckString)) {
-                    System.out.println("交易紀錄欄位資訊正確 讀取出的交易紀錄如下:");
+                    System.out.println("交易紀錄欄位資訊正確 正在讀取交易紀錄...");
+                    // System.out.println("交易紀錄如下:");// debug用 查看單筆交易紀錄
+
                     UserLog normalizedLog = new UserLog();
                     String logFullString;
                     String[] logData;
@@ -159,6 +162,8 @@ class User {
                         normalizedLog.transactionDate = data[4];
 
                         myLogList.add(normalizedLog);
+
+                        // System.out.println(normalizedLog.getFullLog());// debug用 查看單筆交易紀錄
                     }
 
                     System.out.println("成功讀取" + myLogList.size() + "筆交易紀錄");
