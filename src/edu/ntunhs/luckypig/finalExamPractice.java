@@ -4,15 +4,43 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-
-import javax.lang.model.element.Element;
+import java.util.Scanner;
 
 public class finalExamPractice {
     // this version won't modify base on teacher's code
 
     public static void main(String[] args) {
+
         File profile = new File(".\\profile.csv");
-        User user1 = new User(profile);
+        Scanner userInput = new Scanner(System.in);
+        String in_acc, in_pwd;
+
+        if (profile.exists()) {
+            System.out.println("找到存檔!正在嘗試讀取存檔...");
+            User user1 = new User(profile);
+            int loginTryCount = 0;
+
+            System.out.println("歡迎使用XDPay系統~請於下方先登入您的帳號～");
+            while (!user1.loginStatus && loginTryCount < 3) {// main screen
+                System.out.println("請輸入您的帳號:");
+                in_acc = userInput.nextLine();
+                System.out.println("請輸入您的密碼:");
+                in_pwd = userInput.nextLine();
+
+                System.out.println(user1.login(in_acc, in_pwd));
+                if (user1.loginStatus) {
+
+                } else {
+                    loginTryCount += 1;
+                    System.out.println("您還剩" + (3 - loginTryCount) + "次機會可嘗試登入");
+                }
+            }
+
+        } else {
+            System.out.println("沒有找到存檔，可能遺失存檔或首次使用本系統");
+            System.out.println("將引導逐步您建立帳戶...");
+            //TODO 1:建立帳戶創立引導過程
+        }
 
         /*
          * 1.讀取個人資訊(Profile.txt)後(5%)，進入主程式提示使用者輸入密碼,當密碼正確時,
@@ -39,6 +67,7 @@ public class finalExamPractice {
          * 
          * 8.[主畫面]程式需判斷,輸入金額非1,2,3,4時,應提示使用者輸入錯誤,並提示停留在 原本的功能,讓使用者能重新輸入選項(5%)
          */
+
     }
 
 }
@@ -86,6 +115,12 @@ class User {
         readProfile();
     }
 
+    User(String in_id, String in_name, String in_password) {
+        id = in_id;
+        name = in_name;
+        password = in_password;
+    }
+
     User(String in_id, String in_name, String in_password, int in_balance, int in_bonus) {
         id = in_id;
         name = in_name;
@@ -105,6 +140,19 @@ class User {
 
     int getUserLogCount() {
         return myLogList.size();
+    }
+
+    String login(String in_id, String in_pwd) {
+        if (in_id.equals(id)) {
+            if (in_pwd.equals(password)) {
+                loginStatus = true;
+                return "登入成功";
+            } else {
+                return "密碼錯誤";
+            }
+        } else {
+            return "帳號錯誤";
+        }
     }
 
     int readProfile() {
