@@ -107,7 +107,8 @@ class User {
         return myLogList.size();
     }
 
-    void readProfile() {
+    int readProfile() {
+        boolean success = false;
 
         try {
             // 建議使用BufferedReader來讀取
@@ -165,7 +166,7 @@ class User {
 
                         // System.out.println(normalizedLog.getFullLog());// debug用 查看單筆交易紀錄
                     }
-
+                    success = true;
                     System.out.println("成功讀取" + myLogList.size() + "筆交易紀錄");
                 } else {
                     System.out.println("交易紀錄欄位資訊有誤 存檔可能已毀損，請洽客服人員並回報以下資訊:");
@@ -184,10 +185,10 @@ class User {
             System.out.println("存檔可能已毀損，請洽客服人員並回報以上錯誤資訊");
         }
 
-    }
-
-    void readProfile(File in_profile) {
-
+        if (success)
+            return 0;
+        else
+            return -1;
     }
 
     int writeProfile() {
@@ -195,23 +196,8 @@ class User {
         // maybe can write backup old profile in the future
         boolean success = false;
 
-        if (success) {
+        if (success)
             return 0;
-        }
-
-        else
-            return -1;
-    }
-
-    int writeProfile(File in_profile) {
-        // also create file at the same time(overwrite old profile)
-        // maybe can write backup old profile in the future
-        boolean success = false;
-
-        if (success) {
-            return 0;
-        }
-
         else
             return -1;
     }
