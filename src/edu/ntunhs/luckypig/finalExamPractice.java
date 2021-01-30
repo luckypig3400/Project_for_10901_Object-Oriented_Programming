@@ -113,6 +113,7 @@ class User {
             FileReader freader = new FileReader(profile);
             BufferedReader bReader = new BufferedReader(freader);
             final String headString = "id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate,transactionRecord";
+            final String trCheckString = "# transactionRecord 1 line represent 1 record and the format is showing belowtransactionID,transactionType,transactionAmount,gainedBonus,transactionDate";
             String cache;
             cache = bReader.readLine();
 
@@ -120,21 +121,33 @@ class User {
                 // System.out.println("檔案位於:" + profile.getAbsolutePath());// debug用
                 System.out.println("存檔欄位資訊正確 將嘗試讀取存檔...");
 
-                while (bReader.ready()) {
-                    String line = bReader.readLine();
-                    String[] data = line.split(",");
+                String line = bReader.readLine();
+                String[] data = line.split(",");
 
-                    System.out.println("讀取出來的資訊如下:");
-                    for (String element : data) {
-                        System.out.println(element);
-                    }
-
+                System.out.println("讀取出來的基本資訊如下:");
+                for (String element : data) {
+                    System.out.println(element);
                 }
-                bReader.close();
+
+                line = bReader.readLine();
+                line += bReader.readLine();
+                
+                if (line.equals(trCheckString)) {
+                    System.out.println("交易紀錄欄位資訊正確 正在讀取交易紀錄...");
+                    ArrayList transactionStringList = new ArrayList<String>();
+
+                    while (bReader.ready()) {
+                        transactionStringList.add(bReader.readLine());
+                    }
+                    
+                    System.out.println("成功讀取交易紀錄");
+                }
+
             } else {
                 System.out.println("存檔欄位資訊有誤 存檔可能已毀損，請洽客服人員並回報以下資訊:");
                 System.out.println(profile.getAbsolutePath());
             }
+            bReader.close();
 
         } catch (Exception e) {
             System.out.println("檔案讀取中發生錯誤錯誤訊息如下:" + e);
