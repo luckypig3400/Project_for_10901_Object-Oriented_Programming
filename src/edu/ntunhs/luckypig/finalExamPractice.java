@@ -58,11 +58,11 @@ class CreditCard {
         return usedAmount;
     }
 
-    String getAllinfos() {
+    String getAllinfo() {
         return creditLimit + "," + usedAmount + "," + expiryDate;
     }
 
-    void printAllinfos() {
+    void printAllinfo() {
         System.out.println("信用額度:" + creditLimit + "\t已使用額度:" + usedAmount + "\t此卡到期日:" + expiryDate);
     }
 
@@ -124,23 +124,36 @@ class User {
                 String line = bReader.readLine();
                 String[] data = line.split(",");
 
+                id = data[0];
+                name = data[1];
+                password = data[2];
+                balance = Integer.parseInt(data[3]);
+                bonus = Integer.parseInt(data[4]);
+                creditCard1 = new CreditCard();// 在此建構避免後續遇到NullPointerException
+                creditCard1.creditLimit = Integer.parseInt(data[5]);
+                creditCard1.usedAmount = Integer.parseInt(data[6]);
+                creditCard1.expiryDate = data[7];
                 System.out.println("讀取出來的基本資訊如下:");
-                for (String element : data) {
-                    System.out.println(element);
-                }
+                System.out.println(getAllinfo());
 
                 line = bReader.readLine();
                 line += bReader.readLine();
-                
+
                 if (line.equals(trCheckString)) {
-                    System.out.println("交易紀錄欄位資訊正確 正在讀取交易紀錄...");
-                    ArrayList transactionStringList = new ArrayList<String>();
+                    System.out.println("交易紀錄欄位資訊正確 讀取出的交易紀錄如下:");
+                    ArrayList<String> transactionStringList = new ArrayList<String>();
+                    int transactionRecordCount = 0;
 
                     while (bReader.ready()) {
                         transactionStringList.add(bReader.readLine());
+                        System.out.println(transactionStringList.get(transactionRecordCount));
+                        transactionRecordCount += 1;
                     }
-                    
+
                     System.out.println("成功讀取交易紀錄");
+                } else {
+                    System.out.println("交易紀錄欄位資訊有誤 存檔可能已毀損，請洽客服人員並回報以下資訊:");
+                    System.out.println(profile.getAbsolutePath());
                 }
 
             } else {
@@ -185,6 +198,10 @@ class User {
 
         else
             return -1;
+    }
+
+    String getAllinfo(){
+        return id + "," + name + "," + password + "," + balance + "," + bonus + "," + creditCard1.getAllinfo();
     }
 
 }

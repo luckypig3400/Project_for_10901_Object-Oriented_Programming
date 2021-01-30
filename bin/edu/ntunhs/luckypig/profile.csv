@@ -1,4 +1,4 @@
-id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate,transactionRecord
+id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate
 082214226,testUser,226,60000,666,60000,0,20210606
 # transactionRecord 1 line represent 1 record and the format is showing below
 transactionID,transactionType,transactionAmount,gainedBonus,transactionDate
