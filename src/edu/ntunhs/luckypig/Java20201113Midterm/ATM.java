@@ -66,6 +66,7 @@ public class ATM {
             System.out.println("密碼或帳號輸入錯誤次數過多，將離開系統...");
         }
 
+        userInputSC.close();
     }
 
     boolean login(String inputAccountNumer, String inputPWD) {
@@ -98,7 +99,7 @@ public class ATM {
                 failedLoginCount += 1;
             }
         }
-
+        userInputSC.close();
         if (loginStatus == true) {
             System.out.println("登入成功!");
             return loginStatus;// 僅回傳值，不呼叫主頁面
@@ -153,6 +154,7 @@ public class ATM {
                         funString = "0";
                     else {
                         // do nothing let the funString remain the original value
+                        sc.close();
                     }
                     Thread.sleep(900);
                     break;
