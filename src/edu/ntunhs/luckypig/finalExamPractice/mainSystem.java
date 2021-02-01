@@ -10,23 +10,24 @@ public class mainSystem {
 
         File profile = new File(".\\profile.csv");
         Scanner userInput = new Scanner(System.in);
-        String in_acc, in_pwd;
+        String in_id, in_pwd, in_name;
+        User user1;
 
         if (profile.exists()) {
             System.out.println("找到存檔!正在嘗試讀取存檔...");
-            User user1 = new User(profile);
+            user1 = new User(profile);
             int loginTryCount = 0;
 
             System.out.println("歡迎使用XDPay系統~請於下方先登入您的帳號～");
             while (!user1.loginStatus && loginTryCount < 3) {// main screen
                 System.out.println("請輸入您的帳號:");
-                in_acc = userInput.nextLine();
+                in_id = userInput.nextLine();
                 System.out.println("請輸入您的密碼:");
                 in_pwd = userInput.nextLine();
 
-                System.out.println(user1.login(in_acc, in_pwd));
+                System.out.println(user1.login(in_id, in_pwd));
                 if (user1.loginStatus) {
-
+                    // TODO:進入系統主頁
                 } else {
                     loginTryCount += 1;
                     System.out.println("您還剩" + (3 - loginTryCount) + "次機會可嘗試登入");
@@ -34,9 +35,38 @@ public class mainSystem {
             }
 
         } else {
+            int first_deposit = 0, in_bonus = 0;
+
             System.out.println("沒有找到存檔，可能遺失存檔或首次使用本系統");
             System.out.println("將引導逐步您建立帳戶...");
             // TODO 1:建立帳戶創立引導過程
+            System.out.println("請輸入您的姓名:");
+            in_name = userInput.nextLine();
+            System.out.println("請輸入您想建立的帳號ID:");
+            in_id = userInput.nextLine();
+            System.out.println("請輸入您想建立的密碼:");
+            in_pwd = userInput.nextLine();
+            System.out.println("請輸入您開戶想存的金額(首除滿千送1000點數，也可輸入0不儲值):");
+            try {
+                first_deposit = userInput.nextInt();
+                if (first_deposit < 0) {
+                    first_deposit = 0;
+                    System.out.println("您輸入的金額有誤，不能儲值負數喔!");
+                } else if (first_deposit >= 1000) {
+                    in_bonus += 1000;
+                    in_bonus += (first_deposit - 1000) / 1000 * 100;
+                    System.out.println("感謝您首儲1000元以上，日後儲值滿千贈送100點");
+                }
+            } catch (Exception e) {
+                first_deposit = 0;
+                System.out.println("您輸入的金額有誤，只能輸入數字喔!");
+            }
+
+            user1 = new User(in_id, in_name, in_pwd, first_deposit, in_bonus);
+
+            System.out.println("帳號建立成功，您的帳號資訊如下，請檢查是否正確並牢記帳號與密碼:");
+            user1.printAllinfo();
+
         }
 
         // TODO 1.讀取個人資訊(Profile.txt)後(5%)，進入主程式提示使用者輸入密碼,當密碼正確時,

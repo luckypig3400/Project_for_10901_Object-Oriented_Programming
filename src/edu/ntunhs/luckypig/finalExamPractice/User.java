@@ -158,4 +158,9 @@ public class User {
         return id + "," + name + "," + password + "," + balance + "," + bonus + "," + creditCard1.getAllinfo();
     }
 
+    void printAllinfo() {
+        System.out.println("帳號:" + id + "\n姓名:" + name + "\n密碼:" + password + "\n餘額:" + balance + "\n點數:" + bonus + "\n信用卡資訊:");
+        creditCard1.printAllinfo();
+    }
+
 }
