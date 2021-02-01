@@ -68,7 +68,7 @@ public class User {
             // https://www.stackchief.com/blog/FileReader%20vs%20BufferedReader%20vs%20Scanner%20%7C%20Java
             FileReader freader = new FileReader(profile);
             BufferedReader bReader = new BufferedReader(freader);
-            final String headString = "id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate,transactionRecord";
+            final String headString = "id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate";
             final String trCheckString = "# transactionRecord 1 line represent 1 record and the format is showing belowtransactionID,transactionType,transactionAmount,gainedBonus,transactionDate";
             String cache;
             cache = bReader.readLine();
