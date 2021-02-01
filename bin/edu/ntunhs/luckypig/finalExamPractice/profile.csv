@@ -2,5 +2,5 @@ id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate
 082214226,testUser,226,60000,666,60000,0,20210606
 # transactionRecord 1 line represent 1 record and the format is showing below
 transactionID,transactionType,transactionAmount,gainedBonus,transactionDate
-1,XDPay,60000,60,20210126164933
-2,CreditCardsPay,-3000,300,20210126165736
+1,XDPay,60000,60,2021/01/26 16:49:33
+2,CreditCardsPay,-3000,300,2021/01/26 16:57:36

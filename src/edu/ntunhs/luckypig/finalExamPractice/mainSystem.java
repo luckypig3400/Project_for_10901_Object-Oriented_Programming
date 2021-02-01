@@ -13,9 +13,12 @@ public class mainSystem {
 
     public static void main(String[] args) {
 
+        unitTest();
+
         if (profile.exists()) {// 已經有存檔的執行區塊
             System.out.println("找到存檔!正在嘗試讀取存檔...");
             user1 = new User(profile);
+            System.out.println("按一下Enter來登入系統");
 
             loginXDPaySystem();
 
@@ -130,6 +133,11 @@ public class mainSystem {
         }
         System.out.println("感謝您使用XDPay支付系統 歡迎再次使用ヾ(≧▽≦*)o");
         user1.loginStatus = false;// 使用者離開系統 標示為登出
+    }
+
+    public static void unitTest() {
+        UserLog testlog = new UserLog(1, "XDPay", -3000, 300);
+        testlog.printCurrentTime();
     }
 
 }
