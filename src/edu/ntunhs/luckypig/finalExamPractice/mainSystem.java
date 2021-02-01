@@ -104,6 +104,9 @@ public class mainSystem {
             } catch (Exception e) {
                 System.out.println("請輸入數字1~4喔!");
                 functionSelection = 0;
+                userInput.nextLine(); // 把scanner內的資料清空 避免造成無限迴圈
+                // Reading input using Scanner causes an infinite loop in Java [duplicate]
+                // https://stackoverflow.com/questions/26684729/reading-input-using-scanner-causes-an-infinite-loop-in-java
             }
 
             // TODO 4.按下數字[1]:查詢交易紀錄 4.l.l在UserLog類別中新增一個方法,將所有交易紀錄內容組合成一個文字字串並回
