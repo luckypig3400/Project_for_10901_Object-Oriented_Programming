@@ -66,6 +66,7 @@ public class mainSystem {
         // Finished 2.功能選單;密碼錯誤時,提示密碼錯誤並離開程式。其中Profile.txt可自行修改格式與設計
         int loginTryCount = 0;
 
+        userInput.nextLine();// 修正奇怪的登入錯誤(首次登入無法讀取帳號)
         System.out.println("歡迎使用XDPay系統~請於下方先登入您的帳號～");
         while (!user1.loginStatus && loginTryCount < 3) {// main screen
             System.out.println("請輸入您的帳號:");
