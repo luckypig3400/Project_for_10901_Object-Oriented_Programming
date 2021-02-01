@@ -13,6 +13,7 @@ public class User {
     boolean loginStatus;
     ArrayList<UserLog> myLogList = new ArrayList<UserLog>();
     File profile;
+    CreditCardsPay creditCardsPay = new CreditCardsPay();
 
     User(File in_profile) {
         profile = in_profile;

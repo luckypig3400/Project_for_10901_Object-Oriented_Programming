@@ -6,40 +6,27 @@ import java.util.Scanner;
 public class mainSystem {
     // this version won't modify base on teacher's code
 
+    static File profile = new File(".\\profile.csv");
+    static Scanner userInput = new Scanner(System.in);
+    static String in_id, in_pwd, in_name;
+    static User user1;
+
     public static void main(String[] args) {
 
-        File profile = new File(".\\profile.csv");
-        Scanner userInput = new Scanner(System.in);
-        String in_id, in_pwd, in_name;
-        User user1;
-
-        if (profile.exists()) {
+        if (profile.exists()) {// 已經有存檔的執行區塊
             System.out.println("找到存檔!正在嘗試讀取存檔...");
             user1 = new User(profile);
-            int loginTryCount = 0;
 
-            System.out.println("歡迎使用XDPay系統~請於下方先登入您的帳號～");
-            while (!user1.loginStatus && loginTryCount < 3) {// main screen
-                System.out.println("請輸入您的帳號:");
-                in_id = userInput.nextLine();
-                System.out.println("請輸入您的密碼:");
-                in_pwd = userInput.nextLine();
+            loginXDPaySystem();
 
-                System.out.println(user1.login(in_id, in_pwd));
-                if (user1.loginStatus) {
-                    // TODO:進入系統主頁
-                } else {
-                    loginTryCount += 1;
-                    System.out.println("您還剩" + (3 - loginTryCount) + "次機會可嘗試登入");
-                }
-            }
+            systemMainScreen();
 
-        } else {
+        } else {// 沒有存檔或存檔毀損引導使用者建立帳戶執行區塊區塊
             int first_deposit = 0, in_bonus = 0;
 
             System.out.println("沒有找到存檔，可能遺失存檔或首次使用本系統");
             System.out.println("將引導逐步您建立帳戶...");
-            // TODO 1:建立帳戶創立引導過程
+
             System.out.println("請輸入您的姓名:");
             in_name = userInput.nextLine();
             System.out.println("請輸入您想建立的帳號ID:");
@@ -63,38 +50,82 @@ public class mainSystem {
             }
 
             user1 = new User(in_id, in_name, in_pwd, first_deposit, in_bonus);
-
             System.out.println("帳號建立成功，您的帳號資訊如下，請檢查是否正確並牢記帳號與密碼:");
             user1.printAllinfo();
 
+            loginXDPaySystem();
+
+            systemMainScreen();
+
         }
 
-        // TODO 1.讀取個人資訊(Profile.txt)後(5%)，進入主程式提示使用者輸入密碼,當密碼正確時,
-        // 登入成功後,畫面顯示「歡迎光臨{姓名},{姓名}需顯示自己的姓名,進入[主畫面]
-
-        // TODO 2.功能選單;密碼錯誤時,提示密碼錯誤並離開程式。其中Profile.txt可自行修改格式與設計
-
-        // TODO 3.主程式進入[主畫面]後,印出功能選項[1.查詢交易紀錄]、[2.儲值]、[3.付款]以及[4.離 開](5%),規格說明如下:
-
-        // TODO 4.按下數字[1]:查詢交易紀錄 4.l.l在UserLog類別中新增一個方法,將所有交易紀錄內容組合成一個文字字串並回
-        // 傳,格式可自訂。其中日期格式為yyyyMMddHHmmss(5%) 並在main程式中將所有的交易紀錄逐筆顯示在畫面上,並跳回主畫面(5%)
-
-        // TODO 5.按下數字[2]:儲值,在主畫面顯示XDPay內的餘額,提示使用者輸入金額,並在User類別中新增一個儲值功能,
-        // 當執行儲值功能結束後,顯示餘額並跳回[主畫面](5%) 程式需判斷輸入金額為非整數或時,要回傳錯誤,需提示輸入錯誤,並停留在
-        // 原本的功能,讓使用者能重新輸入;若不要儲值,則回到主畫面
-
-        // TODO 6.按下數字[3]:付款,在[主畫面]選擇付款方式後,輸入提款金額,並顯示交易結果後跳
-        // 回[主畫面]。若選擇XDPay則需結果需顯示剩餘儲值金額(5%)
-
-        // TODO 6.1以[主畫面]提示使用者可選擇XDPay或CreditCardSpay其中一種付款方式,並在
-        // User類別中新增一個付款功能,用多型的方式實作兩種付款方式。(5%) *提示:Pay myPayl = new XDPay();
-        // 程式需判斷輸入金額為非整數、負數或是提款金額大於餘款時,需提示輸入錯誤, 並停留在原本的功能,讓使用者能重新輸入;若不要付款,則回到[主畫面](5%)
-
-        // TODO 7.按下數字[4]:離開,出現提示訊息,詢問是否離開,輸入小寫y或大寫Y則離開程 式,若輸小寫n或大寫N則回到主畫面(5%)
-
-        // TODO 8.[主畫面]程式需判斷,輸入金額非1,2,3,4時,應提示使用者輸入錯誤,並提示停留在 原本的功能,讓使用者能重新輸入選項(5%)
-
         userInput.close();
+    }
+
+    public static void loginXDPaySystem() {
+        // Finished 2.功能選單;密碼錯誤時,提示密碼錯誤並離開程式。其中Profile.txt可自行修改格式與設計
+        int loginTryCount = 0;
+
+        System.out.println("歡迎使用XDPay系統~請於下方先登入您的帳號～");
+        while (!user1.loginStatus && loginTryCount < 3) {// main screen
+            System.out.println("請輸入您的帳號:");
+            in_id = userInput.nextLine();
+            System.out.println("請輸入您的密碼:");
+            in_pwd = userInput.nextLine();
+
+            System.out.println(user1.login(in_id, in_pwd));
+            if (user1.loginStatus) {
+                System.out.println("尊貴的用戶 " + user1.name + " 您好! 歡迎使用XDPay支付系統");
+            } else {
+                loginTryCount += 1;
+                if (loginTryCount == 3)
+                    System.out.println("錯誤次數過多 暫時無法登入!");
+                else
+                    System.out.println("您還剩" + (3 - loginTryCount) + "次機會可嘗試登入");
+            }
+        }
+    }
+
+    public static void systemMainScreen() {
+        int functionSelection = 0;
+
+        if (user1.loginStatus == false) {
+            System.out.println("您尚未登入 即將離開系統...");
+            functionSelection = 4;
+        }
+
+        while (functionSelection != 4) {
+            // Finished 3.主程式進入[主畫面]後,印出功能選項[1.查詢交易紀錄]、[2.儲值]、[3.付款]以及[4.離 開](5%),規格說明如下:
+            System.out.println("歡迎使用XDPay支付系統 本系統提供以下服務\n[1.查詢交易紀錄]\t[2.儲值]\t[3.付款]\t[4.離 開]");
+            System.out.println("請選擇您欲使用的服務:");
+
+            try {
+                functionSelection = userInput.nextInt();
+            } catch (Exception e) {
+                System.out.println("請輸入數字1~4喔!");
+                functionSelection = 0;
+            }
+
+            // TODO 4.按下數字[1]:查詢交易紀錄 4.l.l在UserLog類別中新增一個方法,將所有交易紀錄內容組合成一個文字字串並回
+            // 傳,格式可自訂。其中日期格式為yyyyMMddHHmmss(5%) 並在main程式中將所有的交易紀錄逐筆顯示在畫面上,並跳回主畫面(5%)
+
+            // TODO 5.按下數字[2]:儲值,在主畫面顯示XDPay內的餘額,提示使用者輸入金額,並在User類別中新增一個儲值功能,
+            // 當執行儲值功能結束後,顯示餘額並跳回[主畫面](5%) 程式需判斷輸入金額為非整數或時,要回傳錯誤,需提示輸入錯誤,並停留在
+            // 原本的功能,讓使用者能重新輸入;若不要儲值,則回到主畫面
+
+            // TODO 6.按下數字[3]:付款,在[主畫面]選擇付款方式後,輸入提款金額,並顯示交易結果後跳
+            // 回[主畫面]。若選擇XDPay則需結果需顯示剩餘儲值金額(5%)
+
+            // TODO 6.1以[主畫面]提示使用者可選擇XDPay或CreditCardSpay其中一種付款方式,並在
+            // User類別中新增一個付款功能,用多型的方式實作兩種付款方式。(5%) *提示:Pay myPayl = new XDPay();
+            // 程式需判斷輸入金額為非整數、負數或是提款金額大於餘款時,需提示輸入錯誤, 並停留在原本的功能,讓使用者能重新輸入;若不要付款,則回到[主畫面](5%)
+
+            // TODO 7.按下數字[4]:離開,出現提示訊息,詢問是否離開,輸入小寫y或大寫Y則離開程 式,若輸小寫n或大寫N則回到主畫面(5%)
+
+            // TODO 8.[主畫面]程式需判斷,輸入金額非1,2,3,4時,應提示使用者輸入錯誤,並提示停留在 原本的功能,讓使用者能重新輸入選項(5%)
+        }
+        System.out.println("感謝您使用XDPay支付系統 歡迎再次使用ヾ(≧▽≦*)o");
+        user1.loginStatus = false;// 使用者離開系統 標示為登出
     }
 
 }
