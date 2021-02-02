@@ -259,6 +259,10 @@ public class mainSystem {
                     userInput.nextLine();
                     String exitOrNot = userInput.nextLine();
                     if (exitOrNot.equals("y") || exitOrNot.equals("Y")) {
+                        System.out.println("正在儲存系統存檔...請稍後...");
+
+                        // TODO:write profile
+
                         System.out.println("感謝您使用XDPay支付系統 歡迎再次使用ヾ(≧▽≦*)o");
                     } else if (exitOrNot.equals("n") || exitOrNot.equals("N")) {
                         System.out.println("好的 即將返回系統主頁面...");
