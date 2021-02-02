@@ -39,7 +39,7 @@ public class UserLog {
 
     void printFullLog() {
         System.out.println("交易序號:" + transactionID + "\t交易類型:" + transactionType + "\t交易金額:" + transactionAmount
-                + "\t獲得紅利:" + gainedBonus + "\t交易日期" + transactionDate);
+                + "\t獲得紅利:" + gainedBonus + "\t交易日期:" + transactionDate);
     }
 
     String getCurrentTime() {

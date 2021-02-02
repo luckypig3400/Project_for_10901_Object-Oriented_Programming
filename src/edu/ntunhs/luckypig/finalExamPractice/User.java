@@ -113,7 +113,7 @@ public class User {
                         normalizedLog.transactionType = logData[1];
                         normalizedLog.transactionAmount = Integer.parseInt(logData[2]);
                         normalizedLog.gainedBonus = Integer.parseInt(logData[3]);
-                        normalizedLog.transactionDate = data[4];
+                        normalizedLog.transactionDate = logData[4];
 
                         myLogList.add(normalizedLog);
 
