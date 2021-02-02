@@ -132,9 +132,36 @@ public class mainSystem {
                     break;
 
                 case 2:
-                    // TODO 5.按下數字[2]:儲值,在主畫面顯示XDPay內的餘額,提示使用者輸入金額,並在User類別中新增一個儲值功能,
+                    // Finished 5.按下數字[2]:儲值,在主畫面顯示XDPay內的餘額,提示使用者輸入金額,並在User類別中新增一個儲值功能,
                     // 當執行儲值功能結束後,顯示餘額並跳回[主畫面](5%) 程式需判斷輸入金額為非整數或時,要回傳錯誤,需提示輸入錯誤,並停留在
                     // 原本的功能,讓使用者能重新輸入;若不要儲值,則回到主畫面
+                    boolean stayHere = true;
+
+                    while (stayHere) {
+                        System.out.println("您目前帳戶剩餘" + user1.balance + "元，請輸入要儲值的金額(單筆儲值滿千回饋紅利100點 輸入0取消):");
+                        try {
+                            int depositMoney = userInput.nextInt();
+                            XDPay xdpay1 = new XDPay(user1);
+
+                            if (xdpay1.deposit(depositMoney) == 0) {
+                                System.out.println("成功儲值ヾ(≧▽≦*)o正在同步使用者資訊...");
+                                user1 = xdpay1.user;
+                                System.out.println("本次交易紀錄如下:");
+                                xdpay1.transactionLog.printFullLog();
+                                stayHere = false;
+                            } else if (xdpay1.deposit(depositMoney) == 1) {
+                                System.out.println("交易已取消");
+                                stayHere = false;
+                            } else {
+                                System.out.println("輸入金額有誤喔! 只能儲值正整數的金額 請重新嘗試");
+                            }
+
+                        } catch (Exception e) {
+                            System.out.println("只能輸入數字喔!");
+                            userInput.next();
+                        }
+                    }
+
                     break;
 
                 case 3:

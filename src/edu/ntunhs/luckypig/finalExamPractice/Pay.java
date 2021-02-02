@@ -27,8 +27,23 @@ class CreditCardsPay extends Pay {
     int addedBP;
     UserLog transactionLog;
 
+    CreditCardsPay(User in_user) {
+        user = in_user;
+    }
+
     @Override
     int withdraw(int money) {
+
+        if (money >= 0 && money <= (user.creditCard1.creditLimit - user.creditCard1.usedAmount)) {
+            paymentStatus = 0;
+        } else if (money > 0 && money > (user.creditCard1.creditLimit - user.creditCard1.usedAmount)) {
+            paymentStatus = 1;
+        } else if (money < 0) {
+            paymentStatus = 2;
+        } else {
+            paymentStatus = 3;
+        }
+
         return paymentStatus;
     }
 
@@ -39,6 +54,7 @@ class CreditCardsPay extends Pay {
     UserLog returnTransactionLog() {
         return transactionLog;
     }
+
 }
 
 class XDPay extends Pay implements Deposit {
@@ -47,6 +63,11 @@ class XDPay extends Pay implements Deposit {
     User user;
     int addedBP;
     UserLog transactionLog;
+    int depositStatus = 0;// 0:儲值成功 1:取消儲值 2:輸入金額有誤
+
+    XDPay(User in_User) {
+        user = in_User;
+    }
 
     @Override
     public int withdraw(int money) {
@@ -55,7 +76,21 @@ class XDPay extends Pay implements Deposit {
 
     public int deposit(int money) {
 
-        return 0;
+        if (money > 0) {
+            user.balance += money;
+            int trID = user.myLogList.size() + 1;
+            addedBP = money / 1000 * 100;
+            transactionLog = new UserLog(trID, transactionType, money, addedBP);
+            user.myLogList.add(transactionLog);
+
+            depositStatus = 0;
+        } else if (money == 0) {
+            depositStatus = 1;
+        } else {
+            depositStatus = 2;
+        }
+
+        return depositStatus;
     }
 
     void addUserLog() {
@@ -66,4 +101,7 @@ class XDPay extends Pay implements Deposit {
         return transactionLog;
     }
 
+    User returnCurrentUserStatus() {
+        return user;
+    }
 }
