@@ -6,6 +6,7 @@ abstract class Pay {
      * //2付款失敗:輸入金額數值錯誤 //3付款失敗:付款裝置感應失敗
      */
     int paymentStatus;
+    User user;
 
     int withdraw(int money) {
         return paymentStatus;
@@ -13,6 +14,10 @@ abstract class Pay {
 
     String returnLog() {
         return "transaction Log Maybe complete it in other class";
+    }
+
+    User returnCurrentUserStatus() {
+        return user;
     }
 }
 

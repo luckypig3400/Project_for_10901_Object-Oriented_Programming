@@ -203,8 +203,8 @@ public class mainSystem {
                                     }
 
                                 } catch (Exception e) {
-                                    System.out.println("金額只能輸入數字喔! 錯誤如下:" + e);
-                                    e.printStackTrace();
+                                    System.out.println("金額只能輸入數字喔!");
+                                    // e.printStackTrace();// debug用
                                     userInput.next();
                                 }
                             }
