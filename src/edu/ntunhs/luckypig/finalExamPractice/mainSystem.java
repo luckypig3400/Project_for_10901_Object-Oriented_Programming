@@ -115,8 +115,19 @@ public class mainSystem {
 
             switch (functionSelection) {
                 case 1:
-                    // TODO 4.按下數字[1]:查詢交易紀錄 4.l.l在UserLog類別中新增一個方法,將所有交易紀錄內容組合成一個文字字串並回
+                    // Finished 4.按下數字[1]:查詢交易紀錄 4.l.l在UserLog類別中新增一個方法,將所有交易紀錄內容組合成一個文字字串並回
                     // 傳,格式可自訂。其中日期格式為yyyyMMddHHmmss(5%) 並在main程式中將所有的交易紀錄逐筆顯示在畫面上,並跳回主畫面(5%)
+                    System.out.println("以下逐行列出您所有的交易紀錄:");
+
+                    // for (UserLog userLogInList : user1.myLogList) {
+                    // userLogInList.printFullLog();
+                    // }
+
+                    for (int i = 0; i < user1.myLogList.size(); i++) {
+                        UserLog userLogInList = user1.myLogList.get(i);
+                        System.out.println(i + "\t" + userLogInList.getFullLog());
+                    }
+
                     break;
 
                 case 2:
@@ -145,6 +156,7 @@ public class mainSystem {
         }
         System.out.println("感謝您使用XDPay支付系統 歡迎再次使用ヾ(≧▽≦*)o");
         user1.loginStatus = false;// 使用者離開系統 標示為登出
+
     }
 
     public static void unitTest() {
