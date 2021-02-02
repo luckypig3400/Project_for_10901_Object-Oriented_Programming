@@ -33,12 +33,18 @@ class CreditCardsPay extends Pay {
 
     @Override
     int withdraw(int money) {
+        if (money > 0 && money <= (user.creditCard1.creditLimit - user.creditCard1.usedAmount)) {
+            user.creditCard1.usedAmount += money;
+            user.creditCard1.creditLimit -= money;
+            int trID = user.myLogList.size() + 1;
+            addedBP = money / 1000 * 100;
+            transactionLog = new UserLog(trID, transactionType, 0 - money, addedBP);
+            user.myLogList.add(transactionLog);
 
-        if (money >= 0 && money <= (user.creditCard1.creditLimit - user.creditCard1.usedAmount)) {
             paymentStatus = 0;
         } else if (money > 0 && money > (user.creditCard1.creditLimit - user.creditCard1.usedAmount)) {
             paymentStatus = 1;
-        } else if (money < 0) {
+        } else if (money <= 0) {
             paymentStatus = 2;
         } else {
             paymentStatus = 3;
@@ -71,6 +77,22 @@ class XDPay extends Pay implements Deposit {
 
     @Override
     public int withdraw(int money) {
+        if (money > 0 && money <= user.balance) {
+            user.balance -= money;
+            int trID = user.myLogList.size() + 1;
+            addedBP = money / 500 * 10;
+            transactionLog = new UserLog(trID, transactionType, 0 - money, addedBP);
+            user.myLogList.add(transactionLog);
+
+            paymentStatus = 0;
+        } else if (money > 0 && money > user.balance) {
+            paymentStatus = 1;
+        } else if (money <= 0) {
+            paymentStatus = 2;
+        } else {
+            paymentStatus = 3;
+        }
+
         return paymentStatus;
     }
 
