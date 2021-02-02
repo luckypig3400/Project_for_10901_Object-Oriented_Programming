@@ -165,10 +165,10 @@ public class mainSystem {
                     break;
 
                 case 3:
-                    // TODO 6.按下數字[3]:付款,在[主畫面]選擇付款方式後,輸入提款金額,並顯示交易結果後跳
+                    // Finished 6.按下數字[3]:付款,在[主畫面]選擇付款方式後,輸入提款金額,並顯示交易結果後跳
                     // 回[主畫面]。若選擇XDPay則需結果需顯示剩餘儲值金額(5%)
 
-                    // TODO 6.1以[主畫面]提示使用者可選擇XDPay或CreditCardSpay其中一種付款方式,並在
+                    // Finished 6.1以[主畫面]提示使用者可選擇XDPay或CreditCardSpay其中一種付款方式,並在
                     // User類別中新增一個付款功能,用多型的方式實作兩種付款方式。(5%) *提示:Pay myPayl = new XDPay();
                     // 程式需判斷輸入金額為非整數、負數或是提款金額大於餘款時,需提示輸入錯誤, 並停留在原本的功能,讓使用者能重新輸入;若不要付款,則回到[主畫面](5%)
                     boolean stayInPayment = true;
@@ -211,14 +211,41 @@ public class mainSystem {
 
                             else if (payMethod == 2) {
                                 System.out.println("您選擇了信用卡支付");
+                                System.out.println("請輸入付款金額(單筆消費滿千回饋100點 輸入0取消):");
+                                try {
+                                    paymentAmount = userInput.nextInt();
 
-                            } else if (payMethod == 0) {
+                                    if (creditCardsPay.withdraw(paymentAmount) == 0) {
+                                        System.out.println("付款成功ヾ(≧▽≦*)o正在同步使用者資訊...");
+                                        user1 = xdpay.returnCurrentUserStatus();
+                                        System.out.println("本次交易紀錄如下:");
+                                        user1.myLogList.get(user1.myLogList.size() - 1).printFullLog();
+                                        stayInPayment = false;
+                                    } else if (creditCardsPay.withdraw(paymentAmount) == 1) {
+                                        System.out.println("信用卡額度不足!");
+                                    } else if (creditCardsPay.withdraw(paymentAmount) == 2) {
+                                        System.out.println("交易已取消");
+                                        stayInPayment = false;
+                                    } else {
+                                        System.out.println("支付裝置感應錯誤或其他錯誤(小提醒:只接受正整數喔)請重新嘗試");
+                                    }
+
+                                } catch (Exception e) {
+                                    System.out.println("金額只能輸入數字喔!");
+                                    userInput.next();
+                                }
+
+                            }
+
+                            else if (payMethod == 0) {
                                 System.out.println("交易已取消");
                                 stayInPayment = false;
                             } else {
                                 System.out.println("沒有該選項(僅有0、1、2可選)");
                             }
-                        } catch (Exception e) {
+                        }
+
+                        catch (Exception e) {
                             System.out.println("只能輸入數字喔(不用加.)");
                             userInput.next();
                         }
