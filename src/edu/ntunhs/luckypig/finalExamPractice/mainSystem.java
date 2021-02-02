@@ -147,7 +147,20 @@ public class mainSystem {
                     break;
 
                 case 4:
-                    // TODO 7.按下數字[4]:離開,出現提示訊息,詢問是否離開,輸入小寫y或大寫Y則離開程 式,若輸小寫n或大寫N則回到主畫面(5%)
+                    // Finished 7.按下數字[4]:離開,出現提示訊息,詢問是否離開,輸入小寫y或大寫Y則離開程 式,若輸小寫n或大寫N則回到主畫面(5%)
+                    System.out.println("請問您是否要離開本系統了(y/n):");
+                    userInput.nextLine();
+                    String exitOrNot = userInput.nextLine();
+                    if (exitOrNot.equals("y") || exitOrNot.equals("Y")) {
+                        System.out.println("感謝您使用XDPay支付系統 歡迎再次使用ヾ(≧▽≦*)o");
+                    } else if (exitOrNot.equals("n") || exitOrNot.equals("N")) {
+                        System.out.println("好的 即將返回系統主頁面...");
+                        functionSelection = 0;
+                    } else {
+                        System.out.println("輸入有誤!只能輸入y或n喔(大小寫均可) 即將返回系統主頁面...");
+                        functionSelection = 0;
+                    }
+
                     break;
                 default:
                     System.out.println("請輸入1、2、3、4的其中一項喔");
@@ -155,7 +168,6 @@ public class mainSystem {
                     break;
             }
         }
-        System.out.println("感謝您使用XDPay支付系統 歡迎再次使用ヾ(≧▽≦*)o");
         user1.loginStatus = false;// 使用者離開系統 標示為登出
 
     }
