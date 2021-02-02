@@ -1,7 +1,7 @@
 package edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211;
 
 import java.util.Random;
-import edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211.RandomString;
+//import edu.ntunhs.luckypig.PocketMonsterGameRenew_20201211.RandomString;
 // 其實只需要引入位於 edu.ntunhs.luckypig 的 RandomString 即可
 // import edu.ntunhs.luckypig.RandomString;
 // 但是為了方便繳交作業，因此複製一份到同個資料夾內
