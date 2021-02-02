@@ -119,14 +119,15 @@ public class mainSystem {
                     // 傳,格式可自訂。其中日期格式為yyyyMMddHHmmss(5%) 並在main程式中將所有的交易紀錄逐筆顯示在畫面上,並跳回主畫面(5%)
                     System.out.println("以下逐行列出您所有的交易紀錄:");
 
-                    // for (UserLog userLogInList : user1.myLogList) {
-                    // userLogInList.printFullLog();
-                    // }
-
-                    for (int i = 0; i < user1.myLogList.size(); i++) {
-                        UserLog userLogInList = user1.myLogList.get(i);
-                        System.out.println(i + "\t" + userLogInList.getFullLog());
+                    for (UserLog userLogInList : user1.myLogList) {
+                        userLogInList.printFullLog();
                     }
+
+                    // 寫法2(同時用來交互除錯)
+                    // for (int i = 0; i < user1.myLogList.size(); i++) {
+                    // UserLog userLogInList = user1.myLogList.get(i);
+                    // System.out.println(i + "\t" + userLogInList.getFullLog());
+                    // }
 
                     break;
 

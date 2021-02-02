@@ -101,7 +101,6 @@ public class User {
                     System.out.println("交易紀錄欄位資訊正確 正在讀取交易紀錄...");
                     // System.out.println("交易紀錄如下:");// debug用 查看單筆交易紀錄
 
-                    UserLog normalizedLog = new UserLog();
                     String logFullString;
                     String[] logData;
 
@@ -109,6 +108,7 @@ public class User {
                         logFullString = bReader.readLine();
                         logData = logFullString.split(",");
 
+                        UserLog normalizedLog = new UserLog();// 每讀到一筆交易紀錄就必須建立新的物件
                         normalizedLog.transactionID = Integer.parseInt(logData[0]);
                         normalizedLog.transactionType = logData[1];
                         normalizedLog.transactionAmount = Integer.parseInt(logData[2]);
@@ -121,6 +121,13 @@ public class User {
                     }
                     success = true;
                     System.out.println("成功讀取" + myLogList.size() + "筆交易紀錄");
+
+                    // 以下debug用
+                    // System.out.println("讀取出來並存放在myLogList內的交易紀錄如下:");
+                    // for (UserLog testLog : myLogList) {
+                    // testLog.printFullLog();
+                    // }
+
                 } else {
                     System.out.println("交易紀錄欄位資訊有誤 存檔可能已毀損，請洽客服人員並回報以下資訊:");
                     System.out.println(profile.getAbsolutePath());
@@ -160,7 +167,8 @@ public class User {
     }
 
     void printAllinfo() {
-        System.out.println("帳號:" + id + "\n姓名:" + name + "\n密碼:" + password + "\n餘額:" + balance + "\n點數:" + bonus + "\n信用卡資訊:");
+        System.out.println(
+                "帳號:" + id + "\n姓名:" + name + "\n密碼:" + password + "\n餘額:" + balance + "\n點數:" + bonus + "\n信用卡資訊:");
         creditCard1.printAllinfo();
     }
 
