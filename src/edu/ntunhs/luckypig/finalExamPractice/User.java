@@ -136,7 +136,7 @@ public class User {
                 System.out.println("存檔欄位資訊有誤 存檔可能已毀損，請洽客服人員並回報以下資訊:");
                 System.out.println(profile.getAbsolutePath());
             }
-            bReader.close();
+            freader.close();
 
         } catch (Exception e) {
             System.out.println("檔案讀取中發生錯誤錯誤訊息如下:" + e);
@@ -154,6 +154,49 @@ public class User {
         // also create file at the same time(overwrite old profile)
         // maybe can write backup old profile in the future
         boolean success = false;
+        File outputFile = new File(".\\profile.csv");
+        final String headString = "id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate";
+        final String trCheckString = "# transactionRecord 1 line represent 1 record and the format is showing below\ntransactionID,transactionType,transactionAmount,gainedBonus,transactionDate";
+
+        try {
+            if (outputFile.exists()) {
+                System.out.println("找到舊檔，將會覆寫存檔");
+            } else {
+                System.out.println("沒有舊檔，正在建立全新存檔...");
+                if (outputFile.createNewFile()) {
+                    System.out.println("成功建立存檔!");
+                } else {
+                    System.out.println("無法建立檔案!");
+                }
+            }
+
+            FileWriter fWriter = new FileWriter(outputFile);
+            BufferedWriter bWriter = new BufferedWriter(fWriter);
+
+            System.out.println("正在寫入檔案檢驗資訊與使用者資料...");
+            bWriter.write(headString);
+            bWriter.newLine();
+            bWriter.write(this.getAllinfo());
+            bWriter.newLine();
+            bWriter.write(trCheckString);
+            bWriter.newLine();
+            System.out.println("成功寫入檔案檢驗資訊與使用者資料!");
+
+            System.out.println("正在逐行寫入交易資料...");
+            int i = 0;
+            while (i < this.myLogList.size()) {
+                bWriter.write(this.myLogList.get(i).getFullLog());
+                bWriter.newLine();
+                i += 1;
+            }
+            System.out.println("成功寫入交易資料!");
+
+            fWriter.close();
+        } catch (Exception e) {
+            System.out.println("存檔過程發生錯誤，存檔路徑為:" + outputFile.getAbsolutePath());
+            System.out.println("詳細錯誤資訊如下:");
+            e.printStackTrace();
+        }
 
         if (success)
             return 0;
