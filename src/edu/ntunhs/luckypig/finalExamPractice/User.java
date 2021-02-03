@@ -154,7 +154,7 @@ public class User {
         // also create file at the same time(overwrite old profile)
         // maybe can write backup old profile in the future
         boolean success = false;
-        File outputFile = new File(".\\profile.csv");
+        File outputFile = new File("profile.csv");
         final String headString = "id,name,password,balance,bonus,creditLimit,usedAmount,expiryDate";
         final String trCheckString = "# transactionRecord 1 line represent 1 record and the format is showing below\ntransactionID,transactionType,transactionAmount,gainedBonus,transactionDate";
 
