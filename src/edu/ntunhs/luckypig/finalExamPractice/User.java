@@ -161,6 +161,9 @@ public class User {
         try {
             if (outputFile.exists()) {
                 System.out.println("找到舊檔，將會覆寫存檔");
+                // How do I clear a file in Java before writing to it again?
+                // https://www.quora.com/How-do-I-clear-a-file-in-Java-before-writing-to-it-again
+                // FileWriter預設會覆蓋原始檔案
             } else {
                 System.out.println("沒有舊檔，正在建立全新存檔...");
                 if (outputFile.createNewFile()) {
@@ -189,9 +192,11 @@ public class User {
                 bWriter.newLine();
                 i += 1;
             }
-            System.out.println("成功寫入交易資料!");
 
+            bWriter.flush();
             fWriter.close();
+
+            System.out.println("成功寫入交易資料!");
         } catch (Exception e) {
             System.out.println("存檔過程發生錯誤，存檔路徑為:" + outputFile.getAbsolutePath());
             System.out.println("詳細錯誤資訊如下:");
