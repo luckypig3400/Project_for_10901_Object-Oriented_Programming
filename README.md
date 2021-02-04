@@ -3,6 +3,10 @@
 
 ## Focus in PocketMonsterGameRenew_20201211
 
+## Maven 專案設定教學
++ https://kentyeh.github.io/mavenStartup/index.html
+雖然目前的專案是由Eclipse所建 而非採用Maven Project
+
 # 課堂筆記
 
 ### 如果遇到檔案/資料夾無法存取可以嘗試把VScode以系統管理員權限執行
