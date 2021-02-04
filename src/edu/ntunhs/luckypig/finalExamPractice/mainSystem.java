@@ -261,7 +261,7 @@ public class mainSystem {
                     if (exitOrNot.equals("y") || exitOrNot.equals("Y")) {
                         System.out.println("正在儲存系統存檔...請稍後...");
 
-                        // TODO:write profile
+                        // Finished:write profile
                         user1.writeProfile();
 
                         System.out.println("感謝您使用XDPay支付系統 歡迎再次使用ヾ(≧▽≦*)o");
